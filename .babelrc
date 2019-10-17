@@ -1,0 +1,25 @@
+{
+    "presets": [
+        [
+            "@babel/env",
+            {
+                "modules": false
+            }
+        ],
+        "vue"
+    ],
+    "env": {
+        "production": {
+            "only": [
+                "src/packages"
+            ],
+            "plugins": [
+                [
+                    "@babel/plugin-transform-modules-commonjs", {
+                        loose: true
+                    }
+                ]
+            ]
+        }
+    }
+}
