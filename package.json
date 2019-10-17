@@ -1,6 +1,5 @@
 {
-    "name": "nitro-ui-vue-beta-1",
-    "productName": "nitro-ui-vue",
+    "name": "@nitro-ui/vue-framework",
     "description": "Awesome Vue Component Wrapper for Nitro UI",
     "version": "0.0.0",
     "main": "dist/index.cjs.js",
@@ -12,6 +11,21 @@
         "report": "poi build --bundle-report",
         "serve": "serve dist --single"
     },
+    "keywords": [
+        "Nitro",
+        "UI",
+        "CSS",
+        "Components",
+        "iCar Asia",
+        "Vue",
+        "Nitro UI for Vue",
+        "Templates",
+        "Views"
+    ],
+    "bugs": {
+        "url": "https://github.com/icarasia-engineering/nitro-ui-vue/issues"
+    },
+    "homepage": "https://github.com/icarasia-engineering/nitro-ui-vue#readme",
     "author": {
         "name": "Syaiful Shah Zinan",
         "email": "i.works@live.com"
