@@ -7,8 +7,8 @@ const webpack = require( 'webpack' );
 module.exports = {
     mode: 'development',
     entry: [
-        './src/polyfills.js',
-        './src/index.js'
+        path.join( __dirname, '/../src/polyfills.js' ),
+        path.join( __dirname, '/../src/index.js' )
     ],
     module: {
         rules: [
@@ -50,7 +50,7 @@ module.exports = {
         extensions: [ '.js', '.vue' ]
     },
     devServer: {
-        contentBase: [ path.join( __dirname, 'public' ), path.join( __dirname, 'dist' ) ],
+        contentBase: [ path.join( __dirname, '/../public' ), path.join( __dirname, '/../dist' ) ],
         compress: true,
         port: 9000,
         historyApiFallback: true

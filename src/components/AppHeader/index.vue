@@ -7,10 +7,10 @@
             </button>
             <div class="collapse navbar-collapse" id="app-nav-mobile">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                    <li class="nav-item" :class="( $route.name === 'home' ? 'active' : '' )">
                         <router-link to="/" class="nav-link">Home</router-link>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" :class="( $route.name === 'button' ? 'active' : '' )">
                         <router-link to="/button" class="nav-link">Button</router-link>
                     </li>
                     <li class="nav-item">

@@ -50,7 +50,7 @@ npm run dev
 
 # TODO
 
-- Minify Rollup's output
+Soon.
 
 ---
 
@@ -69,6 +69,14 @@ Types of changes:
 - `Removed` for now removed features.
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
+
+## [1.0.0-alpha.1] - 2019-10-19
+
+### Fixed
+- Error when running `npm run serve` due to webpack config is moved to `webpack` dir
+
+### Added
+- Add `active` class to menu when route change
 
 ## [1.0.0-alpha.0] - 2019-10-18
 
