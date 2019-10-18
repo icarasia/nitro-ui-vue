@@ -3,30 +3,36 @@ import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
+import external from 'rollup-plugin-peer-deps-external'
 import vue from 'rollup-plugin-vue';
-import pkg from '../package.json';
+import { dependencies, main, module } from '../package.json';
 
 const bannerComment = require( './banner' );
 const base = path.resolve( __dirname, '..' );
 const src = path.resolve( base, 'src' );
 const packages = path.resolve( base, 'src/packages' );
 const dist = path.resolve( base, 'dist' );
+const externals = [ 'vue', ...Object.keys( dependencies ) ];
 
 export default {
     input: `${packages}/index.js`,
+    external: externals,
     output: [
         {
-            file: pkg.main,
+            banner: bannerComment,
+            file: main,
             format: 'cjs',
             sourcemap: false
         },
         {
-            file: pkg.module,
+            banner: bannerComment,
+            file: module,
             format: 'es',
             sourcemap: false
         }
     ],
     plugins: [
+        external(),
         postcss( {
             extract: true
         } ),
@@ -34,8 +40,7 @@ export default {
             css: false
         } ),
         resolve( {
-            external: [ 'vue' ],
-            extensions: ['.js', '.vue'],
+            extensions: [ '.js', '.vue' ],
         } ),
         commonjs(),
         babel( {

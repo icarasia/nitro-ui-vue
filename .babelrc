@@ -5,13 +5,12 @@
             {
                 "modules": false
             }
-        ],
-        "vue"
+        ]
     ],
     "env": {
         "production": {
             "only": [
-                "src/packages"
+                "src"
             ],
             "plugins": [
                 [

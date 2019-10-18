@@ -4,11 +4,17 @@
 
 ## Getting Started
 
-TBA.
+Get latest version by installing via [NPM @nitro-ui/vue-framework](https://www.npmjs.com/package/@nitro-ui/vue-framework):
+
+```
+npm install @nitro-ui/vue-framework
+```
 
 ## Usage:
 
-TBA.
+```
+import { Button } from '@nitro-ui/vue-framework';
+```
 
 ## Development & Contribution
 
@@ -16,17 +22,35 @@ To extends, develop or contribute to this component, you're required to fork our
 
 ### Dev. Requirements
 
-TBA.
+- NodeJs
+- Vue
+- Webpack (`webpack`, `webpack-cli`, `webpack-dev-server`)
 
 ### Commands
 
-TBA.
+To view documentation:
+
+```
+npm run serve
+```
+
+To build using rollup:
+
+```
+npm run build
+```
+
+Other:
+
+```
+npm run dev
+```
 
 ---
 
 # TODO
 
-Nothing todo for now.
+- Minify Rollup's output
 
 ---
 
@@ -37,6 +61,37 @@ All notable changes to this project will be documented in this file. **For now, 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.0.0-beta] - 2019-07-18
+Types of changes:
+
+- `Added` for new features.
+- `Changed` for changes in existing functionality.
+- `Deprecated` for soon-to-be removed features.
+- `Removed` for now removed features.
+- `Fixed` for any bug fixes.
+- `Security` in case of vulnerabilities.
+
+## [1.0.0-alpha.0] - 2019-10-18
+
+### Added
+- Added `.idea` (PhpStorm's settings) to `.gitignore`
+- Babel error when try to serve documentation via POI
+- Add `package.json` scripts for Webpack
+- Add `webpack`, `webpack-cli` and `webpack-dev-server` to dev dependencies
+
+### Fixed
+- Babel error when try to serve documentation via POI
+
+### Changed
+- Update README
+- Remove `vue` from `.babelrc` presets
+- Update Dependencies
+- Update Rollup Configuration for External and BannerComment for Nitro
+
+### Removed
+- Remove POI from dev dependencies and all related files 
+- Remove old babels (only use Babel 7 `@babel`)
+
+## [0.0.0] - 2019-10-17
+
 ### Added
 - Initial setup

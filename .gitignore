@@ -1,8 +1,7 @@
 node_modules
 *.log
 .DS_Store
-
-# poi dist
-dist
-
 package-lock.json
+
+dist
+.idea
