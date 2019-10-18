@@ -4,6 +4,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import external from 'rollup-plugin-peer-deps-external'
+import minify from 'rollup-plugin-babel-minify';
 import vue from 'rollup-plugin-vue';
 import { dependencies, main, module } from '../package.json';
 
@@ -32,6 +33,7 @@ export default {
         }
     ],
     plugins: [
+        minify(),
         external(),
         postcss( {
             extract: true

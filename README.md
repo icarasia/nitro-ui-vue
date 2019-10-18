@@ -77,6 +77,11 @@ Types of changes:
 - Babel error when try to serve documentation via POI
 - Add `package.json` scripts for Webpack
 - Add `webpack`, `webpack-cli` and `webpack-dev-server` to dev dependencies
+- Add more keywords
+- Add Rollup Minify
+- Add a build bash script `scripts/build.sh` to build the whole package by sequence
+- Add Tarser to minify JS
+- Add command script in `package.json` to run `scripts/build.sh`
 
 ### Fixed
 - Babel error when try to serve documentation via POI
@@ -88,7 +93,7 @@ Types of changes:
 - Update Rollup Configuration for External and BannerComment for Nitro
 
 ### Removed
-- Remove POI from dev dependencies and all related files 
+- Remove POI from dev dependencies and all related files
 - Remove old babels (only use Babel 7 `@babel`)
 
 ## [0.0.0] - 2019-10-17

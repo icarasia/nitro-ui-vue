@@ -1,3 +1,8 @@
+#!/usr/bin/env bash
+
+# IMPORTANT!!!
+# ONLY RUN THIS SCRIPT FOR NPM / TEST / DEVELOPMENT PURPOSE ONLY.
+
 rm -rf node_modules
 rm package-lock.json
 

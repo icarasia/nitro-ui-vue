@@ -9,7 +9,7 @@
         "dev": "webpack --config webpack/webpack.config.dev.js",
         "hot": "webpack --config webpack/webpack.config.dev.js --watch --watch-poll --progress --hide-modules",
         "serve": "webpack-dev-server --config webpack/webpack.config.dev.js",
-        "build": "rollup -c scripts/rollup.config.js"
+        "build": "bash scripts/build.sh"
     },
     "keywords": [
         "Nitro",
@@ -19,6 +19,8 @@
         "iCar Asia",
         "Vue",
         "Nitro UI for Vue",
+        "Nitro UI Vue Framework",
+        "Vue Framework",
         "Templates",
         "Views"
     ],
@@ -49,12 +51,15 @@
         "promise-polyfill": "^8.1.3",
         "rollup": "^1.24.0",
         "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-babel-minify": "^9.1.0",
         "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-peer-deps-external": "^2.2.0",
         "rollup-plugin-postcss": "^2.0.3",
         "rollup-plugin-vue": "^5.0.1",
         "style-loader": "^1.0.0",
+        "terser": "^4.3.9",
+        "uglify-es": "github:mishoo/UglifyJS2#harmony",
         "vue": "^2.6.10",
         "vue-loader": "^15.7.1",
         "vue-router": "^3.1.3",
