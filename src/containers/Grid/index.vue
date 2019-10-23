@@ -142,10 +142,16 @@ import Container from "../../packages/component-container/src/index";
 import Row from "../../packages/component-row/src/index";
 import Column from "../../packages/component-col/src/index";
 import Card from "../../packages/component-card/src/index";
-import Arrow from "../../packages/component-arrow/src/index";
+// import Arrow from "../../packages/component-arrow/src/index";
 export default {
     name: "GridPage",
-    components: { Arrow, Card, Column, Row, Container },
+    components: {
+        // Arrow,
+        Card,
+        Column,
+        Row,
+        Container
+    },
     data() {
         return {};
     },
