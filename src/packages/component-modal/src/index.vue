@@ -14,7 +14,7 @@ import "@nitro-ui/component-button";
 import Spaces from "../../utility-spaces/src/mixins/Spaces";
 
 export default {
-    name: "Button",
+    name: "Modal",
     props: {
         variant: String,
         href: String,

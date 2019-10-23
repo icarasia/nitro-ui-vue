@@ -1,0 +1,67 @@
+<template>
+    <div class="c-card" :class="classes">
+        <div class="c-card__head" v-if="title || hasHeaderSlot">
+            <template v-if="title">{{ title }}</template>
+            <slot v-else name="header"></slot>
+        </div>
+        <div class="c-card__body" v-if="!menu">
+            <h3 class="c-card__title"><slot name="special_title"></slot></h3>
+            <div><slot></slot></div>
+        </div>
+        <ul class="c-card__menu" v-else>
+            <template
+                v-for="(item, index) in items"
+                :class="{ 'is--active': item.active }"
+            >
+                <li
+                    :class="{ 'is--divider': item.with_divider }"
+                    :key="`menu-divider-${index}`"
+                    v-if="item.with_divider"
+                ></li>
+                <li :key="`menu-${index}`">
+                    <aLink
+                        :label="item.label"
+                        :href="item.href"
+                        :target="item.target"
+                        :to="item.to"
+                    ></aLink>
+
+                    <ul class="c-card__submenu" v-if="item.childs">
+                        <li
+                            v-for="(inner_item, inner_index) in item.childs"
+                            :key="`menu-${inner_index}`"
+                            :class="{ 'is--active': inner_item.active }"
+                        >
+                            <a href="#">{{ inner_item.label }}</a>
+                        </li>
+                    </ul>
+                </li>
+            </template>
+        </ul>
+    </div>
+</template>
+
+<script>
+import "@nitro-ui/component-card";
+import Spaces from "../../utility-spaces/src/mixins/Spaces";
+import aLink from "../../component-link/src/index";
+
+export default {
+    name: "Card",
+    components: { aLink },
+    props: {
+        title: String,
+        menu: Boolean,
+        items: Array
+    },
+    mixins: [Spaces],
+    computed: {
+        classes() {
+            return [...this.classNameUtilitySpaces];
+        },
+        hasHeaderSlot() {
+            return this.$slots["header"];
+        }
+    }
+};
+</script>

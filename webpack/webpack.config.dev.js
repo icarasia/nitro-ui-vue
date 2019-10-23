@@ -1,58 +1,59 @@
-'use strict'
+"use strict";
 
-const path = require( 'path' );
-const { VueLoaderPlugin } = require( 'vue-loader' );
-const webpack = require( 'webpack' );
+const path = require("path");
+const { VueLoaderPlugin } = require("vue-loader");
+const webpack = require("webpack");
 
 module.exports = {
-    mode: 'development',
+    mode: "development",
     entry: [
-        path.join( __dirname, '/../src/polyfills.js' ),
-        path.join( __dirname, '/../src/index.js' )
+        path.join(__dirname, "/../src/polyfills.js"),
+        path.join(__dirname, "/../src/index.js")
     ],
     module: {
         rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
+                use: [{
+                    loader: "babel-loader",
                     query: {
-                        presets: [ '@babel/env' ],
-                    },
-                },
+                        presets: ["@babel/env"]
+                    }
+                },{
+                    loader: "eslint-loader"
+                }]
             },
             {
                 test: /\.vue$/,
-                use: 'vue-loader'
+                use: "vue-loader"
             },
             {
                 test: /\.(css)$/,
-                use: [
-                    'vue-style-loader',
-                    'css-loader'
-                ]
+                use: ["vue-style-loader", "css-loader"]
             },
             {
                 test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
+                loader: "file-loader",
                 options: {
-                    name: '[name].[ext]?[hash]'
+                    name: "[name].[ext]?[hash]",
+                    outputPath: "img/"
                 }
             }
         ]
     },
-    plugins: [
-        new VueLoaderPlugin()
-    ],
+    plugins: [new VueLoaderPlugin()],
     resolve: {
-        modules: [ 'node_modules', 'src' ],
-        extensions: [ '.js', '.vue' ]
+        modules: ["node_modules", "src"],
+        extensions: [".js", ".vue"]
     },
     devServer: {
-        contentBase: [ path.join( __dirname, '/../public' ), path.join( __dirname, '/../dist' ) ],
+        contentBase: [
+            path.join(__dirname, "/../public"),
+            path.join(__dirname, "/../dist")
+        ],
         compress: true,
-        port: 9000,
+        port: 9001,
         historyApiFallback: true
     }
 };
