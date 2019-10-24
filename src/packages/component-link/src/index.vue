@@ -1,9 +1,16 @@
 <template>
-    <a v-if="href" :href="href" :target="target">{{ label }}</a>
-    <router-link :to="to" v-else-if="to" :target="target">{{
-        label
-    }}</router-link>
-    <a v-else>{{ label }}</a>
+    <a v-if="href" :href="href" :target="target">
+        <template v-if="label">{{ label }}</template>
+        <slot v-else></slot>
+    </a>
+    <router-link :to="to" v-else-if="to" :target="target">
+        <template v-if="label">{{ label }}</template>
+        <slot v-else></slot>
+    </router-link>
+    <a v-else>
+        <template v-if="label">{{ label }}</template>
+        <slot v-else></slot>
+    </a>
 </template>
 
 <script>

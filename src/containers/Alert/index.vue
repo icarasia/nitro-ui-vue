@@ -40,7 +40,11 @@ export default {
                     message: "Default alert as Info",
                     dismissable: true
                 },
-                { type: "tips", message: "Tips alert, not dismissable", dismissable: false },
+                {
+                    type: "tips",
+                    message: "Tips alert, not dismissable",
+                    dismissable: false
+                },
                 { type: "error", message: "Error alert", dismissable: true },
                 {
                     type: "success",

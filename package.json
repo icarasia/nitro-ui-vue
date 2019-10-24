@@ -54,7 +54,8 @@
         "@nitro-ui/object-embed": "^1.0.0-alpha.3",
         "@nitro-ui/object-grid": "^1.0.0-alpha.6",
         "@nitro-ui/utility-spacing": "^1.0.0-alpha.3",
-        "@nitro-ui/utility-width": "^1.0.0-alpha.5"
+        "@nitro-ui/utility-width": "^1.0.0-alpha.5",
+        "vue-clickaway": "^2.2.2"
     },
     "devDependencies": {
         "@babel/core": "^7.6.4",
