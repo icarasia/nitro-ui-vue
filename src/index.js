@@ -12,6 +12,7 @@ import Breadcrumb from "./containers/Breadcrumb";
 import Card from "./containers/Card";
 import Grid from "./containers/Grid";
 import Alert from "./containers/Alert";
+import Table from "./containers/Table";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -63,6 +64,11 @@ const router = new VueRouter({
             name: "alert",
             path: "/alert",
             component: Alert
+        },
+        {
+            name: "table",
+            path: "/table",
+            component: Table
         }
     ]
 });
