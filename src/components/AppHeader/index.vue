@@ -52,9 +52,21 @@
                             Alert
                         </router-link>
                     </li>
-                    <!--                    <li class="nav-item">-->
-                    <!--                        <router-link to="/form" class="nav-link">Form</router-link>-->
-                    <!--                    </li>-->
+                    <li class="nav-item">
+                        <router-link to="/dropdown" class="nav-link">
+                            Dropdown
+                        </router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/form" class="nav-link"
+                            >Form</router-link
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/modal" class="nav-link"
+                            >Modal</router-link
+                        >
+                    </li>
                     <!--                    <li class="nav-item">-->
                     <!--                        <router-link to="/pagination" class="nav-link">Pagination</router-link>-->
                     <!--                    </li>-->
