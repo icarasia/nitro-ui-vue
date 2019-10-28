@@ -8,6 +8,11 @@
             <div class="u-margin-top-md bg-white u-padding-md">
                 <n-table :headers="headers"
                          :items="items"
+                         @click="test"
+                         @changedSort="sort"
+                         highlight-selected
+                         :selected="selected"
+                         :iconClass="'icon'"
                 >
                 </n-table>
             </div>
@@ -105,8 +110,8 @@
             return {
                 headers : [
                     { text: '#', value : 'id'},
-                    { text: 'First Name', value : 'first_name'},
-                    { text: 'Last Name', value : 'last_name' },
+                    { text: 'First Name', value : 'first_name', sortable : true, sortColumnName : 'first_name'},
+                    { text: 'Last Name', value : 'last_name', sortable : true, sortColumnName : 'last_name'},
                     { text: 'Username', value : 'username', align: 'right'},
                 ],
                 items : [
@@ -115,8 +120,17 @@
                     { id: 3, first_name : 'Patrick', last_name : 'Viera', username : '@viera04'},
                     { id: 4, first_name : 'Emmanuel', last_name : 'Petit', username : '@petit17'},
                     { id: 4, first_name : 'Freddrick', last_name : 'Ljunberg', username : '@freddie08'},
-                ]
+                ],
+                selected : null
             };
+        },
+        methods : {
+            test(event, item, index) {
+                this.selected = this.selected === index ? null : index;
+            },
+            sort(params) {
+                console.log(params);
+            }
         }
     };
 </script>
