@@ -1,12 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import SvgIcon from "vue-svgicon";
 
 // containers
 import App from "./containers/App";
 import Home from "./containers/Home";
 import Button from "./containers/Button";
 import Chip from "./containers/Chip";
-import Tooltip from "./containers/Tooltip";
+import TooltipC from "./containers/Tooltip";
 import Avatar from "./containers/Avatar";
 import Breadcrumb from "./containers/Breadcrumb";
 import Card from "./containers/Card";
@@ -19,6 +20,15 @@ import Tabs from "./containers/Tabs";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
+
+Vue.use(SvgIcon, {
+    tagName: "svgicon",
+    defaultWidth: "1em",
+    defaultHeight: "1em"
+});
+
+import Tooltip from "./packages/directive-tooltip/src";
+Vue.directive("tooltip", Tooltip);
 
 const router = new VueRouter({
     mode: "history",
@@ -41,7 +51,7 @@ const router = new VueRouter({
         {
             name: "tooltip",
             path: "/tooltip",
-            component: Tooltip
+            component: TooltipC
         },
         {
             name: "avatar",
