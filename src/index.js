@@ -12,6 +12,7 @@ import Breadcrumb from "./containers/Breadcrumb";
 import Card from "./containers/Card";
 import Grid from "./containers/Grid";
 import Alert from "./containers/Alert";
+import Sidebar from "./containers/Sidebar";
 import Dropdown from "./containers/Dropdown";
 // import Form from "./containers/Form";
 import Modal from "./containers/Modal";
@@ -76,12 +77,17 @@ const router = new VueRouter({
             name: "modal",
             path: "/modal",
             component: Modal
-        } //,
+        }, //,
         // {
         //     name: "form",
         //     path: "/form",
         //     component: Form
         // }
+        {
+            name: "sidebar",
+            path: "/sidebar",
+            component: Sidebar
+        }
     ]
 });
 
