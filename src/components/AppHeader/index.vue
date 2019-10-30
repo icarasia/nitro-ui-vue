@@ -64,7 +64,7 @@
                     </li>
                     <li class="nav-item">
                         <router-link to="/modal" class="nav-link"
-                            >Modal</router-link
+                            >Modal & Drawer</router-link
                         >
                     </li>
                     <!--                    <li class="nav-item">-->
