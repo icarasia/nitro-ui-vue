@@ -15,6 +15,7 @@ import Alert from "./containers/Alert";
 import Dropdown from "./containers/Dropdown";
 // import Form from "./containers/Form";
 import Modal from "./containers/Modal";
+import Pagination from "./containers/Pagination";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -76,6 +77,11 @@ const router = new VueRouter({
             name: "modal",
             path: "/modal",
             component: Modal
+        },
+        {
+            name: "pagination",
+            path: "/pagination",
+            component: Pagination
         } //,
         // {
         //     name: "form",
