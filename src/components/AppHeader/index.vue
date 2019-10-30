@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
         <div class="container">
             <router-link to="/" class="navbar-brand">@nitro-ui-vue</router-link>
             <button
@@ -17,86 +17,40 @@
                     <li class="nav-item">
                         <router-link to="/" class="nav-link">Home</router-link>
                     </li>
-                    <li class="nav-item">
-                        <router-link to="/button" class="nav-link"
-                            >Button</router-link
-                        >
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menu-component" data-toggle="dropdown">
+                            Components
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <router-link to="/button" class="dropdown-item">Button</router-link>
+                            <router-link to="/alert" class="dropdown-item">Alert</router-link>
+                            <router-link to="/chip" class="dropdown-item">Chip</router-link>
+                            <router-link to="/breadcrumb" class="dropdown-item">Breadcrumb</router-link>
+                            <router-link to="/card" class="dropdown-item">Card</router-link>
+                            <router-link to="/avatar" class="dropdown-item">Avatar</router-link>
+                            <div class="dropdown-divider"></div>
+                            <router-link to="/form" class="dropdown-item disabled">Form</router-link>
+                        </div>
                     </li>
-                    <li class="nav-item">
-                        <router-link to="/chip" class="nav-link"
-                            >Chip</router-link
-                        >
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menu-layout" data-toggle="dropdown">
+                            Layouts
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <router-link to="/grid" class="dropdown-item">Grid</router-link>
+                            <div class="dropdown-divider"></div>
+                            <router-link to="/module-dashboard-sidebar" class="dropdown-item">Dashboard Sidebar</router-link>
+                        </div>
                     </li>
-                    <li class="nav-item">
-                        <router-link to="/tooltip" class="nav-link"
-                            >Tooltip</router-link
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/avatar" class="nav-link"
-                            >Avatar</router-link
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/breadcrumb" class="nav-link"
-                            >Breadcrumb</router-link
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/card" class="nav-link"
-                            >Card</router-link
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/alert" class="nav-link">
-                            Alert
-                        </router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/dropdown" class="nav-link">
-                            Dropdown
-                        </router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/form" class="nav-link"
-                            >Form</router-link
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/modal" class="nav-link"
-                            >Modal</router-link
-                        >
-                    </li>
-                    <!--                    <li class="nav-item">-->
-                    <!--                        <router-link to="/pagination" class="nav-link">Pagination</router-link>-->
-                    <!--                    </li>-->
-                    <!--                    <li class="nav-item">-->
-                    <!--                        <router-link to="/rating" class="nav-link">Rating</router-link>-->
-                    <!--                    </li>-->
-                    <li class="nav-item">
-                        <router-link to="/grid" class="nav-link"
-                            >Grid</router-link
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/" class="nav-link disabled"
-                            >Components</router-link
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/" class="nav-link disabled"
-                            >Utilities</router-link
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/" class="nav-link disabled"
-                            >Objects</router-link
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/" class="nav-link disabled"
-                            >Mixins</router-link
-                        >
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menu-popup" data-toggle="dropdown">
+                            Popups
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <router-link to="/modal" class="dropdown-item">Modal</router-link>
+                            <router-link to="/dropdown" class="dropdown-item">Dropdown</router-link>
+                            <router-link to="/tooltip" class="dropdown-item">Tooltip</router-link>
+                        </div>
                     </li>
                 </ul>
             </div>

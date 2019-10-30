@@ -1,19 +1,18 @@
 <template>
     <div id="app">
-        <app-header></app-header>
-        <div
-            class="container app-body"
-            :class="{ full_container: routeName == 'grid' }"
-        >
+        <component :is="layout">
             <router-view class="view"></router-view>
-        </div>
+        </component>
     </div>
 </template>
 
 <style src="bootstrap/dist/css/bootstrap.min.css"></style>
 
 <script>
+import "bootstrap";
 import AppHeader from "../../components/AppHeader";
+
+const defaultLayout = "default";
 
 export default {
     name: "App",
@@ -21,7 +20,18 @@ export default {
     computed: {
         routeName() {
             return this.$route.name;
+        },
+        layout() {
+            return 'layout-' + (this.$route.meta.layout || defaultLayout);
         }
+    },
+    created() {
+        // nothing defined here (when this.$route.path is other than "/")
+        console.log( this.$route, this.$route.meta.layout );
+    },
+    updated() {
+        // something defined here whatever the this.$route.path
+        console.log( this.$route, this.$route.meta.layout );
     }
 };
 </script>

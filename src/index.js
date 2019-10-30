@@ -15,12 +15,23 @@ import Alert from "./containers/Alert";
 import Dropdown from "./containers/Dropdown";
 // import Form from "./containers/Form";
 import Modal from "./containers/Modal";
+import ModuleDashboardSidebarPage from "./containers/ModuleDashboardSidebar";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
 
+/**
+ * Dynamic layout based on vue router
+ * @see https://github.com/darkylmnx/Layout-system-with-vue-and-vue-router
+ */
+import Default from "./layouts/Default.vue";
+import Sidebar from "./layouts/Sidebar.vue";
+Vue.component("layout-default", Default);
+Vue.component("layout-sidebar", Sidebar);
+
 const router = new VueRouter({
     mode: "history",
+    meta: { layout: "no-sidebar" },
     routes: [
         {
             name: "home",
@@ -71,6 +82,14 @@ const router = new VueRouter({
             name: "dropdown",
             path: "/dropdown",
             component: Dropdown
+        },
+        {
+            name: "module-dashboard-sidebar",
+            path: "/module-dashboard-sidebar",
+            component: ModuleDashboardSidebarPage,
+            meta: {
+                layout: "sidebar"
+            }
         },
         {
             name: "modal",

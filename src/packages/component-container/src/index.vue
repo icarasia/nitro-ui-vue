@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import "@nitro-ui/object-container/dist/object-container.css";
+import "@nitro-ui/object-container";
 import Spaces from "../../utility-spaces/src/mixins/Spaces";
 
 export default {
