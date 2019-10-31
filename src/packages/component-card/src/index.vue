@@ -9,12 +9,12 @@
             <div><slot></slot></div>
         </div>
         <ul class="c-card__menu" v-else>
-            <template
-                v-for="(item, index) in items"
-                :class="{ 'is--active': item.active }"
-            >
+            <template v-for="(item, index) in items">
                 <li
-                    :class="{ 'is--divider': item.with_divider }"
+                    :class="{
+                        'is--divider': item.with_divider,
+                        'is--active': item.active
+                    }"
                     :key="`menu-divider-${index}`"
                     v-if="item.with_divider"
                 ></li>
@@ -32,7 +32,12 @@
                             :key="`menu-${inner_index}`"
                             :class="{ 'is--active': inner_item.active }"
                         >
-                            <a href="#">{{ inner_item.label }}</a>
+                            <aLink
+                                :label="inner_item.label"
+                                :href="inner_item.href"
+                                :target="inner_item.target"
+                                :to="inner_item.to"
+                            ></aLink>
                         </li>
                     </ul>
                 </li>

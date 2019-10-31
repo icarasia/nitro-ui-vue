@@ -1,74 +1,97 @@
 <template>
-    <component
-        :is="anchor ? 'a' : 'button'"
-        class="c-btn"
+    <div
+        class="c-modal"
+        id="example-modal-md"
+        tabindex="-1"
+        role="dialog"
+        aria-hidden="true"
         :class="classes"
-        @click="onClick()"
+        v-if="shown"
     >
-        <slot></slot>
-    </component>
+        <div
+            class="c-dialog"
+            role="document"
+            v-on-clickaway="clickOut"
+            :class="size ? `c-dialog--${size}` : ''"
+        >
+            <div class="c-dialog__head">
+                <h4 class="c-dialog__title">
+                    <template v-if="title">{{ title }}</template>
+                    <template v-else
+                        ><slot name="title"></slot
+                    ></template>
+                </h4>
+                <button
+                    type="button"
+                    class="c-dialog__close"
+                    data-dismiss="modal"
+                    v-if="with_close_sign"
+                    @click="close"
+                >
+                    &#10005;
+                </button>
+            </div>
+            <div class="c-dialog__body">
+                <slot></slot>
+            </div>
+            <div class="c-dialog__foot" v-if="with_footer">
+                <slot name="footer"></slot>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-import "@nitro-ui/component-button";
+import "@nitro-ui/component-modal";
 import Spaces from "../../utility-spaces/src/mixins/Spaces";
+import { mixin as clickaway } from "vue-clickaway";
 
 export default {
     name: "Modal",
     props: {
-        variant: String,
-        href: String,
+        shown: {
+            type: Boolean,
+            required: true,
+            default: false
+        },
+        title: String,
+        with_close_sign: {
+            type: Boolean,
+            default: true
+        },
+        with_footer: {
+            type: Boolean,
+            default: true
+        },
         size: {
-            type: String
+            type: String,
+            default: null
         },
-        to: {
-            default: false,
-            type: String | Object
-        },
-        outline: Boolean,
-        full: Boolean,
-        pill: Boolean,
-        loading: Boolean,
-        disabled: Boolean,
-        anchor: Boolean,
-        target: Boolean
+        closeOnOutsideClick: {
+            type: Boolean,
+            default: true
+        }
     },
-    mixins: [Spaces],
+    mixins: [Spaces, clickaway],
     computed: {
         classes() {
-            return [
-                ...this.classNameUtilitySpaces,
-                this.outline &&
-                (this.variant === "primary" || this.variant === "secondary")
-                    ? `c-btn--${this.variant}-outline`
-                    : `c-btn--${this.variant}`,
-                this.size ? `c-btn--${this.size}` : "",
-                { "is--loading": this.loading },
-                { "is--disabled": this.disabled },
-                { "c-btn--full": this.full },
-                { "c-btn--pill": this.pill }
-                // { 'is-loading': this.loading },
-                // { 'is-disabled': this.disabled || this.loading },
-                // { 'has-dropdown': this.hasDropdown }
-            ];
+            return [...this.classNameUtilitySpaces, { shown: this.shown }];
         }
     },
     methods: {
-        onClick(event) {
-            this.$emit("click", event);
-            if (this.disabled) return;
-            if (this.to) {
-                this.routerPush();
-            }
-            if (this.href) {
-                this.target
-                    ? window.open(this.href)
-                    : (window.location.href = this.href);
-            }
+        close: function() {
+            this.$emit("update:shown", false);
         },
-        routerPush() {
-            this.$router.push(this.to);
+        clickOut: function() {
+            if (this.closeOnOutsideClick) this.close();
         }
     }
 };
 </script>
+
+<style scoped>
+.shown {
+    background: rgba(0, 0, 0, 0.7);
+    display: block;
+}
+</style>

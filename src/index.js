@@ -13,6 +13,9 @@ import Card from "./containers/Card";
 import Grid from "./containers/Grid";
 import Alert from "./containers/Alert";
 import Table from "./containers/Table";
+import Dropdown from "./containers/Dropdown";
+// import Form from "./containers/Form";
+import Modal from "./containers/Modal";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -69,7 +72,23 @@ const router = new VueRouter({
             name: "table",
             path: "/table",
             component: Table
-        }
+        },
+        {
+            name: "dropdown",
+            path: "/dropdown",
+            component: Dropdown
+        },
+        {
+            name: "modal",
+            path: "/modal",
+            component: Modal
+        } //,
+        // {
+        //     name: "form",
+        //     path: "/form",
+        //     component: Form
+        // }
+
     ]
 });
 

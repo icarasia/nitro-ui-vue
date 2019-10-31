@@ -22,8 +22,8 @@ export default {
             type: String
         },
         to: {
-            default: false,
-            type: String | Object
+            default: null,
+            type: [String, Object]
         },
         outline: Boolean,
         full: Boolean,
