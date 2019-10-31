@@ -12,6 +12,7 @@ import Breadcrumb from "./containers/Breadcrumb";
 import Card from "./containers/Card";
 import Grid from "./containers/Grid";
 import Alert from "./containers/Alert";
+import Sidebar from "./containers/Sidebar";
 import Table from "./containers/Table";
 import Dropdown from "./containers/Dropdown";
 // import Form from "./containers/Form";
@@ -94,13 +95,17 @@ const router = new VueRouter({
             name: "pagination",
             path: "/pagination",
             component: Pagination
-        } //,
+        },
         // {
         //     name: "form",
         //     path: "/form",
         //     component: Form
         // }
-
+        {
+            name: "sidebar",
+            path: "/sidebar",
+            component: Sidebar
+        }
     ]
 });
 
