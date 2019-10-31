@@ -48,6 +48,7 @@
         "@nitro-ui/component-pagination": "^1.0.0-alpha.3",
         "@nitro-ui/component-popover": "^1.0.0-alpha.0",
         "@nitro-ui/component-rating": "^1.0.0-alpha.0",
+        "@nitro-ui/component-step": "^1.0.0-alpha.2",
         "@nitro-ui/component-tab": "^1.0.0-alpha.4",
         "@nitro-ui/component-table": "^1.0.0-alpha.3",
         "@nitro-ui/component-tooltip": "^1.0.0-alpha.1",
