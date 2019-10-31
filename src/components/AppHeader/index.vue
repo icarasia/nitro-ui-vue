@@ -79,6 +79,11 @@
                         >
                     </li>
                     <li class="nav-item">
+                        <router-link to="/table" class="nav-link"
+                        >Table</router-link
+                        >
+                    </li>
+                    <li class="nav-item">
                         <router-link to="/" class="nav-link disabled"
                             >Components</router-link
                         >
