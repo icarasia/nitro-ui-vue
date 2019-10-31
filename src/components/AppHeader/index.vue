@@ -64,7 +64,12 @@
                     </li>
                     <li class="nav-item">
                         <router-link to="/modal" class="nav-link"
-                            >Modal</router-link
+                            >Modal & Drawer</router-link
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/step" class="nav-link"
+                        >Step</router-link
                         >
                     </li>
                     <li class="nav-item">
@@ -81,6 +86,11 @@
                     <li class="nav-item">
                         <router-link to="/grid" class="nav-link"
                             >Grid</router-link
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/table" class="nav-link"
+                        >Table</router-link
                         >
                     </li>
                     <li class="nav-item">
