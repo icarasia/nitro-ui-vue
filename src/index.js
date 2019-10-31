@@ -16,6 +16,7 @@ import Table from "./containers/Table";
 import Dropdown from "./containers/Dropdown";
 // import Form from "./containers/Form";
 import Modal from "./containers/Modal";
+import Pagination from "./containers/Pagination";
 import Step from "./containers/Step";
 
 Vue.config.productionTip = false;
@@ -88,6 +89,11 @@ const router = new VueRouter({
             name: "modal",
             path: "/modal",
             component: Modal
+        },
+        {
+            name: "pagination",
+            path: "/pagination",
+            component: Pagination
         } //,
         // {
         //     name: "form",
