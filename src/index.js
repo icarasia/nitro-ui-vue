@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import SvgIcon from "vue-svgicon";
-
+import NitroIcon from "@nitro-ui/svg-icons-vue";
+import "@nitro-ui/svg-icons-vue/dist/NitroIcon.css";
 // containers
 import App from "./containers/App";
 import Home from "./containers/Home";
@@ -14,18 +14,14 @@ import Card from "./containers/Card";
 import Grid from "./containers/Grid";
 import Alert from "./containers/Alert";
 import Dropdown from "./containers/Dropdown";
-// import Form from "./containers/Form";
+import Form from "./containers/Form";
 import Modal from "./containers/Modal";
 import Tabs from "./containers/Tabs";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
 
-Vue.use(SvgIcon, {
-    tagName: "svgicon",
-    defaultWidth: "1em",
-    defaultHeight: "1em"
-});
+Vue.use(NitroIcon);
 
 import Tooltip from "./packages/directive-tooltip/src";
 Vue.directive("tooltip", Tooltip);
@@ -92,12 +88,12 @@ const router = new VueRouter({
             name: "tabs",
             path: "/tabs",
             component: Tabs
-        } //,
-        // {
-        //     name: "form",
-        //     path: "/form",
-        //     component: Form
-        // }
+        },
+        {
+            name: "form",
+            path: "/form",
+            component: Form
+        }
     ]
 });
 

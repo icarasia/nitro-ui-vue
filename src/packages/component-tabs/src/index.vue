@@ -18,6 +18,10 @@
                 :key="`tab-header${index}`"
                 @click="activate(index)"
             >
+                <NitroIcon
+                    name="dealerships/car"
+                    size="m"
+                ></NitroIcon>
                 <span>{{ tab.label }}</span>
             </a>
         </div>
