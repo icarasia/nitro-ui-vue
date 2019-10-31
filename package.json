@@ -45,10 +45,10 @@
         "@nitro-ui/component-dropdown": "^1.0.0-alpha.4",
         "@nitro-ui/component-form": "^1.0.0-alpha.4",
         "@nitro-ui/component-modal": "^1.0.0-alpha.0",
-        "@nitro-ui/component-pagination": "^1.0.0-alpha.3",
+        "@nitro-ui/component-pagination": "^1.0.0-alpha.5",
         "@nitro-ui/component-popover": "^1.0.0-alpha.0",
         "@nitro-ui/component-rating": "^1.0.0-alpha.2",
-        "@nitro-ui/component-step": "^1.0.0-alpha.2",
+        "@nitro-ui/component-step": "^1.0.0-alpha.3",
         "@nitro-ui/component-tab": "^1.0.0-alpha.4",
         "@nitro-ui/component-table": "^1.0.0-alpha.3",
         "@nitro-ui/component-tooltip": "^1.0.0-alpha.1",
@@ -59,6 +59,8 @@
         "@nitro-ui/svg-icons": "^1.0.0-alpha.0",
         "@nitro-ui/svg-icons-vue": "^0.1.1",
         "@nitro-ui/object-list": "^1.0.0-alpha.5",
+        "@nitro-ui/svg-icons": "^1.0.0-alpha.0",
+        "@nitro-ui/svg-icons-vue": "^0.1.1",
         "@nitro-ui/utility-display": "^1.0.0-alpha.8",
         "@nitro-ui/utility-flex": "^1.0.0-alpha.8",
         "@nitro-ui/utility-position": "^1.0.0-alpha.7",
@@ -103,7 +105,7 @@
         "vue-style-loader": "^4.1.2",
         "vue-template-compiler": "^2.6.10",
         "webpack": "^4.41.2",
-        "webpack-cli": "^3.3.9",
+        "webpack-cli": "^3.3.10",
         "webpack-dev-server": "^3.9.0"
     }
 }
