@@ -13,10 +13,14 @@ import Breadcrumb from "./containers/Breadcrumb";
 import Card from "./containers/Card";
 import Grid from "./containers/Grid";
 import Alert from "./containers/Alert";
+import Sidebar from "./containers/Sidebar";
+import Table from "./containers/Table";
 import Dropdown from "./containers/Dropdown";
 import Form from "./containers/Form";
 import Modal from "./containers/Modal";
 import Tabs from "./containers/Tabs";
+import Pagination from "./containers/Pagination";
+import Step from "./containers/Step";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -75,9 +79,19 @@ const router = new VueRouter({
             component: Alert
         },
         {
+            name: "table",
+            path: "/table",
+            component: Table
+        },
+        {
             name: "dropdown",
             path: "/dropdown",
             component: Dropdown
+        },
+        {
+            name: "step",
+            path: "/step",
+            component: Step
         },
         {
             name: "modal",
@@ -93,6 +107,16 @@ const router = new VueRouter({
             name: "form",
             path: "/form",
             component: Form
+		},
+		{
+            name: "pagination",
+            path: "/pagination",
+            component: Pagination
+        },
+        {
+            name: "sidebar",
+            path: "/sidebar",
+            component: Sidebar
         }
     ]
 });
