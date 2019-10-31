@@ -68,6 +68,16 @@
                         >
                     </li>
                     <li class="nav-item">
+                        <router-link to="/step" class="nav-link"
+                        >Step</router-link
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/pagination" class="nav-link"
+                            >Pagination</router-link
+                        >
+                    </li>
+                    <li class="nav-item">
                         <router-link to="/tabs" class="nav-link"
                             >Tabs</router-link
                         >
@@ -81,6 +91,16 @@
                     <li class="nav-item">
                         <router-link to="/grid" class="nav-link"
                             >Grid</router-link
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/sidebar" class="nav-link"
+                        >Sidebar</router-link
+                        >
+                    </li>
+					<li class="nav-item">
+                        <router-link to="/table" class="nav-link"
+                        >Table</router-link
                         >
                     </li>
                     <li class="nav-item">
