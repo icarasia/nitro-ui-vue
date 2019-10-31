@@ -67,6 +67,11 @@
                             >Modal & Drawer</router-link
                         >
                     </li>
+                    <li class="nav-item">
+                        <router-link to="/tabs" class="nav-link"
+                            >Tabs</router-link
+                        >
+                    </li>
                     <!--                    <li class="nav-item">-->
                     <!--                        <router-link to="/pagination" class="nav-link">Pagination</router-link>-->
                     <!--                    </li>-->

@@ -4,11 +4,11 @@
             <template v-if="title">{{ title }}</template>
             <slot v-else name="header"></slot>
         </div>
-        <div class="c-card__body" v-if="!menu">
+        <div class="c-card__body" v-if="!menu && !noBody">
             <h3 class="c-card__title"><slot name="special_title"></slot></h3>
             <div><slot></slot></div>
         </div>
-        <ul class="c-card__menu" v-else>
+        <ul class="c-card__menu" v-else-if="menu">
             <template v-for="(item, index) in items">
                 <li
                     :class="{
@@ -43,6 +43,9 @@
                 </li>
             </template>
         </ul>
+        <template v-else>
+            <slot></slot>
+        </template>
     </div>
 </template>
 
@@ -57,6 +60,7 @@ export default {
     props: {
         title: String,
         menu: Boolean,
+        noBody: Boolean,
         items: Array
     },
     mixins: [Spaces],

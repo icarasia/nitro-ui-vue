@@ -7,32 +7,41 @@
             Some awesome description about Tooltip.
         </div>
         <div class="u-margin-top-md">
-            <Tooltip title="Up"><button>Up</button></Tooltip>
-            <Tooltip position="bottom" title="Bottom"
-                ><button>Bottom</button></Tooltip
-            >
-            <Tooltip position="left" title="Left"
-                ><button>Left</button></Tooltip
-            >
-            <Tooltip position="right" title="Right"
-                ><button>Right</button></Tooltip
-            >
+            <div style="text-align: center">
+                <button v-tooltip="'Up tooltip'">Up</button>
+            </div>
+            <div style="text-align: center">
+                <br />
+                <button
+                    v-tooltip="{ text: 'Down tooltip', position: 'bottom' }"
+                >
+                    Down
+                </button>
+            </div>
+            <div>
+                <button
+                    v-tooltip="{ text: 'Left tooltip', position: 'left' }"
+                    style="float: left"
+                >
+                    Left
+                </button>
+                <button
+                    v-tooltip="{ text: 'Right tooltip', position: 'right' }"
+                    style="float: right"
+                >
+                    Right
+                </button>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import Tooltip from "../../packages/component-tooltip/src";
-
 export default {
-    name: "TooltipPage",
-    components: {
-        Tooltip
-    },
-    data() {
-        return {
-            // variants: ['blue','blue-light','green','orange','pink','purple','red','yellow']
-        };
-    }
+    name: "TooltipPage"
 };
 </script>
+
+<style>
+@import "~@nitro-ui/component-tooltip";
+</style>
