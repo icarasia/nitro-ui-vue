@@ -56,6 +56,8 @@
         "@nitro-ui/object-container": "^1.0.0-alpha.5",
         "@nitro-ui/object-embed": "^1.0.0-alpha.3",
         "@nitro-ui/object-grid": "^1.0.0-alpha.6",
+        "@nitro-ui/svg-icons": "^1.0.0-alpha.0",
+        "@nitro-ui/svg-icons-vue": "^0.1.1",
         "@nitro-ui/object-list": "^1.0.0-alpha.5",
         "@nitro-ui/svg-icons": "^1.0.0-alpha.0",
         "@nitro-ui/svg-icons-vue": "^0.1.1",
