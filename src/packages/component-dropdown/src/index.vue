@@ -5,12 +5,20 @@
         @click="isOpen = !isOpen"
         v-on-clickaway="close"
     >
+
         <a
             href="#"
             class="c-dropdown__control"
+            :class="{[titleClass] : titleClass}"
             :data-toggle="toggleable ? 'dropdown' : ''"
-            >{{ title }}</a
-        >
+            >
+            <slot name="avatar"></slot>
+
+            <template v-if="!$slots.avatar">
+                <i :class="{[iconTitle] : iconTitle}" v-if="iconTitle"></i>
+                {{ title }}
+            </template>
+        </a>
         <div class="c-dropdown__base">
             <with-root :showIf="isMega">
                 <div class="c-dropdown__mega">
@@ -49,7 +57,9 @@ export default {
             type: Boolean,
             default: false
         },
-        items: Array
+        items: Array,
+        titleClass : String,
+        iconTitle : String
     },
     data() {
         return {

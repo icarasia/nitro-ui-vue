@@ -15,7 +15,8 @@
         :href="item.href"
         :to="item.to"
     >
-        {{ item.title }}
+        <span v-if="item.useHtml" v-html="item.title"></span>
+        <span v-else>{{ item.title }}</span>
     </aLink>
 </template>
 

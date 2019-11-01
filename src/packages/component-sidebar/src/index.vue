@@ -35,6 +35,7 @@
                           v-bind:left.sync="left"
                           v-bind:index.sync="itemID"
                           :hovered-id="hoveredID"
+                          :key="key"
                     ></list>
                 </ul>
             </div>
@@ -47,6 +48,7 @@
                           :item-id="(key + topMenuItems.length)"
                           v-bind:index.sync="itemID"
                           :hovered-id="hoveredID"
+                          :key="key"
                     ></list>
                 </ul>
 
@@ -64,6 +66,7 @@
                             :top="top"
                             :left="left"
                             v-bind:hovered.sync="hoveredID"
+                            :key="key"
                             :item-id="itemID"></list-floating>
         </div>
         <!-- Floating Menu End Here-->
@@ -138,6 +141,9 @@
             },
         },
         mounted() {
+            this.$parent.$on('sidebarOpen',  () => {
+                this.openSidebar();
+            });
             if(this.minimized) this.minimizeSidebar();
             this.isOpenedSidebar = !this.minimized;
         },

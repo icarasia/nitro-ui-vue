@@ -21,6 +21,7 @@ import Modal from "./containers/Modal";
 import Tabs from "./containers/Tabs";
 import Pagination from "./containers/Pagination";
 import Step from "./containers/Step";
+import Dashboard from "./containers/Dashboard";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -107,8 +108,8 @@ const router = new VueRouter({
             name: "form",
             path: "/form",
             component: Form
-		},
-		{
+        },
+        {
             name: "pagination",
             path: "/pagination",
             component: Pagination
@@ -117,6 +118,11 @@ const router = new VueRouter({
             name: "sidebar",
             path: "/sidebar",
             component: Sidebar
+        },
+        {
+            name: "dashboard",
+            path: "/dashboard",
+            component: Dashboard
         }
     ]
 });

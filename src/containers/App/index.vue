@@ -1,9 +1,9 @@
 <template>
     <div id="app">
-        <app-header></app-header>
+        <app-header v-if="routeName !== 'dashboard'"></app-header>
         <div
             class="container app-body"
-            :class="{ full_container: routeName == 'grid' }"
+            :class="{ full_container: ['grid', 'dashboard'].indexOf(routeName) !== -1, 'u-padding-none' : routeName === 'dashboard' }"
         >
             <router-view class="view"></router-view>
         </div>
