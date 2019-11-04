@@ -102,7 +102,7 @@
                             Column 1 portions="2/4"
                         </div>
                     </Column>
-                    <Column portions="2/4" v-capital>
+                    <Column portions="2/4">
                         <div style="background-color: #44AAFF;padding:4px;">
                             Column 2 portions="2/4"
                         </div>
@@ -121,11 +121,7 @@
                 <Row paddings="lg">
                     <Column>
                         <card>
-                            <arrow></arrow>
-                            <arrow position="right"></arrow>
-                            <arrow position="left"></arrow>
-                            <arrow position="bottom"></arrow>
-                            Card with arrows top left right bottom
+                            Card
                         </card>
                     </Column>
                     <Column portions="5/12">
@@ -142,11 +138,10 @@ import Container from "../../packages/component-container/src/index";
 import Row from "../../packages/component-row/src/index";
 import Column from "../../packages/component-col/src/index";
 import Card from "../../packages/component-card/src/index";
-// import Arrow from "../../packages/component-arrow/src/index";
+
 export default {
     name: "GridPage",
     components: {
-        // Arrow,
         Card,
         Column,
         Row,

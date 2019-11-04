@@ -3,7 +3,9 @@
         <app-header></app-header>
         <div
             class="container app-body"
-            :class="{ full_container: routeName == 'grid' }"
+            :class="{
+                full_container: routeName === 'grid' || routeName === 'sidebar'
+            }"
         >
             <router-view class="view"></router-view>
         </div>

@@ -1,13 +1,20 @@
 <template>
-    <a v-if="href" :href="href" :target="target">
+    <a v-if="href" :href="href" :target="target" v-on="$listeners">
         <template v-if="label">{{ label }}</template>
         <slot v-else></slot>
     </a>
-    <router-link :to="to" v-else-if="to" :target="target">
+    <router-link
+        :to="to"
+        v-else-if="to"
+        :target="target"
+        v-on="$listeners"
+        :active-class="activeClass"
+        exact
+    >
         <template v-if="label">{{ label }}</template>
         <slot v-else></slot>
     </router-link>
-    <a v-else>
+    <a v-else v-on="$listeners">
         <template v-if="label">{{ label }}</template>
         <slot v-else></slot>
     </a>
@@ -29,6 +36,10 @@ export default {
         to: {
             type: [Object, String],
             default: null
+        },
+        activeClass: {
+            type: String,
+            default: ""
         }
     }
 };

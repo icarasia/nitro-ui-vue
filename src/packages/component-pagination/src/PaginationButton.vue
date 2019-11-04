@@ -1,13 +1,12 @@
 <template>
-    <li
-        :class="classes"
-    >
-        <Button v-if="useButton"
+    <li :class="classes">
+        <Button
+            v-if="useButton"
             :anchor="true"
-            variant = "secondary-outline"
+            variant="secondary-outline"
             :disabled="disabled"
         >
-        {{ btnLabel }}
+            {{ btnLabel }}
         </Button>
         <a v-else-if="pageNumber" @click="onClick" href="#">
             <template v-if="pageNumber">{{ pageNumber }}</template>
@@ -22,7 +21,7 @@ import Button from "../../component-button/src/index";
 
 export default {
     name: "Pagination-button",
-    components: {Button},
+    components: { Button },
     props: {
         item: Boolean,
         btnLabel: String,
@@ -38,16 +37,16 @@ export default {
     },
     methods: {
         onClick(event) {
-          this.$emit("click", this.pageNumber);
-          if (this.disabled) return;
-          if (this.to) {
-              this.routerPush();
-          }
-          if (this.href) {
-              this.target
-                  ? window.open(this.href)
-                  : (window.location.href = this.href);
-          }
+            this.$emit("click", this.pageNumber);
+            if (this.disabled) return;
+            if (this.to) {
+                this.routerPush();
+            }
+            if (this.href) {
+                this.target
+                    ? window.open(this.href)
+                    : (window.location.href = this.href);
+            }
         },
         routerPush() {
             this.$router.push(this.to);
@@ -60,7 +59,7 @@ export default {
                 this.last ? `c-pagination__last` : "",
                 this.prev ? `c-pagination__previous` : "",
                 this.next ? `c-pagination__next` : "",
-                this.item ? `c-pagination__item` : "",
+                this.item ? `c-pagination__item` : ""
             ];
         }
     }

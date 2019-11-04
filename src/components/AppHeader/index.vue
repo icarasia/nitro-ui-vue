@@ -69,7 +69,7 @@
                     </li>
                     <li class="nav-item">
                         <router-link to="/step" class="nav-link"
-                        >Step</router-link
+                            >Step</router-link
                         >
                     </li>
                     <li class="nav-item">
@@ -82,12 +82,6 @@
                             >Tabs</router-link
                         >
                     </li>
-                    <!--                    <li class="nav-item">-->
-                    <!--                        <router-link to="/pagination" class="nav-link">Pagination</router-link>-->
-                    <!--                    </li>-->
-                    <!--                    <li class="nav-item">-->
-                    <!--                        <router-link to="/rating" class="nav-link">Rating</router-link>-->
-                    <!--                    </li>-->
                     <li class="nav-item">
                         <router-link to="/grid" class="nav-link"
                             >Grid</router-link
@@ -95,12 +89,12 @@
                     </li>
                     <li class="nav-item">
                         <router-link to="/sidebar" class="nav-link"
-                        >Sidebar</router-link
+                            >Sidebar & Toolbar</router-link
                         >
                     </li>
-					<li class="nav-item">
+                    <li class="nav-item">
                         <router-link to="/table" class="nav-link"
-                        >Table</router-link
+                            >Table</router-link
                         >
                     </li>
                     <li class="nav-item">

@@ -6,7 +6,10 @@
         role="dialog"
         v-show="shown"
     >
-        <div class="c-drawer__content" v-on-clickaway="clickOut">
+        <div
+            :class="`c-drawer__content ${content_classes}`"
+            v-on-clickaway="clickOut"
+        >
             <slot></slot>
         </div>
     </div>
@@ -30,7 +33,8 @@ export default {
         closeOnOutsideClick: {
             type: Boolean,
             default: true
-        }
+        },
+        content_classes: String
     },
     mixins: [Spaces, clickaway],
     computed: {

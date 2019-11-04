@@ -6,13 +6,17 @@
         v-on-clickaway="close"
     >
         <a
-            href="#"
-            class="c-dropdown__control"
+            :class="`c-dropdown__control ${titleClasses}`"
             :data-toggle="toggleable ? 'dropdown' : ''"
-            >{{ title }}</a
         >
+            <slot name="title" v-if="$slots.title"></slot>
+            <template v-else>
+                {{ title }}
+            </template>
+        </a>
         <div class="c-dropdown__base">
-            <with-root :showIf="isMega">
+            <slot v-if="$slots.default"></slot>
+            <with-root :showIf="isMega" v-else>
                 <div class="c-dropdown__mega">
                     <div
                         class="c-dropdown__menu"
@@ -43,13 +47,17 @@ export default {
     name: "Dropdown",
     components: { WithRoot, DropdownMenu },
     props: {
-        title: String,
+        title: {
+            type: String,
+            default: ""
+        },
         position: { type: String, default: "" },
         toggleable: {
             type: Boolean,
             default: false
         },
-        items: Array
+        items: Array,
+        titleClasses: { type: String, default: "" }
     },
     data() {
         return {

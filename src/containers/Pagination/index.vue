@@ -28,7 +28,9 @@
                 @loadPage="pageChangeHandle"
                 :visiblePagesCount="checkPageCount"
             />
-            <div class="u-margin-top-xl">Current Page : <b>{{ this.currentPage }}</b></div>
+            <div class="u-margin-top-xl">
+                Current Page : <b>{{ this.currentPage }}</b>
+            </div>
         </div>
     </div>
 </template>
@@ -47,43 +49,43 @@ export default {
             pageCount: 21
         };
     },
-    props:{
+    props: {
         currentPageValue: Number
     },
-    computed:{
-        checkPageCount(){
-            let visiblePagesCount = this.visiblePagesCount
-            let pageCount = this.pageCount
+    computed: {
+        checkPageCount() {
+            let visiblePagesCount = this.visiblePagesCount;
+            let pageCount = this.pageCount;
 
             if (pageCount < 2) {
-                visiblePagesCount = 1
-            } else if (pageCount >= 2 & pageCount<= 5){
-                visiblePagesCount = pageCount
+                visiblePagesCount = 1;
+            } else if ((pageCount >= 2) & (pageCount <= 5)) {
+                visiblePagesCount = pageCount;
             }
-            return visiblePagesCount
-        },
+            return visiblePagesCount;
+        }
     },
-    methods:{
+    methods: {
         pageChangeHandle(value) {
             switch (value) {
-                case 'next':
-                this.currentPage += 1
-                break
+                case "next":
+                    this.currentPage += 1;
+                    break;
 
-                case 'previous':
-                this.currentPage -= 1;
-                break
+                case "previous":
+                    this.currentPage -= 1;
+                    break;
 
-                case 'last':
-                this.currentPage = this.pageCount
-                break
+                case "last":
+                    this.currentPage = this.pageCount;
+                    break;
 
-                case 'first':
-                this.currentPage = 1
-                break
+                case "first":
+                    this.currentPage = 1;
+                    break;
 
                 default:
-                  this.currentPage = value
+                    this.currentPage = value;
             }
         }
     }

@@ -15,7 +15,13 @@
         :href="item.href"
         :to="item.to"
     >
-        {{ item.title }}
+        <template v-if="item.icon">
+            <NitroIcon :name="item.icon" size="m"></NitroIcon>
+            <span class="u-margin-left-xs">{{ item.title }}</span>
+        </template>
+        <template v-else>
+            {{ item.title }}
+        </template>
     </aLink>
 </template>
 
