@@ -70,6 +70,33 @@ Types of changes:
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
 
+## [1.0.0] - 2019-11-04
+
+- `Added` Component Pagination
+- `Added` Component Toolbar
+- `Added` Component Sidebar
+- `Added` Component Sidebar
+- `Added` Component Step
+- `Added` Component Table
+- `Added` Component SVG Icons
+- `Added` Component SVG Icons
+- `Added` Component Drawer
+- `Added` Component Modal
+- `Added` Component Tooltip
+- `Added` Component Dropdown
+- `Added` Component Alert
+- `Added` Component Arrow
+- `Added` Component Avatar
+- `Added` Component Breadcrumb
+- `Added` Component Button Group
+- `Added` Component Card
+- `Added` Component Chip
+- `Added` Component Grid
+- `Added` Component Container
+- `Added` Component Row
+- `Added` Component Column
+- `Changed` Update @nitro-ui package dependencies
+
 ## [1.0.0-alpha.1] - 2019-10-19
 
 ### Fixed
