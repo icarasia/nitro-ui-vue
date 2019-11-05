@@ -107,8 +107,8 @@ const router = new VueRouter({
             name: "form",
             path: "/form",
             component: Form
-		},
-		{
+        },
+        {
             name: "pagination",
             path: "/pagination",
             component: Pagination
