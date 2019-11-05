@@ -35,7 +35,7 @@
                 {{ select }}
             </div>
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Select with first option" message="Select your option">
+                <FormField label="Select with first option" message="Select your option" :invalid="true">
                     <nSelect v-model="select2">
                         <option
                             v-for="option in options"
@@ -58,12 +58,24 @@
                 </FormField>
                 {{ select3 }}
             </div>
+            <div class="o-grid__item  u-width-1@mobile">
+                <FormField label="Disabled state" message="Select your option">
+                    <nSelect v-model="select4" :disabled="true">
+                        <option
+                            v-for="option in options"
+                            :value="option.value">
+                            {{ option.label }}
+                        </option>
+                    </nSelect>
+                </FormField>
+                {{ select4 }}
+            </div>
         </div>
 
         <h4>Checkbox</h4>
         <div class="o-grid  u-margin-top-md">
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Default Checkbox" message="Please select your options">
+                <FormField label="Default Checkbox" message="Please select your options" :class="'u-margin-bottom-xs'">
                     <nCheckbox
                         v-for="checkboxesitem in checkboxesitems"
                         :key="checkboxesitem.id"
@@ -71,13 +83,17 @@
                         :id="checkboxesitem.id"
                         :name="checkboxesitem.name"
                         :disabled="checkboxesitem.disabled"
-                        :checked="checkboxesitem.checked">
+                        :checked="checkboxesitem.checked"
+                        v-model="checkboxresult1">
                         {{checkboxesitem.label}}
                     </nCheckbox>
                 </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ checkboxresult1 }}
+                </div>
             </div>
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Inline Checkbox" message="Please select your options">
+                <FormField label="Inline Checkbox" message="Please select your options" :class="'u-margin-bottom-xs'">
                     <div class="c-check-inline">
                         <nCheckbox
                             v-for="checkbox in checkboxes"
@@ -86,11 +102,15 @@
                             :id="checkbox.id"
                             :name="checkbox.name"
                             :disabled="checkbox.disabled"
-                            :checked="checkbox.checked">
+                            :checked="checkbox.checked"
+                            v-model="checkboxresult2">
                             {{checkbox.label}}
                         </nCheckbox>
                     </div>
                 </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ checkboxresult2 }}
+                </div>
             </div>
         </div>
 
@@ -106,10 +126,14 @@
                         :id="radioitem.id"
                         :name="radioitem.name"
                         :disabled="radioitem.disabled"
-                        :checked="radioitem.checked">
+                        :checked="radioitem.checked"
+                        v-model="radioresult1">
                         {{radioitem.label}}
                     </nRadio>
                 </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ radioresult1 }}
+                </div>
             </div>
             <div class="o-grid__item  u-width-1@mobile">
                 <FormField label="Inline Radio" message="Please select your options">
@@ -121,18 +145,22 @@
                             :id="radio.id"
                             :name="radio.name"
                             :disabled="radio.disabled"
-                            :checked="radio.checked">
+                            :checked="radio.checked"
+                            v-model="radioresult2">
                             {{radio.label}}
                         </nRadio>
                     </div>
                 </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ radioresult2 }}
+                </div>
             </div>
         </div>
 
         <h4>Switch</h4>
         <div class="o-grid  u-margin-top-md">
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Default Switch" message="Please select your options">
+                <FormField label="Default Switch" message="Please select your options" :class="'u-margin-bottom-lg'">
                     <nCheckbox
                         v-for="switchitem in switchitems"
                         :switches="true"
@@ -141,13 +169,17 @@
                         :id="switchitem.id"
                         :name="switchitem.name"
                         :disabled="switchitem.disabled"
-                        :checked="switchitem.checked">
+                        :checked="switchitem.checked"
+                        v-model="switchresult1">
                         {{switchitem.label}}
                     </nCheckbox>
                 </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ switchresult1 }}
+                </div>
             </div>
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Right Switch" message="Please select your options">
+                <FormField label="Right Switch" message="Please select your options" :class="'u-margin-bottom-lg'">
                     <nCheckbox
                         v-for="switchoption in switchoptions"
                         :switches="true"
@@ -157,26 +189,79 @@
                         :id="switchoption.id"
                         :name="switchoption.name"
                         :disabled="switchoption.disabled"
-                        :checked="switchoption.checked">
+                        :checked="switchoption.checked"
+                        v-model="switchresult2">
                         {{switchoption.label}}
                     </nCheckbox>
                 </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ switchresult2 }}
+                </div>
             </div>
         </div>
 
         <h4>File Upload</h4>
         <div class="o-grid  u-margin-top-md">
-            <div class="o-grid__item  u-width-1/2  u-width-1@mobile">
-                <FormField label="File Upload" message="Please upload your file">
-                    <nFileUpload/>
+            <div class="o-grid__item  u-width-1@mobile">
+                <FormField label="File Upload" message="Please upload your file" :class="'u-margin-bottom-xs'">
+                    <nFileUpload v-model="fileupload"/>
                 </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ fileupload }}
+                </div>
             </div>
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Disabled state" message="Please upload your file">
+                <FormField label="Error state" message="Please upload your file" :invalid="true" :class="'u-margin-bottom-xs'">
+                    <nFileUpload v-model="fileupload1"/>
+                </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ fileupload1 }}
+                </div>
+            </div>
+            <div class="o-grid__item  u-width-1@mobile">
+                <FormField label="Disabled state" message="Please upload your file" :class="'u-margin-bottom-xs'">
                     <nFileUpload
                     :disabled="true"
+                     v-model="fileupload2"
                     />
                 </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ fileupload2 }}
+                </div>
+            </div>
+        </div>
+
+        <h4>Input with button</h4>
+        <div class="o-grid  u-margin-top-md">
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormField label="Input with button" message="Please upload your file" :class="'u-margin-bottom-xs'">
+                    <nInputBtn v-model="inputbtnresult">
+                        <Button variant="secondary">Button</Button>
+                    </nInputBtn>
+                </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ inputbtnresult }}
+                </div>
+            </div>
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormField label="Error State" message="Please upload your file" :invalid="true" :class="'u-margin-bottom-xs'">
+                    <nInputBtn v-model="inputbtnresult1">
+                        <Button variant="secondary">Button</Button>
+                    </nInputBtn>
+                </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ inputbtnresult1 }}
+                </div>
+            </div>
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormField label="Disabled state" message="Please upload your file" :class="'u-margin-bottom-xs'">
+                    <nInputBtn :disabled="true"  v-model="inputbtnresult2">
+                        <Button variant="secondary">Button</Button>
+                    </nInputBtn>
+                </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ inputbtnresult2 }}
+                </div>
             </div>
         </div>
     </div>
@@ -185,6 +270,8 @@
 <script>
 import "@nitro-ui/object-grid";
 import "@nitro-ui/utility-width";
+import "@nitro-ui/component-button";
+import Button from "../../packages/component-button/src";
 import FormField from "../../packages/component-form-field/src/index";
 import nInput from "../../packages/component-form-input/src/index";
 import nTextarea from "../../packages/component-form-textarea/src/index";
@@ -192,6 +279,7 @@ import nSelect from "../../packages/component-form-select/src/index";
 import nCheckbox from "../../packages/component-form-checkbox/src/index";
 import nRadio from "../../packages/component-form-radio/src/index";
 import nFileUpload from "../../packages/component-form-fileupload/src/index";
+import nInputBtn from "../../packages/component-form-input-button/src/index";
 
 export default {
     name: "FormPage",
@@ -202,10 +290,9 @@ export default {
         nSelect,
         nCheckbox,
         nRadio,
-        nFileUpload
-    },
-    props: {
-        picked: String
+        nFileUpload,
+        nInputBtn,
+        Button
     },
     data() {
         return {
@@ -214,6 +301,19 @@ export default {
             select: null,
             select2: null,
             select3: null,
+            select4: null,
+            checkboxresult1: [],
+            checkboxresult2: [],
+            radioresult1: null,
+            radioresult2: null,
+            switchresult1: [],
+            switchresult2: [],
+            fileupload: null,
+            fileupload1: null,
+            fileupload2: null,
+            inputbtnresult: null,
+            inputbtnresult1: null,
+            inputbtnresult2: null,
             options: [
                 { value: '01', label: '01' },
                 { value: '02', label: '02' },
@@ -235,7 +335,7 @@ export default {
                 { value: 'mike', label: 'Mike', id: '9', name: 'staff'}
             ],
             radios:[
-                { value: 'jack', label: 'Jack', id: '13', name: 'name', disabled: true},
+                { value: 'jack', label: 'Jack', id: '13', name: 'name', disabled: true, checked: 'checked'},
                 { value: 'john', label: 'John', id: '14', name: 'name'},
                 { value: 'mike', label: 'Mike', id: '15', name: 'name'}
             ],
