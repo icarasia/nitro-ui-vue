@@ -1,129 +1,47 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import NitroIcon from "@nitro-ui/svg-icons-vue";
+import * as niComponents from "./packages";
+import niTooltip from "./packages/directive-tooltip/src";
+import "@nitro-ui/utility";
 import "@nitro-ui/svg-icons-vue/dist/NitroIcon.css";
-// containers
-import App from "./containers/App";
-import Home from "./containers/Home";
-import Button from "./containers/Button";
-import Chip from "./containers/Chip";
-import TooltipC from "./containers/Tooltip";
-import Avatar from "./containers/Avatar";
-import Breadcrumb from "./containers/Breadcrumb";
-import Card from "./containers/Card";
-import Grid from "./containers/Grid";
-import Alert from "./containers/Alert";
-import Sidebar from "./containers/Sidebar";
-import Table from "./containers/Table";
-import Dropdown from "./containers/Dropdown";
-import Form from "./containers/Form";
-import Modal from "./containers/Modal";
-import Tabs from "./containers/Tabs";
-import Pagination from "./containers/Pagination";
-import Step from "./containers/Step";
 
-Vue.config.productionTip = false;
-Vue.use(VueRouter);
+import NitroIcon from "@nitro-ui/svg-icons-vue";
 
-Vue.use(NitroIcon);
+const install = Vue => {
+  // Use Components
+  Vue.use(NitroIcon);
 
-import Tooltip from "./packages/directive-tooltip/src";
-Vue.directive("tooltip", Tooltip);
+  Object.values(niComponents).forEach(niComponent => {
+    Vue.use(niComponent);
+  });
+  Vue.directive("ni-tooltip", niTooltip);
+};
 
-const router = new VueRouter({
-    mode: "history",
-    routes: [
-        {
-            name: "home",
-            path: "/",
-            component: Home
-        },
-        {
-            name: "button",
-            path: "/button",
-            component: Button
-        },
-        {
-            name: "chips",
-            path: "/chip",
-            component: Chip
-        },
-        {
-            name: "tooltip",
-            path: "/tooltip",
-            component: TooltipC
-        },
-        {
-            name: "avatar",
-            path: "/avatar",
-            component: Avatar
-        },
-        {
-            name: "breadcrumb",
-            path: "/breadcrumb",
-            component: Breadcrumb
-        },
-        {
-            name: "card",
-            path: "/card",
-            component: Card
-        },
-        {
-            name: "grid",
-            path: "/grid",
-            component: Grid
-        },
-        {
-            name: "alert",
-            path: "/alert",
-            component: Alert
-        },
-        {
-            name: "table",
-            path: "/table",
-            component: Table
-        },
-        {
-            name: "dropdown",
-            path: "/dropdown",
-            component: Dropdown
-        },
-        {
-            name: "step",
-            path: "/step",
-            component: Step
-        },
-        {
-            name: "modal",
-            path: "/modal",
-            component: Modal
-        },
-        {
-            name: "tabs",
-            path: "/tabs",
-            component: Tabs
-        },
-        {
-            name: "form",
-            path: "/form",
-            component: Form
-        },
-        {
-            name: "pagination",
-            path: "/pagination",
-            component: Pagination
-        },
-        {
-            name: "sidebar",
-            path: "/sidebar",
-            component: Sidebar
-        }
-    ]
-});
+if (typeof window !== "undefined" && window.Vue) {
+  install(window.Vue);
+}
 
-const BaseVue = Vue.extend({ router });
+export default install;
 
-new BaseVue({
-    el: "#app",
-    render: h => h(App)
-});
+export { default as niAlert } from "./packages/component-alert";
+export { default as niAvatar } from "./packages/component-avatar";
+export { default as niBreadcrumb } from "./packages/component-breadcrumb";
+export { default as niButton } from "./packages/component-button";
+export { default as niButtonGroup } from "./packages/component-button-group";
+export { default as niCard } from "./packages/component-card";
+export { default as niChip } from "./packages/component-chip";
+export { default as niCol } from "./packages/component-col";
+export { default as niContainer } from "./packages/component-container";
+export { default as niDrawer } from "./packages/component-drawer";
+export { default as niDropdown } from "./packages/component-dropdown";
+export { default as niFormField } from "./packages/component-form-field";
+export { default as niInput } from "./packages/component-input";
+export { default as niLink } from "./packages/component-link";
+export { default as niModal } from "./packages/component-modal";
+export { default as niPaginator } from "./packages/component-paginator";
+export { default as niRow } from "./packages/component-row";
+export { default as niSidebar } from "./packages/component-sidebar";
+export { default as niStep } from "./packages/component-step";
+export { default as niTable } from "./packages/component-table";
+export { default as niTabs } from "./packages/component-tabs";
+export { default as niTextarea } from "./packages/component-textarea";
+export { default as niToolbar } from "./packages/component-toolbar";
+//export { default as niTooltip } from "./packages/directive-tooltip";
