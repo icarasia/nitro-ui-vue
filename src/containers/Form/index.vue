@@ -129,7 +129,7 @@
             </div>
         </div>
 
-        <h4>Switches</h4>
+        <h4>Switch</h4>
         <div class="o-grid  u-margin-top-md">
             <div class="o-grid__item  u-width-1@mobile">
                 <FormField label="Default Switch" message="Please select your options">
@@ -163,6 +163,22 @@
                 </FormField>
             </div>
         </div>
+
+        <h4>File Upload</h4>
+        <div class="o-grid  u-margin-top-md">
+            <div class="o-grid__item  u-width-1/2  u-width-1@mobile">
+                <FormField label="File Upload" message="Please upload your file">
+                    <nFileUpload/>
+                </FormField>
+            </div>
+            <div class="o-grid__item  u-width-1@mobile">
+                <FormField label="Disabled state" message="Please upload your file">
+                    <nFileUpload
+                    :disabled="true"
+                    />
+                </FormField>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -175,6 +191,7 @@ import nTextarea from "../../packages/component-form-textarea/src/index";
 import nSelect from "../../packages/component-form-select/src/index";
 import nCheckbox from "../../packages/component-form-checkbox/src/index";
 import nRadio from "../../packages/component-form-radio/src/index";
+import nFileUpload from "../../packages/component-form-fileupload/src/index";
 
 export default {
     name: "FormPage",
@@ -184,7 +201,8 @@ export default {
         nTextarea,
         nSelect,
         nCheckbox,
-        nRadio
+        nRadio,
+        nFileUpload
     },
     props: {
         picked: String
