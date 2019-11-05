@@ -116,6 +116,37 @@
                 </div>
             </FormField>
         </div>
+
+        <div class="u-margin-top-md">
+            <h4>Switches</h4>
+            <FormField label="Default Checkbox" message="Please select your options">
+                <nCheckbox
+                    v-for="switchitem in switchitems"
+                    :switches="true"
+                    :key="switchitem.id"
+                    :value="switchitem.value"
+                    :id="switchitem.id"
+                    :name="switchitem.name"
+                    :disabled="switchitem.disabled"
+                    :checked="switchitem.checked">
+                    {{switchitem.label}}
+                </nCheckbox>
+            </FormField>
+            <FormField label="Default Checkbox" message="Please select your options">
+                <nCheckbox
+                    v-for="switchoption in switchoptions"
+                    :switches="true"
+                    :switchRight="true"
+                    :key="switchoption.id"
+                    :value="switchoption.value"
+                    :id="switchoption.id"
+                    :name="switchoption.name"
+                    :disabled="switchoption.disabled"
+                    :checked="switchoption.checked">
+                    {{switchoption.label}}
+                </nCheckbox>
+            </FormField>
+        </div>
     </div>
 </template>
 
@@ -163,14 +194,25 @@ export default {
                 { value: 'tiggar', label: 'Tiggar', id: '12'}
             ],
             radioitems:[
-                { value: 'jack', label: 'Jack', id: '7', name: 'lala', checked: 'checked'},
-                { value: 'john', label: 'John', id: '8', name: 'lala'},
-                { value: 'mike', label: 'Mike', id: '9', name: 'lala'}
+                { value: 'jack', label: 'Jack', id: '7', name: 'staff', checked: 'checked'},
+                { value: 'john', label: 'John', id: '8', name: 'staff'},
+                { value: 'mike', label: 'Mike', id: '9', name: 'staff'}
             ],
             radios:[
-                { value: 'jack', label: 'Jack', id: '13', name: 'lala', disabled: true},
-                { value: 'john', label: 'John', id: '14', name: 'lala'},
-                { value: 'mike', label: 'Mike', id: '15', name: 'lala'}
+                { value: 'jack', label: 'Jack', id: '13', name: 'name', disabled: true},
+                { value: 'john', label: 'John', id: '14', name: 'name'},
+                { value: 'mike', label: 'Mike', id: '15', name: 'name'}
+            ],
+            switchitems:[
+                { value: 'apple', label: 'Apple', id: '16', name: 'fruits', checked: 'checked'},
+                { value: 'orange', label: 'Orange', id: '17', name: 'fruits'},
+                { value: 'honeydew', label: 'Honeydew', id: '18', name: 'fruits'}
+            ],
+
+            switchoptions:[
+                { value: 'allow', label: 'Allow Notification', id: '19', name: 'switch', checked: 'checked'},
+                { value: 'show', label: 'Show on Lock Screen', id: '20', name: 'switch'},
+                { value: 'banner', label: 'Show as Banner', id: '21', name: 'switch'}
             ],
         };
     }

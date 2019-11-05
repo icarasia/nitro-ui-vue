@@ -1,5 +1,6 @@
 <template>
-    <div class="c-check">
+    <div
+        :class="classes">
         <input
             type="checkbox"
             :id="id"
@@ -46,6 +47,14 @@ export default {
             type: Boolean,
             default: false,
         },
+        switches: {
+            type: Boolean,
+            default: false
+        },
+        switchRight: {
+            type: Boolean,
+            default: false
+        },
         required: {
             type: Boolean,
             default: false
@@ -55,7 +64,12 @@ export default {
     mixins: [Spaces],
     computed: {
         classes() {
-            return [...this.classNameUtilitySpaces];
+            return [
+                this.switches ? `c-switch` : `c-check`,
+                this.switches && this.switchRight ? `c-switch--right`: ``,
+                ...this.classNameUtilitySpaces,
+            ];
+
         },
         state() {
             if (this.modelValue === undefined) {
