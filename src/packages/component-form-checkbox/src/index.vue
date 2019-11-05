@@ -7,8 +7,8 @@
             :value="value"
             :required="required"
             :disabled="disabled"
-            @change="onChange"
             :checked="state"
+            @change="onChange"
         />
         <label :for="id">
             <slot/>
@@ -42,6 +42,10 @@ export default {
             default: undefined,
         },
         disabled: Boolean,
+        checked: {
+            type: Boolean,
+            default: false,
+        },
         required: {
             type: Boolean,
             default: false

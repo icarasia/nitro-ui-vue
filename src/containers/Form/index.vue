@@ -152,23 +152,23 @@ export default {
                 { value: '02', label: '02' },
                 { value: '03', label: '03' }
             ],
-            checkboxes:[
-                { value: 'mickey', label: 'Mickey', id: '10'},
-                { value: 'pooh', label: 'Pooh', id: '11'},
-                { value: 'tiggar', label: 'Tiggar', id: '12'}
-            ],
             checkboxesitems:[
-                { value: 'mickey', label: 'Mickey', id: '4'},
-                { value: 'pooh', label: 'Pooh', id: '5'},
+                { value: 'mickey', label: 'Mickey', id: '4', disabled: true, checked: 'checked'},
+                { value: 'pooh', label: 'Pooh', id: '5', checked: 'checked'},
                 { value: 'tiggar', label: 'Tiggar', id: '6'}
             ],
+            checkboxes:[
+                { value: 'mickey', label: 'Mickey', id: '10'},
+                { value: 'pooh', label: 'Pooh', id: '11', checked: 'checked'},
+                { value: 'tiggar', label: 'Tiggar', id: '12'}
+            ],
             radioitems:[
-                { value: 'jack', label: 'Jack', id: '7', name: 'lala'},
+                { value: 'jack', label: 'Jack', id: '7', name: 'lala', checked: 'checked'},
                 { value: 'john', label: 'John', id: '8', name: 'lala'},
                 { value: 'mike', label: 'Mike', id: '9', name: 'lala'}
             ],
             radios:[
-                { value: 'jack', label: 'Jack', id: '13', name: 'lala'},
+                { value: 'jack', label: 'Jack', id: '13', name: 'lala', disabled: true},
                 { value: 'john', label: 'John', id: '14', name: 'lala'},
                 { value: 'mike', label: 'Mike', id: '15', name: 'lala'}
             ],
