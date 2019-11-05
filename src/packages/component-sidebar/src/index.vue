@@ -1,91 +1,87 @@
 <template>
-    <section>
-        <drawer
-            :shown.sync="show"
-            class="c-sidebar"
-            position="left"
-            content_classes="u-bg-haze-light  u-flex  u-flex--justify-between  u-flex--column  u-shadow-1dp"
+  <section>
+    <drawer
+      :shown.sync="show"
+      class="c-sidebar"
+      position="left"
+      content_classes="u-bg-haze-light  u-flex  u-flex--justify-between  u-flex--column  u-shadow-1dp"
+    >
+      <div class="c-sidebar__top-menu">
+        <nLink
+          @click.prevent="openSidebar"
+          class="c-sidebar__hamburger u-flex  u-padding-top-md u-flex--justify-center  js-sidebar-menu-btn c-pointer"
         >
-            <div class="c-sidebar__top-menu">
-                <nLink
-                    @click.prevent="openSidebar"
-                    class="c-sidebar__hamburger u-flex  u-padding-top-md u-flex--justify-center  js-sidebar-menu-btn c-pointer"
-                >
-                    <NitroIcon
-                        name="navigation/menu"
-                        size="m"
-                        role="button"
-                    ></NitroIcon>
-                </nLink>
+          <NitroIcon name="navigation/menu" size="m" role="button"></NitroIcon>
+        </nLink>
 
-                <nLink
-                    @click.prevent="minimizeSidebar"
-                    class="c-sidebar__close  u-padding-ends-sm  u-padding-left-lg  u-hidden  js-menu-close c-pointer"
-                >
-                    <NitroIcon
-                        name="navigation/chevron-left"
-                        size="m"
-                        role="button"
-                    ></NitroIcon>
-                </nLink>
+        <nLink
+          @click.prevent="minimizeSidebar"
+          class="c-sidebar__close  u-padding-ends-sm  u-padding-left-lg  u-hidden  js-menu-close c-pointer"
+        >
+          <NitroIcon
+            name="navigation/chevron-left"
+            size="m"
+            role="button"
+          ></NitroIcon>
+        </nLink>
 
-                <UserProfile :show="show" :user-info="userInfo" />
+        <UserProfile :show="show" :user-info="userInfo" />
 
-                <ul
-                    class="c-drawer__menu  o-list  u-margin-bottom-xl  u-margin-top-lg  u-margin-top-none@mobile  u-padding-top-sm@mobile"
-                >
-                    <list
-                        v-for="(menuItem, key) in topMenuItems"
-                        :menu-item="menuItem"
-                        :item-id="key"
-                        :key="`top-${key}`"
-                        link-class="u-color-white"
-                        v-bind:top.sync="top"
-                        v-bind:left.sync="left"
-                        v-bind:index.sync="itemID"
-                        :hovered-id="hoveredID"
-                    ></list>
-                </ul>
-            </div>
+        <ul
+          class="c-drawer__menu  o-list  u-margin-bottom-xl  u-margin-top-lg  u-margin-top-none@mobile  u-padding-top-sm@mobile"
+        >
+          <list
+            v-for="(menuItem, key) in topMenuItems"
+            :menu-item="menuItem"
+            :item-id="key"
+            :key="`top-${key}`"
+            link-class="u-color-white"
+            v-bind:top.sync="top"
+            v-bind:left.sync="left"
+            v-bind:index.sync="itemID"
+            :hovered-id="hoveredID"
+          ></list>
+        </ul>
+      </div>
 
-            <div class="c-sidebar__bottom-menu">
-                <ul
-                    class="c-drawer__menu o-list u-padding-ends-sm u-hidden@tablet-desktop"
-                >
-                    <list
-                        v-for="(menuItem, key) in bottomMenuItems"
-                        :key="`bottom-${key}`"
-                        :menu-item="menuItem"
-                        link-class="u-color-base"
-                        :item-id="key + topMenuItems.length"
-                        v-bind:index.sync="itemID"
-                        :hovered-id="hoveredID"
-                    ></list>
-                </ul>
+      <div class="c-sidebar__bottom-menu">
+        <ul
+          class="c-drawer__menu o-list u-padding-ends-sm u-hidden@tablet-desktop"
+        >
+          <list
+            v-for="(menuItem, key) in bottomMenuItems"
+            :key="`bottom-${key}`"
+            :menu-item="menuItem"
+            link-class="u-color-base"
+            :item-id="key + topMenuItems.length"
+            v-bind:index.sync="itemID"
+            :hovered-id="hoveredID"
+          ></list>
+        </ul>
 
-                <div
-                    class="c-sidebar__footer u-padding-sides-lg u-padding-ends-lg  u-hidden"
-                >
-                    <slot name="footer"></slot>
-                </div>
-            </div>
-        </drawer>
-
-        <!-- Floating Menu Start Here-->
-        <div class="u-hidden@mobile">
-            <list-floating
-                v-for="(menuItem, key) in topMenuItems"
-                :menu-item="menuItem"
-                :index="key"
-                :key="key"
-                :top="top"
-                :left="left"
-                v-bind:hovered.sync="hoveredID"
-                :item-id="itemID"
-            ></list-floating>
+        <div
+          class="c-sidebar__footer u-padding-sides-lg u-padding-ends-lg  u-hidden"
+        >
+          <slot name="footer"></slot>
         </div>
-        <!-- Floating Menu End Here-->
-    </section>
+      </div>
+    </drawer>
+
+    <!-- Floating Menu Start Here-->
+    <div class="u-hidden@mobile">
+      <list-floating
+        v-for="(menuItem, key) in topMenuItems"
+        :menu-item="menuItem"
+        :index="key"
+        :key="key"
+        :top="top"
+        :left="left"
+        v-bind:hovered.sync="hoveredID"
+        :item-id="itemID"
+      ></list-floating>
+    </div>
+    <!-- Floating Menu End Here-->
+  </section>
 </template>
 
 <script>
@@ -105,80 +101,84 @@ import nLink from "../../component-link/src/index";
 import UserProfile from "./_partials/UserProfile";
 
 export default {
-    name: "Sidebar",
-    components: { UserProfile, nLink, Drawer, List, ListFloating },
-    props: {
-        menuItems: {
-            type: Array,
-            required: false
-        },
-        menuOpenIcon: {
-            type: String,
-            required: false,
-            default: ""
-        },
-        menuCloseIcon: {
-            type: String,
-            required: false,
-            default: ""
-        },
-        userInfo: {
-            type: Object,
-            required: false,
-            default: null
-        },
-        minimized: {
-            type: Boolean,
-            required: false,
-            default: true
-        }
+  name: "niSidebar",
+  components: { UserProfile, nLink, Drawer, List, ListFloating },
+  props: {
+    menuItems: {
+      type: Array,
+      required: false
     },
-    data() {
-        return {
-            show: true,
-            top: 0,
-            left: 0,
-            itemID: null,
-            hoveredID: null,
-            isOpenedSidebar: false
-        };
+    menuOpenIcon: {
+      type: String,
+      required: false,
+      default: ""
     },
-    methods: {
-        openSidebar() {
-            this.$emit("sidebarOpened");
-            document.body.classList.add("modal-open");
-            this.show = true;
-            this.isOpenedSidebar = true;
-        },
-        minimizeSidebar() {
-            this.$emit("sidebarClosed");
-            document.body.classList.remove("modal-open");
-            this.show = false;
-            this.isOpenedSidebar = false;
-        }
+    menuCloseIcon: {
+      type: String,
+      required: false,
+      default: ""
     },
-    mounted() {
-        if (this.minimized) this.minimizeSidebar();
-        this.isOpenedSidebar = !this.minimized;
+    userInfo: {
+      type: Object,
+      required: false,
+      default: null
     },
-    computed: {
-        topMenuItems() {
-            return this.menuItems.filter(item => !item.bottom);
-        },
-        bottomMenuItems() {
-            return this.menuItems.filter(item => item.bottom);
-        }
-    },
-    watch: {
-        show: function(newVal) {
-            if (!newVal) this.$emit("sidebarClosed");
-        }
+    minimized: {
+      type: Boolean,
+      required: false,
+      default: true
     }
+  },
+  data() {
+    return {
+      show: true,
+      top: 0,
+      left: 0,
+      itemID: null,
+      hoveredID: null,
+      isOpenedSidebar: false
+    };
+  },
+  methods: {
+    openSidebar() {
+      this.$emit("sidebarOpened");
+      document.body.classList.add("modal-open");
+      this.show = true;
+      this.isOpenedSidebar = true;
+    },
+    minimizeSidebar() {
+      this.$emit("sidebarClosed");
+      document.body.classList.remove("modal-open");
+      this.show = false;
+      this.isOpenedSidebar = false;
+    },
+    toggleSidebar() {
+      if (this.show) this.minimizeSidebar();
+      else this.openSidebar();
+    }
+  },
+  mounted() {
+    if (this.minimized) this.minimizeSidebar();
+    this.isOpenedSidebar = !this.minimized;
+  },
+  computed: {
+    topMenuItems() {
+      return this.menuItems.filter(item => !item.bottom);
+    },
+    bottomMenuItems() {
+      return this.menuItems.filter(item => item.bottom);
+    }
+  },
+  watch: {
+    show: function(newVal) {
+      if (!newVal) this.$emit("sidebarClosed");
+    }
+  }
 };
 </script>
 
 <style scoped>
 .c-pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 </style>

@@ -1,34 +1,27 @@
 <template>
-    <input
-        type="text"
-        class="c-input"
-        :placeholder="placeholder"
-        :value="value"
-        @focus="$emit('focus')"
-        @blur="$emit('blur')"
-        @input="$emit('input', $event.target.value)"
-        @click="$emit('click')"
-        :disabled="disabled"
-    />
+  <input
+    type="text"
+    class="c-input"
+    :placeholder="placeholder"
+    :value="value"
+    @focus="$emit('focus')"
+    @blur="$emit('blur')"
+    @input="$emit('input', $event.target.value)"
+    @click="$emit('click')"
+    :disabled="disabled"
+  />
 </template>
 
 <script>
 import "@nitro-ui/component-form";
-import Spaces from "../../utility-spaces/src/mixins/Spaces";
 
 export default {
-    name: "FormInput",
-    props: {
-        placeholder: String,
-        defaultValue: String,
-        value: null,
-        disabled: Boolean
-    },
-    mixins: [Spaces],
-    computed: {
-        classes() {
-            return [...this.classNameUtilitySpaces];
-        }
-    }
+  name: "niFormInput",
+  props: {
+    placeholder: String,
+    defaultValue: String,
+    value: null,
+    disabled: Boolean
+  }
 };
 </script>

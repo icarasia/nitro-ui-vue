@@ -1,32 +1,30 @@
 <template>
-    <ul class="c-breadcrumb" :class="classes">
-        <li v-for="(item, index) in items" :key="index">
-            <Link
-                :label="item.label"
-                :target="item.target"
-                :to="item.to"
-                :href="item.href"
-            ></Link>
-        </li>
-    </ul>
+  <ul class="c-breadcrumb" :class="classes">
+    <li v-for="(item, index) in items" :key="index">
+      <aLink
+        :label="item.label"
+        :target="item.target"
+        :to="item.to"
+        :href="item.href"
+      ></aLink>
+    </li>
+  </ul>
 </template>
 
 <script>
 import "@nitro-ui/component-breadcrumb";
-import Spaces from "../../utility-spaces/src/mixins/Spaces";
-import Link from "../../component-link/src/index";
+import aLink from "../../component-link/src/index";
 
 export default {
-    name: "Breadcrumb",
-    components: { Link },
-    props: {
-        items: Array
-    },
-    mixins: [Spaces],
-    computed: {
-        classes() {
-            return [...this.classNameUtilitySpaces];
-        }
+  name: "niBreadcrumb",
+  components: { aLink },
+  props: {
+    items: Array
+  },
+  computed: {
+    classes() {
+      return [];
     }
+  }
 };
 </script>
