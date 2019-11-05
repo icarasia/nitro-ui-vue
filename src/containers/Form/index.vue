@@ -4,7 +4,7 @@
         <div class="text-muted">
             Some awesome description about Form.
         </div>
-        <div class="u-margin-top-md">
+        <div class="u-margin-top-md  u-width-1/2  u-width-1@mobile">
             <h4>Text input</h4>
             <FormField label="First Name" invalid message="Help message" hint="Optional">
                 <nInput placeholder="Your first name" v-model="first_name" />
@@ -12,7 +12,7 @@
             {{ first_name }}
         </div>
 
-        <div class="u-margin-top-md">
+        <div class="u-margin-top-md  u-width-1/2  u-width-1@mobile">
             <h4>Textarea</h4>
             <FormField label="Address" message="Key in your full address">
                 <nTextarea placeholder="Your first name" v-model="address" />
@@ -20,137 +20,155 @@
             {{ address }}
         </div>
 
-        <div class="u-margin-top-md">
-            <h4>Select</h4>
-            <FormField label="Select with placeholder" message="Select your option">
-                <nSelect placeholder="Please select your option" v-model="select">
-                    <option
-                        v-for="option in options"
-                        :value="option.value">
-                        {{ option.label }}
-                    </option>
-                </nSelect>
-            </FormField>
-            {{ select }}
-
-            <FormField label="Select with first option" message="Select your option">
-                <nSelect v-model="select2">
-                    <option
-                        v-for="option in options"
-                        :value="option.value">
-                        {{ option.label }}
-                    </option>
-                </nSelect>
-            </FormField>
-            {{ select2 }}
-
-            <FormField label="Select with empty placeholder" message="Select your option">
-                <nSelect :emptyPlaceholder="true" v-model="select3">
-                    <option
-                        v-for="option in options"
-                        :value="option.value">
-                        {{ option.label }}
-                    </option>
-                </nSelect>
-            </FormField>
-            {{ select3 }}
+        <h4>Select</h4>
+        <div class="o-grid  u-margin-top-md">
+            <div class="o-grid__item  u-width-1@mobile">
+                <FormField label="Select with placeholder" message="Select your option">
+                    <nSelect placeholder="Please select your option" v-model="select">
+                        <option
+                            v-for="option in options"
+                            :value="option.value">
+                            {{ option.label }}
+                        </option>
+                    </nSelect>
+                </FormField>
+                {{ select }}
+            </div>
+            <div class="o-grid__item  u-width-1@mobile">
+                <FormField label="Select with first option" message="Select your option">
+                    <nSelect v-model="select2">
+                        <option
+                            v-for="option in options"
+                            :value="option.value">
+                            {{ option.label }}
+                        </option>
+                    </nSelect>
+                </FormField>
+                {{ select2 }}
+            </div>
+            <div class="o-grid__item  u-width-1@mobile">
+                <FormField label="Select with empty placeholder" message="Select your option">
+                    <nSelect :emptyPlaceholder="true" v-model="select3">
+                        <option
+                            v-for="option in options"
+                            :value="option.value">
+                            {{ option.label }}
+                        </option>
+                    </nSelect>
+                </FormField>
+                {{ select3 }}
+            </div>
         </div>
 
-        <div class="u-margin-top-md">
-            <h4>Checkbox</h4>
-            <FormField label="Default Checkbox" message="Please select your options">
-                <nCheckbox
-                    v-for="checkboxesitem in checkboxesitems"
-                    :key="checkboxesitem.id"
-                    :value="checkboxesitem.value"
-                    :id="checkboxesitem.id"
-                    :name="checkboxesitem.name"
-                    :disabled="checkboxesitem.disabled"
-                    :checked="checkboxesitem.checked">
-                    {{checkboxesitem.label}}
-                </nCheckbox>
-            </FormField>
-            <FormField label="Inline Checkbox" message="Please select your options">
-                <div class="c-check-inline">
+        <h4>Checkbox</h4>
+        <div class="o-grid  u-margin-top-md">
+            <div class="o-grid__item  u-width-1@mobile">
+                <FormField label="Default Checkbox" message="Please select your options">
                     <nCheckbox
-                        v-for="checkbox in checkboxes"
-                        :key="checkbox.id"
-                        :value="checkbox.value"
-                        :id="checkbox.id"
-                        :name="checkbox.name"
-                        :disabled="checkbox.disabled"
-                        :checked="checkbox.checked">
-                        {{checkbox.label}}
+                        v-for="checkboxesitem in checkboxesitems"
+                        :key="checkboxesitem.id"
+                        :value="checkboxesitem.value"
+                        :id="checkboxesitem.id"
+                        :name="checkboxesitem.name"
+                        :disabled="checkboxesitem.disabled"
+                        :checked="checkboxesitem.checked">
+                        {{checkboxesitem.label}}
                     </nCheckbox>
-                </div>
-            </FormField>
+                </FormField>
+            </div>
+            <div class="o-grid__item  u-width-1@mobile">
+                <FormField label="Inline Checkbox" message="Please select your options">
+                    <div class="c-check-inline">
+                        <nCheckbox
+                            v-for="checkbox in checkboxes"
+                            :key="checkbox.id"
+                            :value="checkbox.value"
+                            :id="checkbox.id"
+                            :name="checkbox.name"
+                            :disabled="checkbox.disabled"
+                            :checked="checkbox.checked">
+                            {{checkbox.label}}
+                        </nCheckbox>
+                    </div>
+                </FormField>
+            </div>
         </div>
 
 
-        <div class="u-margin-top-md">
-            <h4>Radio</h4>
-            <FormField label="Default Radio" message="Please select your options">
-                <nRadio
-                    v-for="radioitem in radioitems"
-                    :key="radioitem.id"
-                    :value="radioitem.value"
-                    :id="radioitem.id"
-                    :name="radioitem.name"
-                    :disabled="radioitem.disabled"
-                    :checked="radioitem.checked">
-                    {{radioitem.label}}
-                </nRadio>
-            </FormField>
-            <FormField label="Inline Radio" message="Please select your options">
-                <div class="c-check-inline">
+        <h4>Radio</h4>
+        <div class="o-grid  u-margin-top-md">
+            <div class="o-grid__item  u-width-1@mobile">
+                <FormField label="Default Radio" message="Please select your options">
                     <nRadio
-                        v-for="radio in radios"
-                        :key="radio.id"
-                        :value="radio.value"
-                        :id="radio.id"
-                        :name="radio.name"
-                        :disabled="radio.disabled"
-                        :checked="radio.checked">
-                        {{radio.label}}
+                        v-for="radioitem in radioitems"
+                        :key="radioitem.id"
+                        :value="radioitem.value"
+                        :id="radioitem.id"
+                        :name="radioitem.name"
+                        :disabled="radioitem.disabled"
+                        :checked="radioitem.checked">
+                        {{radioitem.label}}
                     </nRadio>
-                </div>
-            </FormField>
+                </FormField>
+            </div>
+            <div class="o-grid__item  u-width-1@mobile">
+                <FormField label="Inline Radio" message="Please select your options">
+                    <div class="c-check-inline">
+                        <nRadio
+                            v-for="radio in radios"
+                            :key="radio.id"
+                            :value="radio.value"
+                            :id="radio.id"
+                            :name="radio.name"
+                            :disabled="radio.disabled"
+                            :checked="radio.checked">
+                            {{radio.label}}
+                        </nRadio>
+                    </div>
+                </FormField>
+            </div>
         </div>
 
-        <div class="u-margin-top-md">
-            <h4>Switches</h4>
-            <FormField label="Default Checkbox" message="Please select your options">
-                <nCheckbox
-                    v-for="switchitem in switchitems"
-                    :switches="true"
-                    :key="switchitem.id"
-                    :value="switchitem.value"
-                    :id="switchitem.id"
-                    :name="switchitem.name"
-                    :disabled="switchitem.disabled"
-                    :checked="switchitem.checked">
-                    {{switchitem.label}}
-                </nCheckbox>
-            </FormField>
-            <FormField label="Default Checkbox" message="Please select your options">
-                <nCheckbox
-                    v-for="switchoption in switchoptions"
-                    :switches="true"
-                    :switchRight="true"
-                    :key="switchoption.id"
-                    :value="switchoption.value"
-                    :id="switchoption.id"
-                    :name="switchoption.name"
-                    :disabled="switchoption.disabled"
-                    :checked="switchoption.checked">
-                    {{switchoption.label}}
-                </nCheckbox>
-            </FormField>
+        <h4>Switches</h4>
+        <div class="o-grid  u-margin-top-md">
+            <div class="o-grid__item  u-width-1@mobile">
+                <FormField label="Default Switch" message="Please select your options">
+                    <nCheckbox
+                        v-for="switchitem in switchitems"
+                        :switches="true"
+                        :key="switchitem.id"
+                        :value="switchitem.value"
+                        :id="switchitem.id"
+                        :name="switchitem.name"
+                        :disabled="switchitem.disabled"
+                        :checked="switchitem.checked">
+                        {{switchitem.label}}
+                    </nCheckbox>
+                </FormField>
+            </div>
+            <div class="o-grid__item  u-width-1@mobile">
+                <FormField label="Right Switch" message="Please select your options">
+                    <nCheckbox
+                        v-for="switchoption in switchoptions"
+                        :switches="true"
+                        :switchRight="true"
+                        :key="switchoption.id"
+                        :value="switchoption.value"
+                        :id="switchoption.id"
+                        :name="switchoption.name"
+                        :disabled="switchoption.disabled"
+                        :checked="switchoption.checked">
+                        {{switchoption.label}}
+                    </nCheckbox>
+                </FormField>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import "@nitro-ui/object-grid";
+import "@nitro-ui/utility-width";
 import FormField from "../../packages/component-form-field/src/index";
 import nInput from "../../packages/component-form-input/src/index";
 import nTextarea from "../../packages/component-form-textarea/src/index";
@@ -208,7 +226,6 @@ export default {
                 { value: 'orange', label: 'Orange', id: '17', name: 'fruits'},
                 { value: 'honeydew', label: 'Honeydew', id: '18', name: 'fruits'}
             ],
-
             switchoptions:[
                 { value: 'allow', label: 'Allow Notification', id: '19', name: 'switch', checked: 'checked'},
                 { value: 'show', label: 'Show on Lock Screen', id: '20', name: 'switch'},
