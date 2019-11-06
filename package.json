@@ -44,6 +44,7 @@
         "@nitro-ui/component-drawer": "^1.0.0-alpha.4",
         "@nitro-ui/component-dropdown": "^1.0.0-alpha.5",
         "@nitro-ui/component-form": "^1.0.0",
+        "@nitro-ui/component-form-float": "^1.0.2",
         "@nitro-ui/component-modal": "^1.0.0",
         "@nitro-ui/component-pagination": "^1.0.0-alpha.6",
         "@nitro-ui/component-popover": "^1.0.0-alpha.4",
@@ -68,9 +69,9 @@
         "vue-clickaway": "^2.2.2"
     },
     "devDependencies": {
-        "@babel/core": "^7.6.4",
-        "@babel/plugin-transform-modules-commonjs": "^7.6.0",
-        "@babel/preset-env": "^7.6.3",
+        "@babel/core": "^7.7.0",
+        "@babel/plugin-transform-modules-commonjs": "^7.7.0",
+        "@babel/preset-env": "^7.7.1",
         "autoprefixer": "^9.7.1",
         "babel-eslint": "^10.0.3",
         "babel-loader": "^8.0.6",

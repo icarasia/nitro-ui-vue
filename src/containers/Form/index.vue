@@ -7,7 +7,7 @@
         <h4 class="u-margin-top-lg">Text input</h4>
         <div class="o-grid">
             <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
-                <FormField label="First Name" message="Help message" :class="'u-margin-bottom-xxs'">
+                <FormField label="First Name" message="Message here" :class="'u-margin-bottom-xxs'">
                     <nInput placeholder="Your first name" v-model="input1" />
                 </FormField>
                 <div class="u-margin-bottom-lg">
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
-                <FormField label="Error state with hint text" invalid message="Help message" hint="Optional" :class="'u-margin-bottom-xxs'">
+                <FormField label="Error state with hint text" invalid message="Message here" hint="Optional" :class="'u-margin-bottom-xxs'">
                     <nInput placeholder="Your first name" v-model="input2" />
                 </FormField>
                 <div class="u-margin-bottom-lg">
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
-                <FormField label="Disabled state" message="Help message" :class="'u-margin-bottom-xxs'">
+                <FormField label="Disabled state" message="Message here" :class="'u-margin-bottom-xxs'">
                     <nInput placeholder="Your first name" disabled v-model="input3" />
                 </FormField>
                 <div class="u-margin-bottom-lg">
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
-                <FormField label="Field size large" message="Help message" :class="'u-margin-bottom-xxs'">
+                <FormField label="Field size large" message="Message here" :class="'u-margin-bottom-xxs'">
                     <nInput placeholder="Your first name" size="lg" v-model="input4" />
                 </FormField>
                 <div class="u-margin-bottom-lg">
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
-                <FormField label="Field size small" message="Help message" :class="'u-margin-bottom-xxs'">
+                <FormField label="Field size small" message="Message here" :class="'u-margin-bottom-xxs'">
                     <nInput placeholder="Your first name" size="sm" v-model="input5" />
                 </FormField>
                 <div class="u-margin-bottom-lg">
@@ -100,7 +100,7 @@
             </div>
             <div class="o-grid__item  u-width-1@mobile">
                 <FormField label="Select with empty placeholder" message="Select your option" :class="'u-margin-bottom-xxs'">
-                    <nSelect :emptyPlaceholder="true" v-model="select3">
+                    <nSelect emptyPlaceholder v-model="select3">
                         <option
                             v-for="option in options"
                             :value="option.value">
@@ -114,7 +114,7 @@
             </div>
             <div class="o-grid__item  u-width-1@mobile">
                 <FormField label="Disabled state" message="Select your option" :class="'u-margin-bottom-xxs'">
-                    <nSelect v-model="select4" :disabled="true">
+                    <nSelect v-model="select4" disabled>
                         <option
                             v-for="option in options"
                             :value="option.value">
@@ -131,7 +131,7 @@
         <h4 class="u-margin-top-xl">Checkbox</h4>
         <div class="o-grid  u-margin-top-md">
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Default Checkbox" message="Please select your options" :class="'u-margin-bottom-xxs'">
+                <FormField label="Default Checkbox" message="Select your options" :class="'u-margin-bottom-xxs'">
                     <nCheckbox
                         v-for="checkboxesitem in checkboxesitems"
                         :key="checkboxesitem.id"
@@ -149,7 +149,7 @@
                 </div>
             </div>
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Inline Checkbox" message="Please select your options" :class="'u-margin-bottom-xxs'">
+                <FormField label="Inline Checkbox" message="Select your options" :class="'u-margin-bottom-xxs'">
                     <div class="c-check-inline">
                         <nCheckbox
                             v-for="checkbox in checkboxes"
@@ -174,7 +174,7 @@
         <h4 class="u-margin-top-xl">Radio</h4>
         <div class="o-grid  u-margin-top-md">
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Default Radio" message="Please select your options">
+                <FormField label="Default Radio" message="Select your option" :class="'u-margin-bottom-xxs'">
                     <nRadio
                         v-for="radioitem in radioitems"
                         :key="radioitem.id"
@@ -192,7 +192,7 @@
                 </div>
             </div>
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Inline Radio" message="Please select your options">
+                <FormField label="Inline Radio" message="Select your option" :class="'u-margin-bottom-xxs'">
                     <div class="c-check-inline">
                         <nRadio
                             v-for="radio in radios"
@@ -216,7 +216,7 @@
         <h4 class="u-margin-top-xl">Switch</h4>
         <div class="o-grid  u-margin-top-md">
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Default Switch" message="Please select your options" :class="'u-margin-bottom-lg'">
+                <FormField label="Default Switch" message="Turning on / off for above settings" :class="'u-margin-bottom-xxs'">
                     <nCheckbox
                         v-for="switchitem in switchitems"
                         :switches="true"
@@ -235,7 +235,7 @@
                 </div>
             </div>
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Right Switch" message="Please select your options" :class="'u-margin-bottom-lg'">
+                <FormField label="Right Switch" message="Turning on / off for above settings" :class="'u-margin-bottom-xxs'">
                     <nCheckbox
                         v-for="switchoption in switchoptions"
                         :switches="true"
@@ -259,7 +259,7 @@
         <h4 class="u-margin-top-xl">File Upload</h4>
         <div class="o-grid  u-margin-top-md">
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="File Upload" message="Please upload your file" :class="'u-margin-bottom-xs'">
+                <FormField label="File Upload" message="Please upload your file" :class="'u-margin-bottom-xxs'">
                     <nFileUpload v-model="fileupload"/>
                 </FormField>
                 <div class="u-margin-bottom-lg">
@@ -267,7 +267,7 @@
                 </div>
             </div>
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Error state" message="Please upload your file" :invalid="true" :class="'u-margin-bottom-xs'">
+                <FormField label="Error state" message="Please upload your file" :invalid="true" :class="'u-margin-bottom-xxs'">
                     <nFileUpload v-model="fileupload1"/>
                 </FormField>
                 <div class="u-margin-bottom-lg">
@@ -275,10 +275,10 @@
                 </div>
             </div>
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Disabled state" message="Please upload your file" :class="'u-margin-bottom-xs'">
+                <FormField label="Disabled state" message="Please upload your file" :class="'u-margin-bottom-xxs'">
                     <nFileUpload
-                    :disabled="true"
-                     v-model="fileupload2"
+                        disabled
+                        v-model="fileupload2"
                     />
                 </FormField>
                 <div class="u-margin-bottom-lg">
@@ -290,7 +290,7 @@
         <h4 class="u-margin-top-xl">Input with button</h4>
         <div class="o-grid  u-margin-top-md">
             <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
-                <FormField label="Input with button" message="Please upload your file" :class="'u-margin-bottom-xs'">
+                <FormField label="Label" message="Message here" :class="'u-margin-bottom-xxs'">
                     <nInputBtn v-model="inputbtnresult">
                         <Button variant="secondary">Button</Button>
                     </nInputBtn>
@@ -300,7 +300,7 @@
                 </div>
             </div>
             <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
-                <FormField label="Error State" message="Please upload your file" :invalid="true" :class="'u-margin-bottom-xs'">
+                <FormField label="Error State" message="Message here" invalid :class="'u-margin-bottom-xxs'">
                     <nInputBtn v-model="inputbtnresult1">
                         <Button variant="secondary">Button</Button>
                     </nInputBtn>
@@ -310,13 +310,117 @@
                 </div>
             </div>
             <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
-                <FormField label="Disabled state" message="Please upload your file" :class="'u-margin-bottom-xs'">
-                    <nInputBtn :disabled="true"  v-model="inputbtnresult2">
+                <FormField label="Disabled state" message="Message here" :class="'u-margin-bottom-xs'">
+                    <nInputBtn disabled  v-model="inputbtnresult2">
                         <Button variant="secondary">Button</Button>
                     </nInputBtn>
                 </FormField>
                 <div class="u-margin-bottom-lg">
                     {{ inputbtnresult2 }}
+                </div>
+            </div>
+        </div>
+
+        <h4 class="u-margin-top-xl">Floating Label</h4>
+        <div class="o-grid  u-margin-top-md  u-margin-bottom-xl">
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormFieldFloat label="Label" message="Message here" :class="'u-margin-bottom-xxs'">
+                    <nInput v-model="floatlabelresult" />
+                </FormFieldFloat>
+                <div class="u-margin-bottom-lg">
+                    {{ floatlabelresult }}
+                </div>
+            </div>
+
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormFieldFloat label="Error State" hint="Optional" invalid message="Message here" :class="'u-margin-bottom-xxs'">
+                    <nInput v-model="floatlabelresult1" />
+                </FormFieldFloat>
+                <div class="u-margin-bottom-lg">
+                    {{ floatlabelresult1 }}
+                </div>
+            </div>
+
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormFieldFloat label="Disabled State" hint="Optional" message="Message here" :class="'u-margin-bottom-xxs'">
+                    <nInput disabled v-model="floatlabelresult2" />
+                </FormFieldFloat>
+                <div class="u-margin-bottom-lg">
+                    {{ floatlabelresult2 }}
+                </div>
+            </div>
+
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormFieldFloat label="label" message="Select your option" :class="'u-margin-bottom-xxs'">
+                    <nSelect v-model="floatlabelselectresult"  emptyPlaceholder >
+                        <option
+                            v-for="option in options"
+                            :value="option.value">
+                            {{ option.label }}
+                        </option>
+                    </nSelect>
+                </FormFieldFloat>
+                <div class="u-margin-bottom-lg">
+                    {{ floatlabelselectresult }}
+                </div>
+            </div>
+
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormFieldFloat label="Error State" invalid  message="Select your option" :class="'u-margin-bottom-xxs'">
+                    <nSelect v-model="floatlabelselectresult1">
+                        <option
+                            v-for="option in options"
+                            :value="option.value">
+                            {{ option.label }}
+                        </option>
+                    </nSelect>
+                </FormFieldFloat>
+                <div class="u-margin-bottom-lg">
+                    {{ floatlabelselectresult1 }}
+                </div>
+            </div>
+
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormFieldFloat label="Disabled state" message="Select your option" :class="'u-margin-bottom-xxs'">
+                    <nSelect disabled emptyPlaceholder>
+                        <option
+                            v-for="option in options"
+                            :value="option.value">
+                            {{ option.label }}
+                        </option>
+                    </nSelect>
+                </FormFieldFloat>
+            </div>
+
+
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormFieldFloat label="Label" message="Message here" :class="'u-margin-bottom-xxs'">
+                    <nInputBtn v-model="floatlabelinputbtnresult1">
+                        <Button variant="secondary">Button</Button>
+                    </nInputBtn>
+                </FormFieldFloat>
+                <div class="u-margin-bottom-lg">
+                    {{ floatlabelinputbtnresult1 }}
+                </div>
+            </div>
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormFieldFloat invalid label="Error State" message="Message here" :class="'u-margin-bottom-xxs'">
+                    <nInputBtn v-model="floatlabelinputbtnresult2">
+                        <Button variant="secondary">Button</Button>
+                    </nInputBtn>
+                </FormFieldFloat>
+                <div class="u-margin-bottom-lg">
+                    {{ floatlabelinputbtnresult2 }}
+                </div>
+            </div>
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormFieldFloat label="Disabled State" message="Message here" :class="'u-margin-bottom-xxs'">
+                    <nInputBtn disabled v-model="floatlabelinputbtnresult3">
+                        <Button variant="secondary">Button</Button>
+                    </nInputBtn>
+                </FormFieldFloat>
+                <div class="u-margin-bottom-lg">
+                    {{ floatlabelinputbtnresult3 }}
                 </div>
             </div>
         </div>
@@ -329,6 +433,7 @@ import "@nitro-ui/utility-width";
 import "@nitro-ui/component-button";
 import Button from "../../packages/component-button/src";
 import FormField from "../../packages/component-form-field/src/index";
+import FormFieldFloat from "../../packages/component-form-field-floatlabel/src/index";
 import nInput from "../../packages/component-form-input/src/index";
 import nTextarea from "../../packages/component-form-textarea/src/index";
 import nSelect from "../../packages/component-form-select/src/index";
@@ -341,6 +446,7 @@ export default {
     name: "FormPage",
     components: {
         FormField,
+        FormFieldFloat,
         nInput,
         nTextarea,
         nSelect,
@@ -375,6 +481,14 @@ export default {
             inputbtnresult: null,
             inputbtnresult1: null,
             inputbtnresult2: null,
+            floatlabelresult: null,
+            floatlabelresult1: null,
+            floatlabelresult2: null,
+            floatlabelselectresult: null,
+            floatlabelselectresult1: null,
+            floatlabelinputbtnresult1: null,
+            floatlabelinputbtnresult2: null,
+            floatlabelinputbtnresult3: null,
             options: [
                 { value: '01', label: '01' },
                 { value: '02', label: '02' },
