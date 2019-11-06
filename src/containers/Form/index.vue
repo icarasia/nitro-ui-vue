@@ -1,29 +1,77 @@
 <template>
     <div>
-        <div class="display-4"></div>
-        <div class="text-muted">
+        <div class="display-4  u-margin-top-lg">Form</div>
+        <div class="u-margin-top-lg  text-muted">
             Some awesome description about Form.
         </div>
-        <div class="u-margin-top-md  u-width-1/2  u-width-1@mobile">
-            <h4>Text input</h4>
-            <FormField label="First Name" invalid message="Help message" hint="Optional">
-                <nInput placeholder="Your first name" v-model="first_name" />
-            </FormField>
-            {{ first_name }}
+        <h4 class="u-margin-top-lg">Text input</h4>
+        <div class="o-grid">
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormField label="First Name" message="Help message" :class="'u-margin-bottom-xxs'">
+                    <nInput placeholder="Your first name" v-model="input1" />
+                </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ input1 }}
+                </div>
+            </div>
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormField label="Error state with hint text" invalid message="Help message" hint="Optional" :class="'u-margin-bottom-xxs'">
+                    <nInput placeholder="Your first name" v-model="input2" />
+                </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ input2 }}
+                </div>
+            </div>
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormField label="Disabled state" message="Help message" :class="'u-margin-bottom-xxs'">
+                    <nInput placeholder="Your first name" disabled v-model="input3" />
+                </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ input3 }}
+                </div>
+            </div>
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormField label="Field size large" message="Help message" :class="'u-margin-bottom-xxs'">
+                    <nInput placeholder="Your first name" size="lg" v-model="input4" />
+                </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ input4}}
+                </div>
+            </div>
+            <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+                <FormField label="Field size small" message="Help message" :class="'u-margin-bottom-xxs'">
+                    <nInput placeholder="Your first name" size="sm" v-model="input5" />
+                </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ input5 }}
+                </div>
+            </div>
         </div>
 
-        <div class="u-margin-top-md  u-width-1/2  u-width-1@mobile">
-            <h4>Textarea</h4>
-            <FormField label="Address" message="Key in your full address">
-                <nTextarea placeholder="Your first name" v-model="address" />
-            </FormField>
-            {{ address }}
-        </div>
-
-        <h4>Select</h4>
+        <h4 class="u-margin-top-xl">Textarea</h4>
         <div class="o-grid  u-margin-top-md">
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Select with placeholder" message="Select your option">
+                <FormField label="Address" message="Key in your full address" :class="'u-margin-bottom-xxs'">
+                    <nTextarea placeholder="Your first name" v-model="address" />
+                </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ address }}
+                </div>
+            </div>
+            <div class="o-grid__item  u-width-1@mobile">
+                <FormField label="Textarea with hint text" message="Key in your full address" hint="Optional" :class="'u-margin-bottom-xxs'">
+                    <nTextarea placeholder="Your first name" v-model="address2" />
+                </FormField>
+                <div class="u-margin-bottom-lg">
+                    {{ address2 }}
+                </div>
+            </div>
+        </div>
+
+        <h4 class="u-margin-top-xl">Select</h4>
+        <div class="o-grid  u-margin-top-md">
+            <div class="o-grid__item  u-width-1@mobile">
+                <FormField label="Select with placeholder" message="Select your option" :class="'u-margin-bottom-xxs'">
                     <nSelect placeholder="Please select your option" v-model="select">
                         <option
                             v-for="option in options"
@@ -32,10 +80,12 @@
                         </option>
                     </nSelect>
                 </FormField>
-                {{ select }}
+                <div class="u-margin-bottom-lg">
+                    {{ select }}
+                </div>
             </div>
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Select with first option" message="Select your option" :invalid="true">
+                <FormField label="Select with first option" message="Select your option" :invalid="true" :class="'u-margin-bottom-xxs'">
                     <nSelect v-model="select2">
                         <option
                             v-for="option in options"
@@ -44,10 +94,12 @@
                         </option>
                     </nSelect>
                 </FormField>
-                {{ select2 }}
+                <div class="u-margin-bottom-lg">
+                    {{ select2 }}
+                </div>
             </div>
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Select with empty placeholder" message="Select your option">
+                <FormField label="Select with empty placeholder" message="Select your option" :class="'u-margin-bottom-xxs'">
                     <nSelect :emptyPlaceholder="true" v-model="select3">
                         <option
                             v-for="option in options"
@@ -56,10 +108,12 @@
                         </option>
                     </nSelect>
                 </FormField>
-                {{ select3 }}
+                <div class="u-margin-bottom-lg">
+                    {{ select3 }}
+                </div>
             </div>
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Disabled state" message="Select your option">
+                <FormField label="Disabled state" message="Select your option" :class="'u-margin-bottom-xxs'">
                     <nSelect v-model="select4" :disabled="true">
                         <option
                             v-for="option in options"
@@ -68,14 +122,16 @@
                         </option>
                     </nSelect>
                 </FormField>
-                {{ select4 }}
+                <div class="u-margin-bottom-lg">
+                    {{ select4 }}
+                </div>
             </div>
         </div>
 
-        <h4>Checkbox</h4>
+        <h4 class="u-margin-top-xl">Checkbox</h4>
         <div class="o-grid  u-margin-top-md">
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Default Checkbox" message="Please select your options" :class="'u-margin-bottom-xs'">
+                <FormField label="Default Checkbox" message="Please select your options" :class="'u-margin-bottom-xxs'">
                     <nCheckbox
                         v-for="checkboxesitem in checkboxesitems"
                         :key="checkboxesitem.id"
@@ -93,7 +149,7 @@
                 </div>
             </div>
             <div class="o-grid__item  u-width-1@mobile">
-                <FormField label="Inline Checkbox" message="Please select your options" :class="'u-margin-bottom-xs'">
+                <FormField label="Inline Checkbox" message="Please select your options" :class="'u-margin-bottom-xxs'">
                     <div class="c-check-inline">
                         <nCheckbox
                             v-for="checkbox in checkboxes"
@@ -115,7 +171,7 @@
         </div>
 
 
-        <h4>Radio</h4>
+        <h4 class="u-margin-top-xl">Radio</h4>
         <div class="o-grid  u-margin-top-md">
             <div class="o-grid__item  u-width-1@mobile">
                 <FormField label="Default Radio" message="Please select your options">
@@ -157,7 +213,7 @@
             </div>
         </div>
 
-        <h4>Switch</h4>
+        <h4 class="u-margin-top-xl">Switch</h4>
         <div class="o-grid  u-margin-top-md">
             <div class="o-grid__item  u-width-1@mobile">
                 <FormField label="Default Switch" message="Please select your options" :class="'u-margin-bottom-lg'">
@@ -200,7 +256,7 @@
             </div>
         </div>
 
-        <h4>File Upload</h4>
+        <h4 class="u-margin-top-xl">File Upload</h4>
         <div class="o-grid  u-margin-top-md">
             <div class="o-grid__item  u-width-1@mobile">
                 <FormField label="File Upload" message="Please upload your file" :class="'u-margin-bottom-xs'">
@@ -231,7 +287,7 @@
             </div>
         </div>
 
-        <h4>Input with button</h4>
+        <h4 class="u-margin-top-xl">Input with button</h4>
         <div class="o-grid  u-margin-top-md">
             <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
                 <FormField label="Input with button" message="Please upload your file" :class="'u-margin-bottom-xs'">
@@ -296,8 +352,13 @@ export default {
     },
     data() {
         return {
-            first_name: null,
+            input1: null,
+            input2: null,
+            input3: null,
+            input4: null,
+            input5: null,
             address: null,
+            address2: null,
             select: null,
             select2: null,
             select3: null,

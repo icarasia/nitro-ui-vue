@@ -2,6 +2,7 @@
     <input
         type="text"
         class="c-input"
+        :class="classes"
         :placeholder="placeholder"
         :value="value"
         @focus="$emit('focus')"
@@ -22,12 +23,16 @@ export default {
         placeholder: String,
         defaultValue: String,
         value: null,
-        disabled: Boolean
+        disabled: Boolean,
+        size: String
     },
     mixins: [Spaces],
     computed: {
         classes() {
-            return [...this.classNameUtilitySpaces];
+            return [
+                this.size ? `c-input--${this.size}` : '',
+                ...this.classNameUtilitySpaces
+            ];
         }
     }
 };
