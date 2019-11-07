@@ -1,7 +1,7 @@
 {
     "name": "@nitro-ui/vue-framework",
     "description": "Awesome Vue Component Wrapper for Nitro UI",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "main": "dist/NitroUiVue.common.js",
     "module": "dist/index.esm.js",
     "license": "MIT",
