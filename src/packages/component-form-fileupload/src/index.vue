@@ -1,6 +1,6 @@
 <template>
   <input
-    type="text"
+    type="file"
     class="c-input"
     :placeholder="placeholder"
     :value="value"
@@ -14,9 +14,8 @@
 
 <script>
 import "@nitro-ui/component-form";
-
 export default {
-  name: "niFormInput",
+  name: "FormFileUpload",
   props: {
     placeholder: String,
     defaultValue: String,
