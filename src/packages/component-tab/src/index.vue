@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "tab",
+  name: "niTab",
   props: {
     label: String,
     active: {

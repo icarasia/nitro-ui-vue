@@ -11,7 +11,7 @@
           buttons ? `c-btn c-btn--${variant}-outline` : ''
         ]"
         data-toggle="tab"
-        href="#nav-1"
+        href="#"
         role="tab"
         v-for="(tab, index) in tabs"
         :key="`tab-header${index}`"

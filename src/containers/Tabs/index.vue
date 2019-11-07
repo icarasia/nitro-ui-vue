@@ -77,7 +77,7 @@
 
 <script>
 import Tabs from "../../packages/component-tabs/src/index";
-import Tab from "../../packages/component-tabs/src/tab";
+import Tab from "../../packages/component-tab/src/index";
 import Card from "../../packages/component-card/src/index";
 
 export default {

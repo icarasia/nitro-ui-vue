@@ -16,7 +16,7 @@
 import "@nitro-ui/component-form";
 
 export default {
-  name: "niFormTextArea",
+  name: "niTextarea",
   props: {
     placeholder: String,
     defaultValue: String,
