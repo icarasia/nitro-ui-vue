@@ -16,7 +16,7 @@
 </template>
 
 <script>
-// import "@nitro-ui/component-popover";
+import "@nitro-ui/component-popover";
 import "@nitro-ui/component-chips";
 import "@nitro-ui/component-card";
 import niArrow from "../../component-arrow/src/index";
