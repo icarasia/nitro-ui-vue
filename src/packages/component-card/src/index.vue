@@ -5,7 +5,7 @@
       <slot v-else name="header"></slot>
     </div>
     <div class="c-card__body" v-if="!menu && !noBody">
-      <h3 class="c-card__title"><slot name="special_title"></slot></h3>
+      <h3 class="c-card__title" v-if="hasSpecialTitleSlot"><slot name="special_title"></slot></h3>
       <div><slot></slot></div>
     </div>
     <ul class="c-card__menu" v-else-if="menu">
@@ -68,6 +68,9 @@ export default {
     },
     hasHeaderSlot() {
       return this.$slots["header"];
+    },
+    hasSpecialTitleSlot() {
+      return this.$slots["special_title"];
     }
   }
 };
