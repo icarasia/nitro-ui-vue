@@ -1,78 +1,84 @@
 <template>
-    <div
-        class="c-dropdown"
-        :class="classes"
-        @click="isOpen = !isOpen"
-        v-on-clickaway="close"
+  <div
+    class="c-dropdown"
+    :class="classes"
+    @click="isOpen = !isOpen"
+    v-on-clickaway="close"
+  >
+    <a
+      :class="`c-dropdown__control ${titleClasses}`"
+      :data-toggle="toggleable ? 'dropdown' : ''"
     >
-        <a
-            href="#"
-            class="c-dropdown__control"
-            :data-toggle="toggleable ? 'dropdown' : ''"
-            >{{ title }}</a
-        >
-        <div class="c-dropdown__base">
-            <with-root :showIf="isMega">
-                <div class="c-dropdown__mega">
-                    <div
-                        class="c-dropdown__menu"
-                        v-for="(all_items, index) in isMega ? items : [items]"
-                        :key="index"
-                    >
-                        <Dropdown-menu
-                            v-for="(item, index) in all_items"
-                            :index="index"
-                            :item="item"
-                            :key="index"
-                        />
-                    </div>
-                </div>
-            </with-root>
+      <slot name="title" v-if="$slots.title"></slot>
+      <template v-else>
+        {{ title }}
+      </template>
+    </a>
+    <div class="c-dropdown__base">
+      <slot v-if="$slots.default"></slot>
+      <with-root :showIf="isMega" v-else>
+        <div class="c-dropdown__mega">
+          <div
+            class="c-dropdown__menu"
+            v-for="(all_items, index) in isMega ? items : [items]"
+            :key="index"
+          >
+            <Dropdown-menu
+              v-for="(item, index) in all_items"
+              :index="index"
+              :item="item"
+              :key="index"
+            />
+          </div>
         </div>
+      </with-root>
     </div>
+  </div>
 </template>
 
 <script>
 import "@nitro-ui/component-dropdown";
-import Spaces from "../../utility-spaces/src/mixins/Spaces";
 import DropdownMenu from "./DropdownMenu";
 import WithRoot from "../../../helpers/with-root";
 import { mixin as clickaway } from "vue-clickaway";
 
 export default {
-    name: "Dropdown",
-    components: { WithRoot, DropdownMenu },
-    props: {
-        title: String,
-        position: { type: String, default: "" },
-        toggleable: {
-            type: Boolean,
-            default: false
-        },
-        items: Array
+  name: "niDropdown",
+  components: { WithRoot, DropdownMenu },
+  props: {
+    title: {
+      type: String,
+      default: ""
     },
-    data() {
-        return {
-            isOpen: false
-        };
+    position: { type: String, default: "" },
+    toggleable: {
+      type: Boolean,
+      default: false
     },
-    mixins: [Spaces, clickaway],
-    computed: {
-        classes() {
-            return [
-                ...this.classNameUtilitySpaces,
-                this.position ? `c-dropdown--${this.position}` : "",
-                { "is--open": this.toggleable && this.isOpen }
-            ];
-        },
-        isMega() {
-            return this.items.length > 0 && Array.isArray(this.items[0]);
-        }
+    items: Array,
+    titleClasses: { type: String, default: "" }
+  },
+  data() {
+    return {
+      isOpen: false
+    };
+  },
+  mixins: [clickaway],
+  computed: {
+    classes() {
+      return [
+        this.position ? `c-dropdown--${this.position}` : "",
+        { "is--open": this.toggleable && this.isOpen }
+      ];
     },
-    methods: {
-        close: function() {
-            this.isOpen = false;
-        }
+    isMega() {
+      return this.items.length > 0 && Array.isArray(this.items[0]);
     }
+  },
+  methods: {
+    close: function() {
+      this.isOpen = false;
+    }
+  }
 };
 </script>
