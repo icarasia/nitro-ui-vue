@@ -4,7 +4,7 @@
 
 <script>
 import "@nitro-ui/component-arrow";
-import Spaces from "../../utility-spaces/src/mixins/Spaces";
+// import Spaces from "../../utility-spaces/src/mixins/Spaces";
 
 export default {
   name: "niArrow",
@@ -14,10 +14,13 @@ export default {
       default: "top"
     }
   },
-  mixins: [Spaces],
+  // mixins: [Spaces],
   computed: {
     classes() {
-      return [...this.classNameUtilitySpaces, `c-arrow--${this.position}`];
+      return [
+          // ...this.classNameUtilitySpaces, 
+          `c-arrow--${this.position}`
+      ];
     }
   }
 };
