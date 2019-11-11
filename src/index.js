@@ -52,6 +52,7 @@ export { default as niFormTextarea } from "./packages/component-form-textarea";
 export { default as niLink } from "./packages/component-link";
 export { default as niModal } from "./packages/component-modal";
 export { default as niPaginator } from "./packages/component-paginator";
+export { default as niPopover } from "./packages/component-popover";
 export { default as niRow } from "./packages/component-row";
 export { default as niSidebar } from "./packages/component-sidebar";
 export { default as niStep } from "./packages/component-step";
