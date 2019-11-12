@@ -70,7 +70,7 @@ Types of changes:
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
 
-## [1.0.10] - 2019-10-12
+## [1.0.23] - 2019-10-12
 
 - `Fixed` Missing dist files in Nitro UI Utilities
 - `Removed` deprecated package `@nitro-ui/css-core`
