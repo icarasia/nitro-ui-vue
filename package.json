@@ -1,19 +1,15 @@
 {
     "name": "@nitro-ui/vue-framework",
     "description": "Awesome Vue Component Wrapper for Nitro UI",
-    "version": "1.0.23",
+    "version": "1.0.27",
     "main": "dist/NitroUiVue.common.js",
     "module": "dist/index.esm.js",
     "license": "MIT",
     "scripts": {
-        "dev": "webpack --config webpack/webpack.config.dev.js",
-        "hot": "webpack --config webpack/webpack.config.dev.js --watch --watch-poll --progress --hide-modules",
-        "serve_old": "webpack-dev-server --config webpack/webpack.config.dev.js",
-        "build_old": "bash scripts/build.sh",
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
-        "build-bundle": "vue-cli-service build --target lib --name NitroUiVue ./src/index.js"
+        "lib": "vue-cli-service build --target lib --name NitroUiVue ./src/index.js"
     },
     "keywords": [
         "Nitro",
@@ -37,6 +33,7 @@
         "email": "i.works@live.com"
     },
     "dependencies": {
+        "@nitro-ui/bundle-utilities": "^1.0.0",
         "@nitro-ui/component-alert": "^1.0.0-alpha.3",
         "@nitro-ui/component-avatar": "^1.0.0",
         "@nitro-ui/component-breadcrumb": "^1.0.0-alpha.7",
@@ -65,7 +62,6 @@
         "@nitro-ui/object-list": "^1.0.0-alpha.5",
         "@nitro-ui/svg-icons": "^1.0.0-alpha.0",
         "@nitro-ui/svg-icons-vue": "^0.1.1",
-        "@nitro-ui/utility": "^1.0.0-alpha.2",
         "@nitro-ui/utility-display": "^1.0.0-alpha.8",
         "@nitro-ui/utility-flex": "^1.0.0-alpha.8",
         "@nitro-ui/utility-overflow": "^1.0.0",

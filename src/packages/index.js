@@ -12,9 +12,7 @@ export { default as niDropdown } from "./component-dropdown";
 export { default as niCheckbox } from "./component-form-checkbox";
 export { default as niCheckboxGroup } from "./component-form-checkbox-group";
 export { default as niFormField } from "./component-form-field";
-export {
-  default as niFormFieldFloatable
-} from "./component-form-field-floatlabel";
+export { default as niFormFieldFloatLabel } from "./component-form-field-floatlabel";
 export { default as niFormFile } from "./component-form-fileupload";
 export { default as niFormInput } from "./component-form-input";
 export { default as niFormInputButton } from "./component-form-input-button";
@@ -25,9 +23,16 @@ export { default as niFormTextarea } from "./component-form-textarea";
 export { default as niLink } from "./component-link";
 export { default as niModal } from "./component-modal";
 export { default as niPaginator } from "./component-paginator";
+export { default as niPopover } from "./component-popover";
 export { default as niRow } from "./component-row";
 export { default as niSidebar } from "./component-sidebar";
-export { default as niStep } from "./component-step";
+export {
+  StepperComponent as niStepper,
+  StepperItemComponent as niStepperItem,
+  StepperBodyComponent as niStepperBody,
+  StepperHeaderComponent as niStepperHeader,
+  StepperHeaderItemComponent as niStepperHeaderItem
+} from "./component-stepper";
 export { default as niTab } from "./component-tab";
 export { default as niTable } from "./component-table";
 export { default as niTabs } from "./component-tabs";

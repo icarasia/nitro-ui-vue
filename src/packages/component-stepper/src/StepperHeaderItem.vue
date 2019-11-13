@@ -10,13 +10,13 @@
     <div class="c-step__indicator">
       <span class="c-step__number">{{ step }}</span>
     </div>
-    {{ step }}
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
+  name: "niStepperHeaderItem",
   props: {
     step: {
       type: Number,
@@ -46,7 +46,8 @@ export default {
         // emmit finish if final step
         if (
           this.complete &&
-          (step === this.$parent.maxStep && operator !== "-")
+          step === this.$parent.maxStep &&
+          operator !== "-"
         ) {
           this.$parent.$parent.$emit("finishStep");
           return;

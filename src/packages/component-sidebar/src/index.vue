@@ -11,7 +11,7 @@
           @click.prevent="openSidebar"
           class="c-sidebar__hamburger u-flex  u-padding-top-md u-flex--justify-center  js-sidebar-menu-btn c-pointer"
         >
-          <NitroIcon name="navigation/menu" size="m" role="button"></NitroIcon>
+          <NitroIcon name="navigation/menu" size="24" role="button"></NitroIcon>
         </nLink>
 
         <nLink
@@ -20,7 +20,7 @@
         >
           <NitroIcon
             name="navigation/chevron-left"
-            size="m"
+            size="20"
             role="button"
           ></NitroIcon>
         </nLink>

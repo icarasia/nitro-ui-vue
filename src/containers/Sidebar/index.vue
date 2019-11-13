@@ -32,7 +32,7 @@
         <nLink class="u-flex  u-flex--items-center  no--underline">
           <NitroIcon
             name="icarsuite/icarcoins-color"
-            size="m"
+            size="32"
             role="button"
             original-color
           ></NitroIcon>
@@ -45,13 +45,14 @@
           toggleable
           position="right"
           class="c-notification"
-          title-classes="u-margin-left-lg  u-padding-ends-md"
+          title-classes="u-margin-left-lg u-flex u-flex--items-center u-relative no--underline"
           :items="items1"
         >
           <template slot="title">
             <NitroIcon
               name="response/notifications"
-              size="m"
+              size="24"
+              color="muted"
               role="button"
             ></NitroIcon>
             <span class="has--notification  u-rounded  u-absolute"></span>
@@ -68,7 +69,8 @@
           <template slot="title">
             <NitroIcon
               name="icarsuite/apps-2"
-              size="m"
+              size="24"
+              color="muted"
               role="button"
             ></NitroIcon>
           </template>

@@ -1,6 +1,6 @@
 import * as niComponents from "./packages";
 import niTooltip from "./packages/directive-tooltip/src";
-import "@nitro-ui/utility";
+import "@nitro-ui/bundle-utilities";
 import "@nitro-ui/svg-icons-vue/dist/NitroIcon.css";
 
 import NitroIcon from "@nitro-ui/svg-icons-vue";
@@ -55,7 +55,13 @@ export { default as niPaginator } from "./packages/component-paginator";
 export { default as niPopover } from "./packages/component-popover";
 export { default as niRow } from "./packages/component-row";
 export { default as niSidebar } from "./packages/component-sidebar";
-export { default as niStep } from "./packages/component-step";
+export {
+  StepperComponent as niStepper,
+  StepperItemComponent as niStepperItem,
+  StepperBodyComponent as niStepperBody,
+  StepperHeaderComponent as niStepperHeader,
+  StepperHeaderItemComponent as niStepperHeaderItem
+} from "./packages/component-stepper";
 export { default as niTab } from "./packages/component-tab";
 export { default as niTable } from "./packages/component-table";
 export { default as niTabs } from "./packages/component-tabs";

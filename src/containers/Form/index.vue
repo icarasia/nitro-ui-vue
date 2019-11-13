@@ -10,7 +10,7 @@
         label="First Name"
         invalid
         message="Help message"
-        hint="Optional"
+        info="Optional"
       >
         <nInput placeholder="Your first name" v-model="first_name" />
       </FormField>
@@ -21,6 +21,9 @@
       <h4>Textarea</h4>
       <FormField label="Address" message="Key in your full address">
         <nTextarea placeholder="Your first name" v-model="address" />
+        <div slot="info">
+          Test
+        </div>
       </FormField>
       {{ address }}
     </div>
@@ -369,18 +372,62 @@
 
       <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
         <FormFieldFloat
+          label="Label"
+          message="Message here"
+          :class="'u-margin-bottom-xxs'"
+        >
+          <n-textarea v-model="floatlabelresult" />
+        </FormFieldFloat>
+        <div class="u-margin-bottom-lg">
+          {{ floatlabelresult }}
+        </div>
+      </div>
+
+      <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+        <FormFieldFloat
+          label="Error State"
+          hint="Optional"
+          invalid
+          message="Message here"
+          :class="'u-margin-bottom-xxs'"
+        >
+          <n-textarea v-model="floatlabelresult1" />
+        </FormFieldFloat>
+        <div class="u-margin-bottom-lg">
+          {{ floatlabelresult1 }}
+        </div>
+      </div>
+
+      <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+        <FormFieldFloat
+          label="Disabled State"
+          hint="Optional"
+          message="Message here"
+          :class="'u-margin-bottom-xxs'"
+        >
+          <n-textarea disabled v-model="floatlabelresult2" />
+        </FormFieldFloat>
+        <div class="u-margin-bottom-lg">
+          {{ floatlabelresult2 }}
+        </div>
+      </div>
+      <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+        <FormFieldFloat
           label="label"
           message="Select your option"
           :class="'u-margin-bottom-xxs'"
         >
-          <nSelect v-model="floatlabelselectresult" emptyPlaceholder>
-            <option
-              v-for="(option, index) in options"
-              :value="option.value"
-              :key="index"
-            >
-              {{ option.label }}
-            </option>
+          <nSelect
+            v-model="floatlabelselectresult"
+            emptyPlaceholder
+            :options="[
+              { label: 'first', value: 1 },
+              { label: 'second', value: 2 },
+              { label: 'third', value: 3 },
+              { label: 'fourth', value: 4 },
+              { label: 'fifth', value: 5 }
+            ]"
+          >
           </nSelect>
         </FormFieldFloat>
         <div class="u-margin-bottom-lg">
@@ -436,7 +483,7 @@
         >
           <nInputBtn v-model="floatlabelinputbtnresult1">
             <nButton variant="primary" v-tooltip="'test'">
-              <NitroIcon name="action/add" size="m"></NitroIcon>
+              <NitroIcon name="action/add" size="20"></NitroIcon>
             </nButton>
           </nInputBtn>
         </FormFieldFloat>
@@ -468,6 +515,7 @@
           <nInputBtn disabled v-model="floatlabelinputbtnresult3">
             <nButton variant="secondary">Button</nButton>
           </nInputBtn>
+          <span slot="info">TTeessting</span>
         </FormFieldFloat>
         <div class="u-margin-bottom-lg">
           {{ floatlabelinputbtnresult3 }}

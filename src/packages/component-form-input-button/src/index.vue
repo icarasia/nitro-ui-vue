@@ -18,7 +18,7 @@
 <script>
 import "@nitro-ui/component-form";
 export default {
-  name: "FormInputBtn",
+  name: "niInputBtn",
   props: {
     placeholder: String,
     defaultValue: String,

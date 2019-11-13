@@ -15,7 +15,16 @@
     <template v-if="emptyPlaceholder">
       <option :value="null"> </option>
     </template>
-    <slot />
+    <slot v-if="$slots.default" />
+    <template v-else>
+      <option
+        v-for="(option, index) in options"
+        :value="option.value"
+        :key="index"
+      >
+        {{ option.label }}
+      </option>
+    </template>
   </select>
 </template>
 
@@ -28,6 +37,13 @@ export default {
     placeholder: String,
     emptyPlaceholder: Boolean,
     value: null,
+    options: {
+      type: Array,
+      required: false,
+      default: () => {
+        return [];
+      }
+    },
     disabled: Boolean
   }
 };
