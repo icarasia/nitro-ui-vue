@@ -15,7 +15,7 @@
       active-class="is--active"
     >
       <div class="u-flex  u-flex--items-center" @click="itemClicked(menuItem)">
-        <NitroIcon :name="menuItem.icon" size="m" role="button"></NitroIcon>
+        <NitroIcon :name="menuItem.icon" size="20" role="button"></NitroIcon>
         <span class="c-sidebar__label  u-margin-left-sm  u-hidden">{{
           menuItem.text
         }}</span>
@@ -111,9 +111,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.item-list {
-  height: 45px;
-}
-</style>

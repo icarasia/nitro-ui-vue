@@ -18,8 +18,8 @@ export default {
   computed: {
     classes() {
       return [
-          // ...this.classNameUtilitySpaces, 
-          `c-arrow--${this.position}`
+        // ...this.classNameUtilitySpaces,
+        `c-arrow--${this.position}`
       ];
     }
   }

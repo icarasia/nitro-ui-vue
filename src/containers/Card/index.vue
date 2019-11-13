@@ -9,9 +9,7 @@
     <div class="text-muted">
       Normal Card
       <card marginTop="md">
-        <template v-slot:header
-          >HI</template
-        >
+        <template v-slot:header>HI</template>
         test
       </card>
     </div>

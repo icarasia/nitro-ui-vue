@@ -17,9 +17,9 @@
       <div class="c-dialog__head">
         <h4 class="c-dialog__title">
           <template v-if="title">{{ title }}</template>
-          <template v-else
-            ><slot name="title"></slot
-          ></template>
+          <template v-else>
+            <slot name="title"></slot>
+          </template>
         </h4>
         <button
           type="button"

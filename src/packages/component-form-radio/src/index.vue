@@ -30,11 +30,11 @@
     <NitroIcon
       :name="icon"
       class="u-margin-right-xxs"
-      size="s"
+      size="20"
       v-if="icon !== null && $parent.$parent.checked === value"
     ></NitroIcon>
-    {{ value }}</niButton
-  >
+    <slot
+  /></niButton>
 </template>
 
 <script>

@@ -47,7 +47,7 @@
     <NitroIcon
       :name="icon"
       class="u-margin-right-xxs"
-      size="s"
+      size="20"
       v-if="
         icon !== null &&
           ((Array.isArray($parent.$parent.checked) &&
@@ -56,8 +56,8 @@
               $parent.$parent.checked))
       "
     ></NitroIcon>
-    {{ value }}</niButton
-  >
+    <slot />
+  </niButton>
 </template>
 
 <script>

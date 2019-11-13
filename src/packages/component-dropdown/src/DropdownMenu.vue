@@ -16,7 +16,7 @@
     :to="item.to"
   >
     <template v-if="item.icon">
-      <NitroIcon :name="item.icon" size="m"></NitroIcon>
+      <NitroIcon :name="item.icon" size="20"></NitroIcon>
       <span class="u-margin-left-xs">{{ item.title }}</span>
     </template>
     <template v-else>

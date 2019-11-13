@@ -7,7 +7,7 @@
         @click.prevent="$emit('sidebarOpened')"
         class="btn-close-sidebar u-flex  u-flex--items-center  u-margin-right-lg  no--underline  u-hidden@tablet-desktop c-pointer u-hidden@desktop"
       >
-        <NitroIcon name="navigation/menu" size="m" role="button"></NitroIcon>
+        <NitroIcon name="navigation/menu" size="20" role="button"></NitroIcon>
       </nLink>
 
       <slot name="left_side"></slot>
@@ -23,7 +23,7 @@
 
 <script>
 import "@nitro-ui/module-dashboard-toolbar";
-import "@nitro-ui/utility";
+import "@nitro-ui/bundle-utilities";
 import "@nitro-ui/object-container";
 import nLink from "../../component-link/src/index";
 

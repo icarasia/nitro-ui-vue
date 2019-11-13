@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: "niStepperHeader",
   props: {
     align: {
       type: String,

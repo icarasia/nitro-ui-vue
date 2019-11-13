@@ -20,7 +20,7 @@ import Form from "./containers/Form";
 import Modal from "./containers/Modal";
 import Tabs from "./containers/Tabs";
 import Pagination from "./containers/Pagination";
-import Step from "./containers/Step";
+import Step from "./containers/Stepper";
 import Popover from "./containers/Popover";
 
 Vue.config.productionTip = false;
@@ -118,12 +118,12 @@ const router = new VueRouter({
       name: "sidebar",
       path: "/sidebar",
       component: Sidebar
-  },
-  {
-    name: "popover",
-    path: "/popover",
-    component: Popover
-  }
+    },
+    {
+      name: "popover",
+      path: "/popover",
+      component: Popover
+    }
   ]
 });
 
