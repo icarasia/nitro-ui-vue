@@ -13,8 +13,31 @@
           v-for="(tab, index) in tabs"
           :label="tab.label"
           :key="`ONE-${index}`"
+          icon="dealerships/car"
           >{{ tab.content }}</Tab
         >
+      </Tabs>
+    </div>
+    <div class="u-margin-top-md">
+      <h4>Tabs Without Icon and with right side</h4>
+      <Tabs>
+        <Tab
+          v-for="(tab, index) in tabs"
+          :label="tab.label"
+          :key="`ONE-${index}`"
+          :hide-icon="true"
+          >{{ tab.content }}</Tab
+        >
+
+        <template v-slot:right-side>
+          <div class="d-flex u-margin-bottom-sm">
+            <n-input
+              placeholder="Search for..."
+              class="u-margin-right-sm"
+            ></n-input>
+            <n-button variant="primary" size="sm">+ Create</n-button>
+          </div>
+        </template>
       </Tabs>
     </div>
     <div class="u-margin-top-md">
@@ -24,6 +47,7 @@
           v-for="(tab, index) in tabs"
           :label="tab.label"
           :key="`TWO-${index}`"
+          icon="dealerships/car"
           >{{ tab.content }}</Tab
         >
       </Tabs>
@@ -35,6 +59,7 @@
         <Tab
           v-for="(tab, index) in tabs"
           :label="tab.label"
+          icon="dealerships/car"
           :key="`THREE-${index}`"
           >{{ tab.content }}</Tab
         >
@@ -46,6 +71,7 @@
         <Tab
           v-for="(tab, index) in tabs"
           :label="tab.label"
+          icon="dealerships/car"
           :key="`FOUR-${index}`"
           >{{ tab.content }}</Tab
         >
@@ -58,6 +84,7 @@
           <Tab
             v-for="(tab, index) in tabs"
             :label="tab.label"
+            icon="dealerships/car"
             :key="`FIVE-${index}`"
             >{{ tab.content }}</Tab
           >
@@ -66,6 +93,7 @@
           <Tab
             v-for="(tab, index) in tabs"
             :label="tab.label"
+            icon="dealerships/car"
             :key="`SIX-${index}`"
             >{{ tab.content }}</Tab
           >
@@ -79,10 +107,12 @@
 import Tabs from "../../packages/component-tabs/src/index";
 import Tab from "../../packages/component-tab/src/index";
 import Card from "../../packages/component-card/src/index";
+import NButton from "../../packages/component-button/src/index";
+import NInput from "../../packages/component-form-input/src/index";
 
 export default {
   name: "TabsPage",
-  components: { Card, Tab, Tabs },
+  components: { Card, Tab, Tabs, NButton, NInput },
   data() {
     return {
       tabs: [
