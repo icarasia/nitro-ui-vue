@@ -473,16 +473,18 @@
           {{ floatlabelinputbtnresult3 }}
         </div>
       </div>
-      <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
-          <div class="u-flex  u-flex--items-center">
-            <NitroIcon name="action/search" size="s" :class="`u-absolute  u-margin-left-sm  u-zindex-1`"></NitroIcon>
-            <nInput placeholder="Search for Ad Listing" v-model="searchInputResult" :class="`u-padding-left-xl  u-relative  u-zindex-0`" />
-          </div>
-          <div class="u-margin-top-xs  u-margin-bottom-lg">
-            {{ searchInputResult }}
-          </div>
-       </div>
     </div>
+    <h4 class="u-margin-top-xl">Search Input</h4>
+    <div class="u-margin-bottom-xl  u-width-1/2  u-width-1@mobile">
+      <div class="u-flex  u-flex--items-center">
+        <NitroIcon name="action/search" size="s" :class="`u-absolute  u-margin-left-sm  u-zindex-1`"></NitroIcon>
+        <nInput placeholder="Search for Ad Listing" v-model="searchInputResult" :class="`u-padding-left-xl  u-relative  u-zindex-0`" />
+      </div>
+      <div class="u-margin-top-xs  u-margin-bottom-lg">
+        {{ searchInputResult }}
+      </div>
+    </div>
+
   </div>
 </template>
 
