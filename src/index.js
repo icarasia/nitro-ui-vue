@@ -30,6 +30,7 @@ export { default as niCard } from "./packages/component-card";
 export { default as niChip } from "./packages/component-chip";
 export { default as niCol } from "./packages/component-col";
 export { default as niContainer } from "./packages/component-container";
+export { default as niCollapse } from "./packages/component-collapse";
 export { default as niDrawer } from "./packages/component-drawer";
 export { default as niDropdown } from "./packages/component-dropdown";
 export { default as niCheckbox } from "./packages/component-form-checkbox";

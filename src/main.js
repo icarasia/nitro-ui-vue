@@ -22,6 +22,7 @@ import Tabs from "./containers/Tabs";
 import Pagination from "./containers/Pagination";
 import Step from "./containers/Step";
 import Popover from "./containers/Popover";
+import Collapse from "./containers/Collapse";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -118,12 +119,17 @@ const router = new VueRouter({
       name: "sidebar",
       path: "/sidebar",
       component: Sidebar
-  },
-  {
-    name: "popover",
-    path: "/popover",
-    component: Popover
-  }
+    },
+    {
+        name: "popover",
+        path: "/popover",
+        component: Popover
+    },
+    {
+      name: "collapse",
+      path: "/collapse",
+      component: Collapse
+    }
   ]
 });
 

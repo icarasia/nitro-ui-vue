@@ -108,6 +108,10 @@ export default {
                 {
                     title: "Popover",
                     href: "/popover"
+                },
+                {
+                    title: "Collapse",
+                    href: "/collapse"
                 }
             ]
         };
