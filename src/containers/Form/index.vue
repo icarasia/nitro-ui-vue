@@ -474,12 +474,24 @@
         </div>
       </div>
     </div>
+    <h4 class="u-margin-top-xl">Search Input</h4>
+    <div class="u-margin-bottom-xl  u-width-1/2  u-width-1@mobile">
+      <div class="u-flex  u-flex--items-center">
+        <NitroIcon name="action/search" size="s" :class="`u-absolute  u-margin-left-sm  u-zindex-1`"></NitroIcon>
+        <nInput placeholder="Search for Ad Listing" v-model="searchInputResult" :class="`u-padding-left-xl  u-relative  u-zindex-0`" />
+      </div>
+      <div class="u-margin-top-xs  u-margin-bottom-lg">
+        {{ searchInputResult }}
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
 import "@nitro-ui/object-grid";
 import "@nitro-ui/utility-width";
+import "@nitro-ui/utility-position";
 import FormField from "../../packages/component-form-field/src/index";
 import nInput from "../../packages/component-form-input/src/index";
 import nTextarea from "../../packages/component-form-textarea/src/index";
@@ -542,6 +554,7 @@ export default {
       floatlabelinputbtnresult1: null,
       floatlabelinputbtnresult2: null,
       floatlabelinputbtnresult3: null,
+      searchInputResult: null,
       options: [
         { value: "01", label: "01" },
         { value: "02", label: "02" },
