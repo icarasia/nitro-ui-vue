@@ -12,6 +12,15 @@ export default {
     active: {
       Type: Boolean,
       default: false
+    },
+    hideIcon: {
+      type: Boolean,
+      default: false
+    },
+    icon: {
+      type: String,
+      required: false,
+      default: ""
     }
   },
   data() {
