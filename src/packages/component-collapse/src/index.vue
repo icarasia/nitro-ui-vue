@@ -1,21 +1,20 @@
-<!-- <template>
-    <div>
-        <slot name="label" v-if="$slots.label"></slot>
-        <div :id="id" class="c-collapse">
-            <slot/>
-        </div>
-    </div>
-</template> -->
-
 <script>
 import "@nitro-ui/component-collapse";
 
 export default {
     name: "niCollapse",
     props: {
+        accordion: {
+            type: Boolean,
+            default: false
+        },
         open: {
             type: Boolean,
             default: true
+        },
+        refs:{
+            type: Boolean,
+            default: false
         },
         animation: {
             type: String,
@@ -59,11 +58,13 @@ export default {
     render(createElement) {
         const trigger = createElement('div', {
             staticClass: '', on: { click: this.toggle }
-        }, this.$scopedSlots.trigger
-            ? [this.$scopedSlots.trigger({ open: this.isOpen })]
-            : [this.$slots.trigger]
+        },
+        this.$scopedSlots.trigger ? [this.$scopedSlots.trigger({ open: this.isOpen })] : [this.$slots.trigger],
+        this.$slots.trigger == null ? console.log('1'): console.log('2')
         )
-        const content = createElement('transition', { props: { name: this.animation } }, [
+        const content = createElement('transition',
+            //{ props: { name: this.animation } },
+        [
             createElement('div', {
                 staticClass: '',
                 attrs: { 'id': this.ariaId, 'aria-expanded': this.isOpen },
@@ -73,8 +74,11 @@ export default {
                 }]
             }, this.$slots.default)
         ])
-        return createElement('div', { staticClass: 'lala' },
-            this.position === 'is-top' ? [trigger, content] : [content, trigger])
-    }
+
+        return createElement('div', { staticClass: this.accordion ? 'c-accordion':'' },
+            // this.position === 'is-top' ? [trigger, content] : [content, trigger]
+            [trigger, content]
+        )
+    },
 };
 </script>
