@@ -1,10 +1,6 @@
 <template>
-    <div
-        class="c-toast  u-shadow-4dp"
-        :class="classes"
-        :id="id"
-        data-autohide="false">
-        <div class="c-toast__icon">
+    <div class="c-toast  u-shadow-4dp" :class="classes">
+        <div class="c-toast__icon" v-if="showIcon">
             <NitroIcon :name="iconName" size="24"></NitroIcon>
         </div>
         <div class="c-toast__body">
@@ -13,9 +9,13 @@
             </div>
             <slot/>
         </div>
-        <button class="c-toast__close" :click="toggle">
-            <NitroIcon name="action/close" size="16"></NitroIcon>
-        </button>
+      <a
+        class="c-toast__close"
+        @click="close"
+        v-if="dismissable"
+      >
+        <NitroIcon name="action/close" size="16"></NitroIcon>
+    </a>
     </div>
 </template>
 
@@ -23,65 +23,82 @@
 import "@nitro-ui/component-toast";
 
 export default {
-    name: "niToast",
-    // components: {
-    //   niArrow,
-    //   niCard
-    // },
+    name: "niToastItem",
     props: {
-        variant: {
+        type: {
             type: String,
-            default: 'info'
+            default: "info",
+            validator: function(value) {
+                return (
+                    ["info", "tips", "success", "error", "warning"].indexOf(value) !== -1
+                );
+            }
         },
-        id: String,
-        withIcon:{
+        dismissable: {
             type: Boolean,
             default: true
         },
-        show:{
+        delay: {
             type: Boolean,
             default: false
-        }
-    },
-    data() {
-        return {
-            isShow: this.show
-        }
-    },
-    watch: {
-        show(value) {
-            this.isShow = value
+        },
+        autoDismiss: {
+            type: Boolean,
+            default: false
+        },
+        autoDismissDuration: {
+            type: Number,
+            default: 5000
+        },
+        showIcon: {
+            type: Boolean,
+            default: true
+        },
+        visible: {
+            type: Boolean
         }
     },
     computed: {
         classes() {
-          return [
-              this.variant ? `c-toast--${this.variant}` : "",
-              this.show ? 'show' : 'hide'
-          ];
+            return [
+              this.type ? `c-toast--${this.type}` : "",
+              this.visible ? 'show' : 'hide'
+            ];
         },
         iconName() {
             let iconName = "";
-            if (this.variant == "info") {
+            if (this.type == "info") {
             iconName = "response/info";
-            } else if (this.variant == "tips") {
+            } else if (this.type == "tips") {
             iconName = "response/tips";
-            } else if (this.variant == "success") {
+            } else if (this.type == "success") {
             iconName = "action/check-circle";
-            } else if (this.variant == "error") {
+            } else if (this.type == "error") {
             iconName = "response/error";
-            } else if (this.variant == "warning") {
+            } else if (this.type == "warning") {
             iconName = "response/warning";
             }
             return iconName;
         }
     },
     methods: {
-        toggle() {
-            this.isShow = !this.isShow
-            this.$emit('update:show', this.isShow)
-            this.$emit(this.isShow ? 'show' : 'close')
-            console.log('click');
+        close() {
+            this.$emit('update:visible', false);
+        }
+    },
+    watch: {
+        visible: function() {
+            if (this.autoDismiss && this.visible) {
+                setTimeout(() => {
+                  this.$emit("update:visible", false);
+                }, this.autoDismissDuration);
+
+                if(this.delay){
+                    setTimeout(() => {
+                      this.$emit("update:visible", false);
+                    }, this.autoDismissDuration);
+                }
+            }
         }
     }
 };

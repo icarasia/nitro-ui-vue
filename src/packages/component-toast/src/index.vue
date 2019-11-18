@@ -1,49 +1,22 @@
 <template>
-  <div class="c-popover" :class="classes">
-    <slot name="label" v-if="$slots.label"></slot>
-    <div class="c-popover-container">
-      <niCard>
-        <niArrow :position="arrowPosition" />
-        <slot />
-      </niCard>
+  <div
+    class="c-toast-stage"
+    :data-position="position"
+    >
+    <slot/>
     </div>
-  </div>
 </template>
 
 <script>
-import "@nitro-ui/component-popover";
-import "@nitro-ui/component-card";
-import niArrow from "../../component-arrow/src/index";
-import niCard from "../../component-card/src/index";
+import "@nitro-ui/component-toast";
 
 export default {
-  name: "niToast",
-  components: {
-    niArrow,
-    niCard
-  },
-  props: {
-    position: String
-  },
-  computed: {
-    classes() {
-      return [this.position ? `c-popover--${this.position}` : ""];
-    },
-    arrowPosition() {
-      let arrowPosition = "";
-
-      if (this.position == "left") {
-        arrowPosition = "right";
-      } else if (this.position == "right") {
-        arrowPosition = "left";
-      } else if (this.position == "bottom") {
-        arrowPosition = "top";
-      } else {
-        arrowPosition = "bottom";
-      }
-
-      return arrowPosition;
+    name: "niToast",
+    props: {
+        position: {
+            type: String,
+            default: "right"
+        }
     }
-  }
 };
 </script>
