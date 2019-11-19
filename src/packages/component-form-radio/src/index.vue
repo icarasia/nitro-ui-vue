@@ -24,7 +24,7 @@
     "
     :id="id"
     :value="value"
-    variant="primary"
+    :variant="$parent.$parent.checked !== value ? 'secondary' : 'primary'"
     :outline="$parent.$parent.checked !== value"
   >
     <NitroIcon

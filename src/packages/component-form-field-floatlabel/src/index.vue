@@ -1,6 +1,6 @@
 <template>
   <div class="c-field-float" :class="classes" ref="field-float">
-    <slot @focus="focus" @blur="blur"></slot>
+    <slot></slot>
     <label
       :class="
         hint ? 'u-flex  u-flex--items-center  u-flex--justify-between' : ''
@@ -56,6 +56,9 @@ export default {
         this.$refs["field-float"].querySelector("input, select, textarea")
           .value === ""
       );
+    },
+    formElement() {
+      return this.$refs["field-float"].querySelector("input, select, textarea");
     }
   },
   methods: {
@@ -74,9 +77,6 @@ export default {
     }
   },
   mounted() {
-    this.formElement = this.$refs["field-float"].querySelector(
-      "input, select, textarea"
-    );
     if (this.formElement) {
       this.formElement.addEventListener("input", this.input);
       this.formElement.addEventListener("blur", this.blur);
@@ -85,6 +85,13 @@ export default {
         this.hasContent = true;
       }
       this.hasContent = !this.fieldIsEmpty;
+    }
+  },
+  destroyed() {
+    if (this.formElement) {
+      this.formElement.removeEventListener("input", this.input);
+      this.formElement.removeEventListener("blur", this.blur);
+      this.formElement.removeEventListener("focus", this.focus);
     }
   },
   data() {

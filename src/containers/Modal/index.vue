@@ -56,13 +56,45 @@
       <Button @click="forth_modal = true" variant="primary"
         >Fourth Modal</Button
       >
-      <Modal :shown.sync="forth_modal" :with_close_sign="true" size="lg">
-        <span slot="title">My Fourth Modal</span>
+      <Modal
+        :shown.sync="forth_modal"
+        :with_close_sign="true"
+        size="lg"
+        header-classes="u-padding-ends-md u-padding-sides-lg u-padding-sides-md@mobile"
+        footer-classes="u-align-center u-padding-sides-lg u-padding-bottom-lg u-padding-sides-md@mobile u-margin-bottom-lg"
+      >
+        <template v-slot:header="{ close }">
+          <div
+            class="u-flex u-flex--items-center u-flex--justify-between u-relative u-width-1"
+          >
+            <h4 class="u-align-center  u-margin-bottom-none">
+              Select your vehicle
+            </h4>
+            <button
+              type="button"
+              class="c-dialog__close"
+              data-dismiss="modal"
+              @click="close()"
+            >
+              &#10005;
+            </button>
+          </div>
+        </template>
         <div>This is the body content!<br />This modal with lg size</div>
-        <div slot="footer">
-          <Button variant="primary">Ok</Button>
-          <Button variant="negative" @click="forth_modal = false">Close</Button>
-        </div>
+        <template v-slot:footer="{ close }">
+          <div>
+            <button
+              type="submit"
+              class="c-btn c-btn--lg c-btn--primary c-btn--full u-margin-bottom-sm"
+              @click="close()"
+            >
+              Done
+            </button>
+            <a href="javascript:void(0)" class="js-cant-find-car u-color-dark">
+              Help
+            </a>
+          </div>
+        </template>
       </Modal>
       <br />
       <br />

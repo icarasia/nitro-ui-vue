@@ -1,6 +1,7 @@
 import * as niComponents from "./packages";
 import niTooltip from "./packages/directive-tooltip/src";
 import "@nitro-ui/bundle-utilities";
+import "@nitro-ui/component-carousel";
 import "@nitro-ui/svg-icons-vue/dist/NitroIcon.css";
 
 import NitroIcon from "@nitro-ui/svg-icons-vue";
