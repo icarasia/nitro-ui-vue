@@ -8,7 +8,7 @@
         </div>
 
         <h4 class="u-margin-top-xl"> Collapse </h4>
-        <Collapse :open="false" aria-id="accordion1" :class="`u-margin-bottom-lg`">
+        <Collapse :open="false" aria-id="accordion1" :class="`u-margin-bottom-xl`">
             <niButton
                 variant="primary"
                 slot="trigger"
@@ -20,7 +20,7 @@
             </Card>
         </Collapse>
 
-        <Collapse :open="true" aria-id="accordion2" :class="`u-margin-bottom-lg`">
+        <Collapse :open="true" aria-id="accordion2" :class="`u-margin-bottom-xl`">
             <niLink
                 href="#"
                 variant="primary"
@@ -30,6 +30,20 @@
             </niLink>
             <Card :class="`u-margin-top-sm`">
                 Content accordion2
+            </Card>
+        </Collapse>
+
+        <niButton variant="primary"
+            slot="trigger"
+            @click="trigger1 = toggle()"
+            aria-controls="accordion9"
+        >
+            Trigger Collapse
+        </niButton>
+
+        <Collapse :open.sync="trigger1" aria-id="accordion9" :class="`u-margin-bottom-lg`">
+            <Card :class="`u-margin-top-sm`">
+                lalala
             </Card>
         </Collapse>
 
@@ -79,20 +93,32 @@ export default {
         return {
             isOpen: 0,
             collapses: [
-            {
-                title: 'Title 1',
-                text: 'Content for title 1'
-            },
-            {
-                title: 'Title 2',
-                text: 'Content for title 2'
-            },
-            {
-                title: 'Title 3',
-                text: 'Content for title 3'
-            }
-            ]
+                {
+                    title: 'Title 1',
+                    text: 'Content for title 1'
+                },
+                {
+                    title: 'Title 2',
+                    text: 'Content for title 2'
+                },
+                {
+                    title: 'Title 3',
+                    text: 'Content for title 3'
+                }
+            ],
+            trigger1: this.isOpen
         }
-    }
+    },
+    methods: {
+        /**
+        * Toggle and emit events
+        */
+        toggle() {
+            this.isOpen = !this.isOpen
+            this.$emit('update:open', this.isOpen)
+            this.$emit(this.isOpen ? 'open' : 'close')
+            console.log('open/close', this.isOpen);
+        }
+    },
 };
 </script>

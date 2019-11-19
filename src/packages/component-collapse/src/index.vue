@@ -53,6 +53,7 @@ export default {
             this.isOpen = !this.isOpen
             this.$emit('update:open', this.isOpen)
             this.$emit(this.isOpen ? 'open' : 'close')
+            console.log('open/close', this.isOpen);
         }
     },
     render(createElement) {
@@ -60,8 +61,13 @@ export default {
             staticClass: '', on: { click: this.toggle }
         },
         this.$scopedSlots.trigger ? [this.$scopedSlots.trigger({ open: this.isOpen })] : [this.$slots.trigger],
-        this.$slots.trigger == null ? console.log('1'): console.log('2')
         )
+
+        // const trigger = createElement('div', {
+        //     staticClass: '', on: { click: this.toggle }
+        // })
+
+
         const content = createElement('transition',
             //{ props: { name: this.animation } },
         [
