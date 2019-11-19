@@ -22,6 +22,7 @@ import Tabs from "./containers/Tabs";
 import Pagination from "./containers/Pagination";
 import Step from "./containers/Stepper";
 import Popover from "./containers/Popover";
+import Toast from "./containers/Toast";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -123,6 +124,11 @@ const router = new VueRouter({
       name: "popover",
       path: "/popover",
       component: Popover
+    },
+    {
+      name: "toast",
+      path: "/toast",
+      component: Toast
     }
   ]
 });

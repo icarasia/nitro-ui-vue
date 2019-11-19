@@ -6,7 +6,8 @@
         :class="[
           {
             'is--active':
-              tab.label === (currentTab ? currentTab.label : tabs[0].label)
+              tab.label === (currentTab ? currentTab.label : tabs[0].label),
+            'u-grow-1@mobile': justifiedMobile
           },
           buttons ? `c-btn c-btn--${variant}-outline` : ''
         ]"
@@ -45,6 +46,7 @@ export default {
       type: [Number, String]
     },
     justified: Boolean,
+    justifiedMobile: Boolean,
     buttons: Boolean,
     cardable: Boolean,
     variant: {
