@@ -33,20 +33,6 @@
             </Card>
         </Collapse>
 
-        <niButton variant="primary"
-            slot="trigger"
-            @click="trigger1 = toggle()"
-            aria-controls="accordion9"
-        >
-            Trigger Collapse
-        </niButton>
-
-        <Collapse :open.sync="trigger1" aria-id="accordion9" :class="`u-margin-bottom-lg`">
-            <Card :class="`u-margin-top-sm`">
-                lalala
-            </Card>
-        </Collapse>
-
         <h4 class="u-margin-top-xl"> Accordian </h4>
         <Collapse
             v-for="(collapse, index) of collapses"
@@ -105,20 +91,8 @@ export default {
                     title: 'Title 3',
                     text: 'Content for title 3'
                 }
-            ],
-            trigger1: this.isOpen
+            ]
         }
-    },
-    methods: {
-        /**
-        * Toggle and emit events
-        */
-        toggle() {
-            this.isOpen = !this.isOpen
-            this.$emit('update:open', this.isOpen)
-            this.$emit(this.isOpen ? 'open' : 'close')
-            console.log('open/close', this.isOpen);
-        }
-    },
+    }
 };
 </script>

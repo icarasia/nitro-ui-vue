@@ -63,13 +63,8 @@ export default {
         this.$scopedSlots.trigger ? [this.$scopedSlots.trigger({ open: this.isOpen })] : [this.$slots.trigger],
         )
 
-        // const trigger = createElement('div', {
-        //     staticClass: '', on: { click: this.toggle }
-        // })
-
 
         const content = createElement('transition',
-            //{ props: { name: this.animation } },
         [
             createElement('div', {
                 staticClass: '',
@@ -82,7 +77,6 @@ export default {
         ])
 
         return createElement('div', { staticClass: this.accordion ? 'c-accordion':'' },
-            // this.position === 'is-top' ? [trigger, content] : [content, trigger]
             [trigger, content]
         )
     },
