@@ -20,7 +20,7 @@
     </div>
     <div class="u-margin-top-md">
       <h4>Tabs Without Icon and with right side</h4>
-      <Tabs>
+      <Tabs justified-mobile>
         <Tab
           v-for="(tab, index) in tabs"
           :label="tab.label"

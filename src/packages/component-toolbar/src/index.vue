@@ -23,7 +23,7 @@
 
 <script>
 import "@nitro-ui/module-dashboard-toolbar";
-import "@nitro-ui/bundle-utilities";
+// import "@nitro-ui/utility";
 import "@nitro-ui/object-container";
 import nLink from "../../component-link/src/index";
 
