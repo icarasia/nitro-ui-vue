@@ -1,20 +1,25 @@
 <template>
   <div>
-    <slot></slot>
+    <slot name="header"></slot>
 
-    <Btn
-      variant="secondary"
-      class="mt-3 text-uppercase"
-      @click="$emit('checkStep', '-')"
-      v-if="showBackButton"
-      >{{ backBtnText }}</Btn
-    >
-    <Btn
-      variant="primary"
-      class="mt-3 text-uppercase"
-      @click="$emit('checkStep', '+')"
-      >{{ maxStep === stepper ? finishBtnText : nextBtnText }}</Btn
-    >
+    <div class="o-container">
+      <slot></slot>
+      <div :class="footerStyles">
+        <Btn
+          variant="secondary"
+          class="u-padding-sides-md u-margin-left-none u-text-semibold u-border-0"
+          @click="$emit('checkStep', '-')"
+          v-if="showBackButton"
+          >{{ backBtnText }}</Btn
+        >
+        <Btn
+          variant="primary"
+          class="u-float-right u-padding-sides-lg"
+          @click="$emit('checkStep', '+')"
+          >{{ maxStep === stepper ? finishBtnText : nextBtnText }}</Btn
+        >
+      </div>
+    </div>
   </div>
 </template>
 
@@ -23,7 +28,7 @@ import "@nitro-ui/component-step";
 import Btn from "../../component-button/src/index";
 
 export default {
-  name: "niStep",
+  name: "niStepper",
   components: {
     Btn
   },
@@ -48,6 +53,11 @@ export default {
       type: String,
       required: false,
       default: "back"
+    },
+    footerStyles: {
+      type: String,
+      required: false,
+      default: ""
     }
   },
   data() {

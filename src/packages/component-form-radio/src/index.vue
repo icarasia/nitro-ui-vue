@@ -24,17 +24,17 @@
     "
     :id="id"
     :value="value"
-    variant="primary"
+    :variant="$parent.$parent.checked !== value ? 'secondary' : 'primary'"
     :outline="$parent.$parent.checked !== value"
   >
     <NitroIcon
       :name="icon"
       class="u-margin-right-xxs"
-      size="s"
+      size="20"
       v-if="icon !== null && $parent.$parent.checked === value"
     ></NitroIcon>
-    {{ value }}</niButton
-  >
+    <slot
+  /></niButton>
 </template>
 
 <script>

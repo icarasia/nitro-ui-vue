@@ -15,7 +15,7 @@
 <script>
 import "@nitro-ui/component-form";
 export default {
-  name: "FormFileUpload",
+  name: "niFile",
   props: {
     placeholder: String,
     defaultValue: String,

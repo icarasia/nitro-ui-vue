@@ -70,6 +70,13 @@ Types of changes:
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities.
 
+## [1.0.23] - 2019-10-12
+
+- `Fixed` Missing dist files in Nitro UI Utilities
+- `Removed` deprecated package `@nitro-ui/css-core`
+- `Added` New Bundle Utilities `@nitro-ui/bundle-utilities`
+- `Changed` Update Bundle Utilities in Vue
+
 ## [1.0.0] - 2019-11-04
 
 - `Added` Component Pagination

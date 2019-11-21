@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: "niStepperItem",
   props: {
     step: {
       type: Number,

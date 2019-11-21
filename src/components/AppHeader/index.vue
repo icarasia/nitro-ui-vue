@@ -16,11 +16,11 @@
 
       </div> -->
       <Dropdown
-          title="Menu"
-          position="right"
-          toggleable
-          style="display: inline-block"
-          :items="items"
+        title="Menu"
+        position="right"
+        toggleable
+        style="display: inline-block"
+        :items="items"
       ></Dropdown>
     </div>
   </nav>
@@ -30,91 +30,95 @@
 import "@nitro-ui/utility";
 import Dropdown from "../../packages/component-dropdown/src/index";
 export default {
-    name: "AppHeader",
-    components: {
-        Dropdown
-    },
-    data() {
-        return {
-            items: [
-                {
-                    title: "Home",
-                    href: "/",
-                },
-                {
-                    title: "Button",
-                    href: "/button"
-                },
-                {
-                    title: "Chip",
-                    href: "/chip"
-                },
-                {
-                    title: "Tooltip",
-                    href: "/tooltip"
-                },
-                {
-                    title: "Avatar",
-                    href: "/avatar"
-                },
-                {
-                    title: "Breadcrumb",
-                    href: "/breadcrumb"
-                },
-                {
-                    title: "Card",
-                    href: "/card"
-                },
-                {
-                    title: "Alert",
-                    href: "/alert"
-                },
-                {
-                    title: "Dropdown",
-                    href: "/dropdown"
-                },
-                {
-                    title: "Form",
-                    href: "/form"
-                },
-                {
-                    title: "Modal & Drawer",
-                    href: "/modal"
-                },
-                {
-                    title: "Step",
-                    href: "/step"
-                },
-                {
-                    title: "Pagination",
-                    href: "/pagination"
-                },
-                {
-                    title: "Tabs",
-                    href: "/tabs"
-                },
-                {
-                    title: "Grid",
-                    href: "/grid"
-                },
-                {
-                    title: "Sidebar & Toolbar",
-                    href: "/sidebar"
-                },
-                {
-                    title: "Table",
-                    href: "/table"
-                },
-                {
-                    title: "Popover",
-                    href: "/popover"
-                },
-                {
-                    title: "Collapse",
-                    href: "/collapse"
-                }
-            ]
-        };
-    }
+  name: "AppHeader",
+  components: {
+    Dropdown
+  },
+  data() {
+    return {
+      items: [
+        {
+          title: "Home",
+          href: "/"
+        },
+        {
+          title: "Button",
+          href: "/button"
+        },
+        {
+          title: "Chip",
+          href: "/chip"
+        },
+        {
+          title: "Tooltip",
+          href: "/tooltip"
+        },
+        {
+          title: "Avatar",
+          href: "/avatar"
+        },
+        {
+          title: "Breadcrumb",
+          href: "/breadcrumb"
+        },
+        {
+          title: "Card",
+          href: "/card"
+        },
+        {
+          title: "Alert",
+          href: "/alert"
+        },
+        {
+          title: "Dropdown",
+          href: "/dropdown"
+        },
+        {
+          title: "Form",
+          href: "/form"
+        },
+        {
+          title: "Modal & Drawer",
+          href: "/modal"
+        },
+        {
+          title: "Step",
+          href: "/step"
+        },
+        {
+          title: "Pagination",
+          href: "/pagination"
+        },
+        {
+          title: "Tabs",
+          href: "/tabs"
+        },
+        {
+          title: "Grid",
+          href: "/grid"
+        },
+        {
+          title: "Sidebar & Toolbar",
+          href: "/sidebar"
+        },
+        {
+          title: "Table",
+          href: "/table"
+        },
+        {
+          title: "Popover",
+          href: "/popover"
+        },
+        {
+          title: "Collapse",
+          href: "/collapse"
+        },
+        {
+          title: "Toast",
+          href: "/toast"
+        }
+      ]
+    };
+  }
 };
 </script>

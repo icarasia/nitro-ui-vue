@@ -14,28 +14,32 @@
       v-on-clickaway="clickOut"
       :class="size ? `c-dialog--${size}` : ''"
     >
-      <div class="c-dialog__head">
-        <h4 class="c-dialog__title">
-          <template v-if="title">{{ title }}</template>
-          <template v-else
-            ><slot name="title"></slot
-          ></template>
-        </h4>
-        <button
-          type="button"
-          class="c-dialog__close"
-          data-dismiss="modal"
-          v-if="with_close_sign"
-          @click="close"
-        >
-          &#10005;
-        </button>
+      <div class="c-dialog__head" :class="headerClasses">
+        <slot name="header" :close="close" v-if="$scopedSlots.header"></slot>
+        <template v-else>
+          <h4 class="c-dialog__title">
+            <template v-if="title">{{ title }}</template>
+            <template v-else>
+              <slot name="title"></slot>
+            </template>
+          </h4>
+          <button
+            type="button"
+            class="c-dialog__close"
+            data-dismiss="modal"
+            v-if="with_close_sign"
+            @click="close"
+          >
+            &#10005;
+          </button>
+        </template>
       </div>
+      <slot name="above-body"></slot>
       <div class="c-dialog__body">
         <slot></slot>
       </div>
-      <div class="c-dialog__foot" v-if="with_footer">
-        <slot name="footer"></slot>
+      <div class="c-dialog__foot" :class="footerClasses" v-if="with_footer">
+        <slot name="footer" :close="close"></slot>
       </div>
     </div>
   </div>
@@ -69,6 +73,14 @@ export default {
     closeOnOutsideClick: {
       type: Boolean,
       default: true
+    },
+    headerClasses: {
+      type: String,
+      default: ""
+    },
+    footerClasses: {
+      type: String,
+      default: ""
     }
   },
   mixins: [clickaway],

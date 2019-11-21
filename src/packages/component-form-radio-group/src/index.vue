@@ -13,21 +13,23 @@
       </nRadio>
     </template>
   </div>
-  <button-group v-else>
-    <slot v-if="$slots.default" />
-    <template v-else-if="items.length">
-      <nRadio
-        v-for="item in items"
-        :key="item.id"
-        :value="item.value"
-        :id="item.id"
-        :icon="item.icon"
-        :disabled="item.disabled"
-      >
-        {{ item.label }}
-      </nRadio>
-    </template>
-  </button-group>
+  <div v-else>
+    <button-group :full="full">
+      <slot v-if="$slots.default" />
+      <template v-else-if="items.length">
+        <nRadio
+          v-for="item in items"
+          :key="item.id"
+          :value="item.value"
+          :id="item.id"
+          :icon="item.icon"
+          :disabled="item.disabled"
+        >
+          {{ item.label }}
+        </nRadio>
+      </template>
+    </button-group>
+  </div>
 </template>
 <script>
 import nRadio from "../../component-form-radio/src/index";
@@ -53,6 +55,10 @@ export default {
       default: false
     },
     buttons: {
+      type: Boolean,
+      default: false
+    },
+    full: {
       type: Boolean,
       default: false
     },

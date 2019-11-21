@@ -2,24 +2,30 @@
   <div :class="{ 'c-card__tabs': cardable }">
     <div class="c-tab" role="tablist" :class="classes">
       <a
-        class="c-tab__item"
+        class="c-tab__item u-order-1@mobile"
         :class="[
           {
             'is--active':
-              tab.label === (currentTab ? currentTab.label : tabs[0].label)
+              tab.label === (currentTab ? currentTab.label : tabs[0].label),
+            'u-grow-1@mobile': justifiedMobile
           },
           buttons ? `c-btn c-btn--${variant}-outline` : ''
         ]"
         data-toggle="tab"
-        href="#"
         role="tab"
         v-for="(tab, index) in tabs"
         :key="`tab-header${index}`"
         @click="activate(index)"
       >
-        <NitroIcon name="dealerships/car" size="m"></NitroIcon>
+        <NitroIcon v-if="!tab.hideIcon" :name="tab.icon" size="m"></NitroIcon>
         <span>{{ tab.label }}</span>
       </a>
+
+      <div
+        class="u-margin-right-none u-margin-left-auto u-order-0@mobile u-margin-right-none@mobile u-width-1@mobile"
+      >
+        <slot name="right-side"></slot>
+      </div>
     </div>
 
     <div class="c-tab-content">
@@ -40,6 +46,7 @@ export default {
       type: [Number, String]
     },
     justified: Boolean,
+    justifiedMobile: Boolean,
     buttons: Boolean,
     cardable: Boolean,
     variant: {
