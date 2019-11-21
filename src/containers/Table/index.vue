@@ -139,7 +139,7 @@ export default {
       this.selected = this.selected === index ? null : index;
     },
     sort(params) {
-      console.log(params);
+      //console.log(params);
     }
   }
 };

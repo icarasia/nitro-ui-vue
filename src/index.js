@@ -2,6 +2,7 @@ import * as niComponents from "./packages";
 import niTooltip from "./packages/directive-tooltip/src";
 import "@nitro-ui/bundle-utilities";
 import "@nitro-ui/component-carousel";
+import "@nitro-ui/component-tooltip";
 import "@nitro-ui/svg-icons-vue/dist/NitroIcon.css";
 
 import NitroIcon from "@nitro-ui/svg-icons-vue";
@@ -34,22 +35,19 @@ export { default as niContainer } from "./packages/component-container";
 export { default as niDrawer } from "./packages/component-drawer";
 export { default as niDropdown } from "./packages/component-dropdown";
 export { default as niCheckbox } from "./packages/component-form-checkbox";
-export {
-  default as niCheckboxGroup
-} from "./packages/component-form-checkbox-group";
+export { default as niCheckboxGroup } from "./packages/component-form-checkbox-group";
 export { default as niFormField } from "./packages/component-form-field";
-export {
-  default as niFormFieldFloatable
-} from "./packages/component-form-field-floatlabel";
+export { default as niFormFieldFloatLable } from "./packages/component-form-field-floatlabel";
 export { default as niFormFile } from "./packages/component-form-fileupload";
 export { default as niFormInput } from "./packages/component-form-input";
-export {
-  default as niFormInputButton
-} from "./packages/component-form-input-button";
+export { default as niFormInputFloatLabel } from "./packages/component-form-input-floatlabel";
+export { default as niFormInputButton } from "./packages/component-form-input-button";
 export { default as niRadio } from "./packages/component-form-radio";
 export { default as niRadioGroup } from "./packages/component-form-radio-group";
 export { default as niFormSelect } from "./packages/component-form-select";
+export { default as niFormSelectFloatLabel } from "./packages/component-form-select-floatlabel";
 export { default as niFormTextarea } from "./packages/component-form-textarea";
+export { default as niFormTextareaFloatLabel } from "./packages/component-form-textarea-floatlabel";
 export { default as niLink } from "./packages/component-link";
 export { default as niModal } from "./packages/component-modal";
 export { default as niPaginator } from "./packages/component-paginator";
