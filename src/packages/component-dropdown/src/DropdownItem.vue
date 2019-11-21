@@ -1,7 +1,7 @@
 <template>
-    <div v-if="$slots.default">
-        <slot></slot>
-    </div>
+  <div v-if="$slots.default">
+    <slot></slot>
+  </div>
   <div v-else-if="item.is_head" class="c-dropdown__heading">
     {{ item.title }}
   </div>
@@ -17,7 +17,7 @@
     :target="item.target"
     :href="item.href"
     :to="item.to"
-    :class="item.icon ? `u-flex  u-flex--item-center`:``"
+    :class="item.icon ? `u-flex  u-flex--item-center` : ``"
   >
     <template v-if="item.icon">
       <NitroIcon :name="item.icon" size="20"></NitroIcon>
@@ -34,7 +34,7 @@ import "@nitro-ui/component-dropdown";
 import ALink from "../../component-link/src/index";
 
 export default {
-  name: "Dropdown-menu",
+  name: "niDropdownItem",
   components: { ALink },
   props: {
     index: {},

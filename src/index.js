@@ -30,14 +30,17 @@ export { default as niButton } from "./packages/component-button";
 export { default as niButtonGroup } from "./packages/component-button-group";
 export { default as niCard } from "./packages/component-card";
 export { default as niChip } from "./packages/component-chip";
+export { default as niCheckbox } from "./packages/component-form-checkbox";
+export { default as niCheckboxGroup } from "./packages/component-form-checkbox-group";
 export { default as niCol } from "./packages/component-col";
 export { default as niContainer } from "./packages/component-container";
 export { default as niDrawer } from "./packages/component-drawer";
-export { default as niDropdown } from "./packages/component-dropdown";
-export { default as niCheckbox } from "./packages/component-form-checkbox";
-export { default as niCheckboxGroup } from "./packages/component-form-checkbox-group";
+export {
+  DropdownComponent as niDropdown,
+  DropdownItemComponent as niDropdownItem
+} from "./packages/component-dropdown";
 export { default as niFormField } from "./packages/component-form-field";
-export { default as niFormFieldFloatLable } from "./packages/component-form-field-floatlabel";
+export { default as niFormFieldFloatLabel } from "./packages/component-form-field-floatlabel";
 export { default as niFormFile } from "./packages/component-form-fileupload";
 export { default as niFormInput } from "./packages/component-form-input";
 export { default as niFormInputFloatLabel } from "./packages/component-form-input-floatlabel";

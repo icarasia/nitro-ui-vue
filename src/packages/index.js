@@ -5,12 +5,15 @@ export { default as niButton } from "./component-button";
 export { default as niButtonGroup } from "./component-button-group";
 export { default as niCard } from "./component-card";
 export { default as niChip } from "./component-chip";
+export { default as niCheckbox } from "./component-form-checkbox";
+export { default as niCheckboxGroup } from "./component-form-checkbox-group";
 export { default as niCol } from "./component-col";
 export { default as niContainer } from "./component-container";
 export { default as niDrawer } from "./component-drawer";
-export { default as niDropdown } from "./component-dropdown";
-export { default as niCheckbox } from "./component-form-checkbox";
-export { default as niCheckboxGroup } from "./component-form-checkbox-group";
+export {
+  DropdownComponent as niDropdown,
+  DropdownItemComponent as niDropdownItem
+} from "./component-dropdown";
 export { default as niFormField } from "./component-form-field";
 export { default as niFormFieldFloatLabel } from "./component-form-field-floatlabel";
 export { default as niFormFile } from "./component-form-fileupload";

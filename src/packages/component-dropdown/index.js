@@ -1,5 +1,12 @@
-import niComponent from "./src";
+import Dropdown from "./src";
+import DropdownItem from "./src/DropdownItem";
 
-export default Vue => {
-  Vue.component(niComponent.name, niComponent);
+const DropdownComponent = Vue => {
+  Vue.component(Dropdown.name, Dropdown);
 };
+
+const DropdownItemComponent = Vue => {
+  Vue.component(DropdownItem.name, DropdownItem);
+};
+
+export { DropdownComponent, DropdownItemComponent };
