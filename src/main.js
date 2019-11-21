@@ -23,9 +23,12 @@ import Pagination from "./containers/Pagination";
 import Step from "./containers/Stepper";
 import Popover from "./containers/Popover";
 import Toast from "./containers/Toast";
+import NiToast from "./packages/component-toast-new/index";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
+Vue.use(NiToast);
+
 
 Vue.use(NitroIcon);
 
