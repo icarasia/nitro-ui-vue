@@ -1,7 +1,7 @@
 {
     "name": "@nitro-ui/vue-framework",
     "description": "Awesome Vue Component Wrapper for Nitro UI",
-    "version": "1.0.27",
+    "version": "1.0.48",
     "main": "dist/NitroUiVue.common.js",
     "module": "dist/index.esm.js",
     "license": "MIT",
@@ -39,7 +39,7 @@
         "@nitro-ui/component-breadcrumb": "^1.0.0-alpha.7",
         "@nitro-ui/component-button": "^1.0.0-alpha.4",
         "@nitro-ui/component-card": "^1.0.0-alpha.6",
-        "@nitro-ui/component-carousel": "^1.0.0-alpha.0",
+        "@nitro-ui/component-carousel": "^1.0.7",
         "@nitro-ui/component-chips": "^1.0.0-alpha.1",
         "@nitro-ui/component-collapse": "^1.0.0-alpha.0",
         "@nitro-ui/component-drawer": "^1.0.0-alpha.0",

@@ -2,7 +2,7 @@
   <div class="c-popover" :class="classes">
     <slot name="label" v-if="$slots.label"></slot>
     <div class="c-popover-container">
-      <niCard>
+      <niCard :dark="dark">
         <niArrow :position="arrowPosition" />
         <slot />
       </niCard>
@@ -23,7 +23,11 @@ export default {
     niCard
   },
   props: {
-    position: String
+    position: String,
+    dark: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     classes() {
@@ -32,11 +36,11 @@ export default {
     arrowPosition() {
       let arrowPosition = "";
 
-      if (this.position == "left") {
+      if (this.position === "left") {
         arrowPosition = "right";
-      } else if (this.position == "right") {
+      } else if (this.position === "right") {
         arrowPosition = "left";
-      } else if (this.position == "bottom") {
+      } else if (this.position === "bottom") {
         arrowPosition = "top";
       } else {
         arrowPosition = "bottom";

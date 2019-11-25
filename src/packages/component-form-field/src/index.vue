@@ -1,6 +1,6 @@
 <template>
   <div class="c-field" :class="{ 'c-field--error': invalid }">
-    <label>{{ label }}</label>
+    <label :class="labelClass">{{ label }}</label>
     <slot></slot>
     <div class="u-flex u-flex--justify-between">
       <div class="c-field__message">
@@ -32,7 +32,8 @@ export default {
     info: {
       type: String,
       default: ""
-    }
+    },
+    labelClass: String
   }
 };
 </script>

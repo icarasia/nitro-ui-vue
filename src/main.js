@@ -22,6 +22,7 @@ import Tabs from "./containers/Tabs";
 import Pagination from "./containers/Pagination";
 import Step from "./containers/Stepper";
 import Popover from "./containers/Popover";
+import Collapse from "./containers/Collapse";
 import Toast from "./containers/Toast";
 import NiToast from "./packages/component-toast-new/index";
 
@@ -132,6 +133,11 @@ const router = new VueRouter({
       name: "toast",
       path: "/toast",
       component: Toast
+    },
+    {
+      name: "collapse",
+      path: "/collapse",
+      component: Collapse
     }
   ]
 });

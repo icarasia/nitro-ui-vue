@@ -73,7 +73,7 @@
 import Avatar from "../../packages/component-avatar/src/index";
 
 export default {
-  name: "TooltipPage",
+  name: "AvatarPage",
   components: {
     Avatar
   },

@@ -1,5 +1,17 @@
 <template>
-  <div class="c-field-float" :class="classes" ref="field-float">
+  <div class="c-field-float" :class="classes">
+    <textarea
+      class="c-input"
+      :value="value"
+      :rows="rows"
+      @focus="focus"
+      @blur="blur"
+      @input="input"
+      :disabled="disabled"
+      ref="field-float"
+      :class="fieldClasses"
+      v-bind="$attrs"
+    ></textarea>
     <slot></slot>
     <label
       :class="
@@ -30,7 +42,7 @@ import "@nitro-ui/component-form-float";
 import "@nitro-ui/utility-flex";
 
 export default {
-  name: "niFormFieldFloatLabel",
+  name: "niTextareaFloatLabel",
   props: {
     label: String,
     invalid: Boolean,
@@ -42,7 +54,14 @@ export default {
       type: String,
       default: ""
     },
-    hint: String
+    hint: String,
+    fieldClasses: String,
+    value: String,
+    rows: {
+      type: Number,
+      default: 3
+    },
+    disabled: Boolean
   },
   computed: {
     classes() {
@@ -52,16 +71,21 @@ export default {
       ];
     },
     fieldIsEmpty() {
-      return (
-        this.$refs["field-float"].querySelector("input, select, textarea")
-          .value === ""
-      );
+      return this.value === "" || this.value === null;
     },
     formElement() {
-      return this.$refs["field-float"].querySelector("input, select, textarea");
+      return this.$refs["field-float"];
     }
   },
   methods: {
+    resizeTextarea() {
+      this.formElement.style.height = "auto";
+      // this.formElement.style.height = this.formElement.scrollHeight + "px";
+      this.formElement.setAttribute(
+        "style",
+        "height:" + this.formElement.scrollHeight + "px;"
+      );
+    },
     focus() {
       this.hasFocus = true;
       this.$emit("focus");
@@ -69,7 +93,8 @@ export default {
     input(event) {
       this.hasFocus = true;
       this.hasContent = event.target.value !== "";
-      this.$emit("input");
+      this.resizeTextarea();
+      this.$emit("input", event.target.value);
     },
     blur() {
       this.hasFocus = false;
@@ -77,28 +102,24 @@ export default {
     }
   },
   mounted() {
-    if (this.formElement) {
-      this.formElement.addEventListener("input", this.input);
-      this.formElement.addEventListener("blur", this.blur);
-      this.formElement.addEventListener("focus", this.focus);
-      if (this.formElement.type === "select-one") {
-        this.hasContent = true;
-      }
-      this.hasContent = !this.fieldIsEmpty;
-    }
-  },
-  destroyed() {
-    if (this.formElement) {
-      this.formElement.removeEventListener("input", this.input);
-      this.formElement.removeEventListener("blur", this.blur);
-      this.formElement.removeEventListener("focus", this.focus);
-    }
+    this.$nextTick(() => {
+      this.formElement.setAttribute(
+        "style",
+        "height:" + this.formElement.scrollHeight + "px;"
+      );
+    });
+    this.hasContent = !this.fieldIsEmpty;
   },
   data() {
     return {
       hasFocus: false,
       hasContent: false
     };
+  },
+  watch: {
+    value(newVal) {
+      this.hasContent = newVal.length > 0 || newVal !== null;
+    }
   }
 };
 </script>

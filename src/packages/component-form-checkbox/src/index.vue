@@ -37,7 +37,13 @@
     "
     :value="value"
     :id="id"
-    variant="primary"
+    :variant="
+      (Array.isArray($parent.$parent.checked) &&
+        !$parent.$parent.checked.includes(value)) ||
+      (!Array.isArray($parent.$parent.checked) && !$parent.$parent.checked)
+        ? 'secondary'
+        : 'primary'
+    "
     :outline="
       Array.isArray($parent.$parent.checked)
         ? !$parent.$parent.checked.includes(value)
