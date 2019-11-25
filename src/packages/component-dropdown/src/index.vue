@@ -15,20 +15,22 @@
       </template>
     </a>
     <div class="c-dropdown__base">
-      <slot v-if="$slots.default"></slot>
-      <with-root :showIf="isMega" v-else>
+      <with-root :showIf="isMega">
         <div class="c-dropdown__mega">
           <div
             class="c-dropdown__menu"
             v-for="(all_items, index) in isMega ? items : [items]"
             :key="index"
           >
-            <Dropdown-menu
-              v-for="(item, index) in all_items"
-              :index="index"
-              :item="item"
-              :key="index"
-            />
+            <slot v-if="$slots.default"></slot>
+            <template v-else>
+              <dropdown-item
+                v-for="(item, index) in all_items"
+                :index="index"
+                :item="item"
+                :key="index"
+              />
+            </template>
           </div>
         </div>
       </with-root>
@@ -38,13 +40,13 @@
 
 <script>
 import "@nitro-ui/component-dropdown";
-import DropdownMenu from "./DropdownMenu";
+import DropdownItem from "./DropdownItem";
 import WithRoot from "../../../helpers/with-root";
 import { mixin as clickaway } from "vue-clickaway";
 
 export default {
   name: "niDropdown",
-  components: { WithRoot, DropdownMenu },
+  components: { WithRoot, DropdownItem },
   props: {
     title: {
       type: String,
@@ -55,7 +57,12 @@ export default {
       type: Boolean,
       default: false
     },
-    items: Array,
+    items: {
+      type: Array,
+      default: () => {
+        return null;
+      }
+    },
     titleClasses: { type: String, default: "" }
   },
   data() {
@@ -72,7 +79,11 @@ export default {
       ];
     },
     isMega() {
-      return this.items.length > 0 && Array.isArray(this.items[0]);
+      return (
+        this.items !== null &&
+        this.items.length > 0 &&
+        Array.isArray(this.items[0])
+      );
     }
   },
   methods: {

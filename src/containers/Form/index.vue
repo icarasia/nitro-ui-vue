@@ -414,18 +414,19 @@
       <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
         <FormFieldFloat
           label="label"
-          message="Select your option"
+          message="Select your option11"
           :class="'u-margin-bottom-xxs'"
         >
           <nSelect
             v-model="floatlabelselectresult"
             emptyPlaceholder
+            label-attribute="title"
             :options="[
-              { label: 'first', value: 1 },
-              { label: 'second', value: 2 },
-              { label: 'third', value: 3 },
-              { label: 'fourth', value: 4 },
-              { label: 'fifth', value: 5 }
+              { title: 'first', value: 1 },
+              { title: 'second', value: 2 },
+              { title: 'third', value: 3 },
+              { title: 'fourth', value: 4 },
+              { title: 'fifth', value: 5 }
             ]"
           >
           </nSelect>
@@ -521,18 +522,97 @@
           {{ floatlabelinputbtnresult3 }}
         </div>
       </div>
+
+      <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+        <NiTextareaFloatLabel
+          label="Label"
+          message="Message here"
+          hint="Hint here"
+          info="Info here"
+          :class="'u-margin-bottom-xxs'"
+          placeholder="Your first name"
+          v-model="floatlabelinputbtnresult1"
+        >
+        </NiTextareaFloatLabel>
+        <div class="u-margin-bottom-lg">
+          {{ floatlabelinputbtnresult1 }}
+        </div>
+      </div>
+
+      <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+        <NiInputFloatLabel
+          label="Label"
+          message="Message here"
+          hint="Hint here"
+          info="Info here"
+          :class="'u-margin-bottom-xxs'"
+          placeholder="Your first name"
+          v-model="floatlabelinputbtnresult2"
+        >
+        </NiInputFloatLabel>
+        <div class="u-margin-bottom-lg">
+          {{ floatlabelinputbtnresult2 }}
+        </div>
+      </div>
+      <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+        <NiSelectFloatLabel
+          label="Label"
+          message="Message here"
+          info="Info here"
+          :class="'u-margin-bottom-xxs'"
+          v-model="floatlabelselectresult"
+          emptyPlaceholder
+          label-attribute="title"
+          :options="[
+            { title: 'first', value: 1 },
+            { title: 'second', value: 2 },
+            { title: 'third', value: 3 },
+            { title: 'fourth', value: 4 },
+            { title: 'fifth', value: 5 }
+          ]"
+        >
+        </NiSelectFloatLabel>
+        <div class="u-margin-bottom-lg">
+          {{ floatlabelselectresult }}
+        </div>
+      </div>
+      <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+        <NiInputFloatLabel
+          label="Label"
+          message="Message here"
+          info="Info here"
+          :class="'u-margin-bottom-xxs'"
+          placeholder="Your first name"
+          v-model="floatlabelinputbtnresult2"
+          input-button
+        >
+          <nButton variant="primary" v-tooltip="'test'">
+            <NitroIcon name="action/add" size="20"></NitroIcon>
+          </nButton>
+        </NiInputFloatLabel>
+        <div class="u-margin-bottom-lg">
+          {{ floatlabelinputbtnresult2 }}
+        </div>
+      </div>
     </div>
     <h4 class="u-margin-top-xl">Search Input</h4>
     <div class="u-margin-bottom-xl  u-width-1/2  u-width-1@mobile">
       <div class="u-flex  u-flex--items-center">
-        <NitroIcon name="action/search" size="s" :class="`u-absolute  u-margin-left-sm  u-zindex-1`"></NitroIcon>
-        <nInput placeholder="Search for Ad Listing" v-model="searchInputResult" :class="`u-padding-left-xl  u-relative  u-zindex-0`" />
+        <NitroIcon
+          name="action/search"
+          size="s"
+          :class="`u-absolute  u-margin-left-sm  u-zindex-1`"
+        ></NitroIcon>
+        <nInput
+          placeholder="Search for Ad Listing"
+          v-model="searchInputResult"
+          :class="`u-padding-left-xl  u-relative  u-zindex-0`"
+        />
       </div>
       <div class="u-margin-top-xs  u-margin-bottom-lg">
         {{ searchInputResult }}
       </div>
     </div>
-
   </div>
 </template>
 
@@ -552,6 +632,9 @@ import nFileUpload from "../../packages/component-form-fileupload/src/index";
 import nInputBtn from "../../packages/component-form-input-button/src/index";
 import FormFieldFloat from "../../packages/component-form-field-floatlabel/src/index";
 import nButton from "../../packages/component-button/src/index";
+import NiTextareaFloatLabel from "../../packages/component-form-textarea-floatlabel/src/index";
+import NiInputFloatLabel from "../../packages/component-form-input-floatlabel/src/index";
+import NiSelectFloatLabel from "../../packages/component-form-select-floatlabel/src/index";
 
 export default {
   name: "FormPage",
@@ -567,7 +650,10 @@ export default {
     nFileUpload,
     nInputBtn,
     nButton,
-    FormFieldFloat
+    FormFieldFloat,
+    NiTextareaFloatLabel,
+    NiInputFloatLabel,
+    NiSelectFloatLabel
   },
   props: {
     picked: String

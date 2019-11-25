@@ -319,16 +319,16 @@ export default {
   },
   methods: {
     logout() {
-      console.log("123");
+      // console.log("123");
     }
   },
   mounted() {
     this.$on("logout", function() {
-      console.log("123");
+      // console.log("123");
     });
 
     this.$on("changeLanguage", function(language) {
-      console.log(language);
+      // console.log(language);
     });
   }
 };

@@ -14,7 +14,7 @@
     </template>
   </div>
   <div v-else>
-    <button-group class="u-flex">
+    <button-group :full="full">
       <slot v-if="$slots.default" />
       <template v-else-if="items.length">
         <nRadio
@@ -55,6 +55,10 @@ export default {
       default: false
     },
     buttons: {
+      type: Boolean,
+      default: false
+    },
+    full: {
       type: Boolean,
       default: false
     },

@@ -1,10 +1,10 @@
 <template>
   <select
     class="c-input"
-    @focus="$emit('focus')"
-    @blur="$emit('blur')"
-    @input="$emit('input', $event.target.value)"
-    @click="$emit('click')"
+    @focus="$emit('focus', $event)"
+    @blur="$emit('blur', $event)"
+    v-bind="$attrs"
+    v-model="computedValue"
     :disabled="disabled"
   >
     <template v-if="placeholder">
@@ -19,10 +19,10 @@
     <template v-else>
       <option
         v-for="(option, index) in options"
-        :value="option.value"
+        :value="option[`${valueAttribute}`]"
         :key="index"
       >
-        {{ option.label }}
+        {{ option[`${labelAttribute}`] }}
       </option>
     </template>
   </select>
@@ -44,7 +44,36 @@ export default {
         return [];
       }
     },
+    valueAttribute: {
+      type: String,
+      default: "value"
+    },
+    labelAttribute: {
+      type: String,
+      default: "label"
+    },
     disabled: Boolean
+  },
+  data() {
+    return {
+      selected: this.value
+    };
+  },
+  computed: {
+    computedValue: {
+      get() {
+        return this.selected;
+      },
+      set(value) {
+        this.selected = value;
+        this.$emit("input", value);
+      }
+    }
+  },
+  watch: {
+    value(value) {
+      this.selected = value;
+    }
   }
 };
 </script>

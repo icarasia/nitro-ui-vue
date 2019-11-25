@@ -1,5 +1,22 @@
 <template>
-  <div class="c-field-float" :class="classes" ref="field-float">
+  <div class="c-field-float" :class="classes">
+    <with-root :showIf="inputButton" :class="{ 'is--disabled': disabled }">
+      <div class="c-input-btn" :class="classes">
+        <input
+          type="text"
+          class="c-input"
+          :value="value"
+          @focus="focus"
+          @blur="blur"
+          @input="input"
+          :disabled="disabled"
+          ref="field-float"
+          :class="fieldClasses"
+          v-bind="$attrs"
+        />
+        <slot v-if="inputButton" name="icon"></slot>
+      </div>
+    </with-root>
     <slot></slot>
     <label
       :class="
@@ -28,9 +45,11 @@
 import "@nitro-ui/component-form";
 import "@nitro-ui/component-form-float";
 import "@nitro-ui/utility-flex";
+import WithRoot from "../../../helpers/with-root";
 
 export default {
-  name: "niFormFieldFloatLabel",
+  name: "niInputFloatLabel",
+  components: { WithRoot },
   props: {
     label: String,
     invalid: Boolean,
@@ -42,7 +61,14 @@ export default {
       type: String,
       default: ""
     },
-    hint: String
+    hint: String,
+    fieldClasses: String,
+    value: String,
+    disabled: Boolean,
+    inputButton: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     classes() {
@@ -52,13 +78,10 @@ export default {
       ];
     },
     fieldIsEmpty() {
-      return (
-        this.$refs["field-float"].querySelector("input, select, textarea")
-          .value === ""
-      );
+      return this.value === "" || this.value === null;
     },
     formElement() {
-      return this.$refs["field-float"].querySelector("input, select, textarea");
+      return this.$refs["field-float"];
     }
   },
   methods: {
@@ -69,7 +92,7 @@ export default {
     input(event) {
       this.hasFocus = true;
       this.hasContent = event.target.value !== "";
-      this.$emit("input");
+      this.$emit("input", event.target.value);
     },
     blur() {
       this.hasFocus = false;
@@ -77,28 +100,18 @@ export default {
     }
   },
   mounted() {
-    if (this.formElement) {
-      this.formElement.addEventListener("input", this.input);
-      this.formElement.addEventListener("blur", this.blur);
-      this.formElement.addEventListener("focus", this.focus);
-      if (this.formElement.type === "select-one") {
-        this.hasContent = true;
-      }
-      this.hasContent = !this.fieldIsEmpty;
-    }
-  },
-  destroyed() {
-    if (this.formElement) {
-      this.formElement.removeEventListener("input", this.input);
-      this.formElement.removeEventListener("blur", this.blur);
-      this.formElement.removeEventListener("focus", this.focus);
-    }
+    this.hasContent = !this.fieldIsEmpty;
   },
   data() {
     return {
       hasFocus: false,
       hasContent: false
     };
+  },
+  watch: {
+    value(newVal) {
+      this.hasContent = newVal.length > 0 || newVal !== null;
+    }
   }
 };
 </script>
