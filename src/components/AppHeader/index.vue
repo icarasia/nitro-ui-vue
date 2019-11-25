@@ -27,7 +27,7 @@
 </template>
 
 <script>
-// import "@nitro-ui/utility";
+import "@nitro-ui/utility";
 import Dropdown from "../../packages/component-dropdown/src/index";
 export default {
   name: "AppHeader",
@@ -108,6 +108,10 @@ export default {
         {
           title: "Popover",
           href: "/popover"
+        },
+        {
+          title: "Collapse",
+          href: "/collapse"
         },
         {
           title: "Toast",
