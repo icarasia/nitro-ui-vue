@@ -24,9 +24,12 @@ import Step from "./containers/Stepper";
 import Popover from "./containers/Popover";
 import Collapse from "./containers/Collapse";
 import Toast from "./containers/Toast";
+import NiToast from "./packages/component-toast-new/index";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
+Vue.use(NiToast);
+
 
 Vue.use(NitroIcon);
 
