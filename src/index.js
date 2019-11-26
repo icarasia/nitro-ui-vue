@@ -1,5 +1,6 @@
 import * as niComponents from "./packages";
 import niTooltip from "./packages/directive-tooltip/src";
+import niToastr from "./packages/component-toast";
 import "@nitro-ui/bundle-utilities";
 import "@nitro-ui/component-carousel";
 import "@nitro-ui/component-tooltip";
@@ -15,6 +16,8 @@ const install = Vue => {
     Vue.use(niComponent);
   });
   Vue.directive("ni-tooltip", niTooltip);
+
+  Vue.use(niToastr);
 };
 
 if (typeof window !== "undefined" && window.Vue) {

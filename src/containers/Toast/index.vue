@@ -22,13 +22,19 @@
       <ni-button variant="secondary" @click="openTips" class="u-margin-left-sm"
         >Tips Toast</ni-button
       >
-      <ni-button variant="positive" @click="rightToastr" class="u-margin-left-sm"
+      <ni-button
+        variant="positive"
+        @click="rightToastr"
+        class="u-margin-left-sm"
         >Right Toast</ni-button
       >
       <ni-button variant="positive" @click="leftToastr" class="u-margin-left-sm"
         >Left Toast</ni-button
       >
-      <ni-button variant="positive" @click="centerToastr" class="u-margin-left-sm"
+      <ni-button
+        variant="positive"
+        @click="centerToastr"
+        class="u-margin-left-sm"
         >Center Toast</ni-button
       >
     </div>

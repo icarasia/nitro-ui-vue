@@ -30,7 +30,6 @@ Vue.config.productionTip = false;
 Vue.use(VueRouter);
 Vue.use(NiToast);
 
-
 Vue.use(NitroIcon);
 
 import Tooltip from "./packages/directive-tooltip/src";

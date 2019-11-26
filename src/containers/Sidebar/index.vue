@@ -327,7 +327,7 @@ export default {
       // console.log("123");
     });
 
-    this.$on("changeLanguage", function(language) {
+    this.$on("changeLanguage", function() {
       // console.log(language);
     });
   }
