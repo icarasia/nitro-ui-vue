@@ -48,7 +48,8 @@ export default {
     classes() {
       return [
         { "c-field--error": this.invalid },
-        { "is--active": this.hasFocus || this.hasContent }
+        { "is--active": this.hasFocus || this.hasContent },
+        { "is--focus": this.hasFocus}
       ];
     },
     fieldIsEmpty() {
@@ -102,3 +103,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.is--focus .c-input-btn{
+    border-color: #0774FE;
+}
+</style>
