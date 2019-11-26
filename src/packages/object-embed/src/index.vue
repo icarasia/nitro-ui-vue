@@ -13,12 +13,14 @@ export default {
   props: {
     alt: String,
     src: String,
-    size: String
+    size: String,
+    variant: String
   },
   computed: {
     classes() {
       return [
-        this.size ? `o-embed--${this.size}` : ""
+        this.size ? `o-embed--${this.size}` : "",
+        this.variant ? `o-embed--${this.variant}` : "",
       ];
     }
   }
