@@ -89,7 +89,6 @@ export default {
     focus() {
       this.hasFocus = true;
       this.$emit("focus");
-      console.log('focus', this.hasFocus);
     },
     input(event) {
       this.hasFocus = true;
