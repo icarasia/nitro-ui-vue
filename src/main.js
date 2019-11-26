@@ -23,6 +23,7 @@ import Pagination from "./containers/Pagination";
 import Step from "./containers/Stepper";
 import Popover from "./containers/Popover";
 import Collapse from "./containers/Collapse";
+import Embed from "./containers/Embed";
 import Toast from "./containers/Toast";
 import NiToast from "./packages/component-toast/index";
 
@@ -137,6 +138,11 @@ const router = new VueRouter({
       name: "collapse",
       path: "/collapse",
       component: Collapse
+    },
+    {
+      name: "embed",
+      path: "/embed",
+      component: Embed
     }
   ]
 });

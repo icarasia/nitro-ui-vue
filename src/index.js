@@ -43,6 +43,7 @@ export {
   DropdownComponent as niDropdown,
   DropdownItemComponent as niDropdownItem
 } from "./packages/component-dropdown";
+export { default as niEmbed } from "./packages/object-embed";
 export { default as niFormField } from "./packages/component-form-field";
 export { default as niFormFieldFloatLabel } from "./packages/component-form-field-floatlabel";
 export { default as niFormFile } from "./packages/component-form-fileupload";

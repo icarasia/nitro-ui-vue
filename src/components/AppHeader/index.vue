@@ -116,6 +116,10 @@ export default {
         {
           title: "Toast",
           href: "/toast"
+        },
+        {
+          title: "Embed",
+          href: "/embed"
         }
       ]
     };
