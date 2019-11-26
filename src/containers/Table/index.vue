@@ -138,9 +138,9 @@ export default {
     test(event, item, index) {
       this.selected = this.selected === index ? null : index;
     },
-    sort(params) {
-      //console.log(params);
-    }
+    // sort(params) {
+    //   //console.log(params);
+    // }
   }
 };
 </script>

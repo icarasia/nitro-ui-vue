@@ -74,7 +74,8 @@ export default {
     classes() {
       return [
         { "c-field--error": this.invalid },
-        { "is--active": this.hasFocus || this.hasContent }
+        { "is--active": this.hasFocus || this.hasContent },
+        { "is--focus": this.hasFocus || this.hasContent }
       ];
     },
     fieldIsEmpty() {
@@ -88,6 +89,7 @@ export default {
     focus() {
       this.hasFocus = true;
       this.$emit("focus");
+      console.log('focus', this.hasFocus);
     },
     input(event) {
       this.hasFocus = true;

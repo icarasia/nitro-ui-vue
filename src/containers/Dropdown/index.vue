@@ -43,20 +43,20 @@
               toggleable
               style="display: inline-block"
             >
-                <DropdownMenu class="c-dropdown__heading">Test</DropdownMenu>
-                <DropdownMenu :item="{is_divider: true}"></DropdownMenu>
-                <DropdownMenu class="c-dropdown__item">
+                <DropdownItem class="c-dropdown__heading">Test</DropdownItem>
+                <DropdownItem :item="{is_divider: true}"></DropdownItem>
+                <DropdownItem class="c-dropdown__item">
                     <div class="u-flex  u-flex--items-center  u-flex--justify-between">
                         <div>Showcase</div>
                         <div class="u-text-7  u-color-muted">RUNNING</div>
                     </div>
-                </DropdownMenu>
-                <DropdownMenu class="c-dropdown__item">
+                </DropdownItem>
+                <DropdownItem class="c-dropdown__item">
                     <div class="u-flex  u-flex--items-center  u-flex--justify-between">
                         <div>Hot Deal</div>
                         <div class="u-text-7  u-color-muted">RUNNING</div>
                     </div>
-                </DropdownMenu>
+                </DropdownItem>
             </Dropdown>
           </nCol>
         </nRow>
@@ -67,7 +67,7 @@
 
 <script>
 import Dropdown from "../../packages/component-dropdown/src";
-import DropdownMenu from "../../packages/component-dropdown/src/DropdownMenu";
+import DropdownItem from "../../packages/component-dropdown/src/DropdownItem";
 import Container from "../../packages/component-container/src/index";
 import nRow from "../../packages/component-row/src/index";
 import nCol from "../../packages/component-col/src/index";
@@ -79,7 +79,7 @@ export default {
     nRow,
     Container,
     Dropdown,
-    DropdownMenu
+    DropdownItem
   },
   data() {
     return {

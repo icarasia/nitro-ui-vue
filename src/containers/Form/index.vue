@@ -414,7 +414,7 @@
       <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
         <FormFieldFloat
           label="label"
-          message="Select your option11"
+          message="Select your option"
           :class="'u-margin-bottom-xxs'"
         >
           <nSelect
@@ -480,6 +480,7 @@
         <FormFieldFloat
           label="Label"
           message="Message here"
+          info="Info here"
           :class="'u-margin-bottom-xxs'"
         >
           <nInputBtn v-model="floatlabelinputbtnresult1">
@@ -530,12 +531,12 @@
           hint="Hint here"
           info="Info here"
           :class="'u-margin-bottom-xxs'"
-          placeholder="Your first name"
-          v-model="floatlabelinputbtnresult1"
+          emptyPlaceholder
+          v-model="floatlabelinputbtnresult4"
         >
         </NiTextareaFloatLabel>
         <div class="u-margin-bottom-lg">
-          {{ floatlabelinputbtnresult1 }}
+          {{ floatlabelinputbtnresult4 }}
         </div>
       </div>
 
@@ -546,7 +547,7 @@
           hint="Hint here"
           info="Info here"
           :class="'u-margin-bottom-xxs'"
-          placeholder="Your first name"
+          emptyPlaceholder
           v-model="floatlabelinputbtnresult2"
         >
         </NiInputFloatLabel>
@@ -576,24 +577,23 @@
           {{ floatlabelselectresult }}
         </div>
       </div>
-      <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
-        <NiInputFloatLabel
+      <!-- <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+        <FormFieldFloat
           label="Label"
           message="Message here"
           info="Info here"
           :class="'u-margin-bottom-xxs'"
-          placeholder="Your first name"
-          v-model="floatlabelinputbtnresult2"
-          input-button
         >
-          <nButton variant="primary" v-tooltip="'test'">
-            <NitroIcon name="action/add" size="20"></NitroIcon>
-          </nButton>
-        </NiInputFloatLabel>
+          <nInputBtn v-model="floatlabelinputbtnresult4">
+            <nButton variant="primary" v-tooltip="'test'">
+              <NitroIcon name="action/add" size="20"></NitroIcon>
+            </nButton>
+          </nInputBtn>
+        </FormFieldFloat>
         <div class="u-margin-bottom-lg">
-          {{ floatlabelinputbtnresult2 }}
+          {{ floatlabelinputbtnresult4 }}
         </div>
-      </div>
+      </div> -->
     </div>
     <h4 class="u-margin-top-xl">Search Input</h4>
     <div class="u-margin-bottom-xl  u-width-1/2  u-width-1@mobile">
@@ -688,6 +688,7 @@ export default {
       floatlabelinputbtnresult1: null,
       floatlabelinputbtnresult2: null,
       floatlabelinputbtnresult3: null,
+      floatlabelinputbtnresult4: null,
       searchInputResult: null,
       options: [
         { value: "01", label: "01" },

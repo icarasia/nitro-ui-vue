@@ -71,6 +71,7 @@ export default {
       default: ""
     },
     hint: String,
+    placeholder: Boolean,
     emptyPlaceholder: Boolean,
     fieldClasses: String,
     options: {
