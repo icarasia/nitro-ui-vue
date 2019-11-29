@@ -9,6 +9,7 @@ export { default as niCheckbox } from "./component-form-checkbox";
 export { default as niCheckboxGroup } from "./component-form-checkbox-group";
 export { default as niCol } from "./component-col";
 export { default as niContainer } from "./component-container";
+export { default as niCollapse } from "./component-collapse";
 export { default as niDrawer } from "./component-drawer";
 export {
   DropdownComponent as niDropdown,
