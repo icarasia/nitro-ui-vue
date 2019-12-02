@@ -1,8 +1,8 @@
 <template>
   <div class="o-embed" :class="classes">
-      <img :src="src" :alt="alt" v-if="src" />
-      <slot v-if="$slots.default"></slot>
-    </div>
+    <img :src="src" :alt="alt" v-if="src" />
+    <slot v-if="$slots.default"></slot>
+  </div>
 </template>
 
 <script>
@@ -20,7 +20,7 @@ export default {
     classes() {
       return [
         this.size ? `o-embed--${this.size}` : "",
-        this.variant ? `o-embed--${this.variant}` : "",
+        this.variant ? `o-embed--${this.variant}` : ""
       ];
     }
   }

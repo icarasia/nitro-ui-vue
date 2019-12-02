@@ -69,6 +69,7 @@ export default {
     return {
       name: this.$parent.name
     };
-  }
+  },
+  mounted() {}
 };
 </script>

@@ -9,7 +9,7 @@
       <span>{{ label }}</span>
       <span v-if="hint" class="c-field__hint  u-text-7">{{ hint }}</span>
     </label>
-    <div v-if="message ||  info" class="u-flex u-flex--justify-between">
+    <div v-if="message || info" class="u-flex u-flex--justify-between">
       <div class="c-field__message">
         <template v-if="message">{{ message }}</template>
         <template v-else-if="$slots.message"

@@ -2,7 +2,7 @@
   <transition name="fade">
     <div class="c-alert" :class="classes" v-if="visible">
       <div class="c-alert__left" v-if="icon">
-          <slot name="icon"></slot>
+        <slot name="icon"></slot>
       </div>
       <div class="c-alert__body">
         <slot></slot>

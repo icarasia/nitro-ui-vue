@@ -668,7 +668,7 @@ export default {
       check: [],
       check1: [],
       check2: [],
-      radio1: 'jack',
+      radio1: "jack",
       radio2: null,
       radio3: null,
       switch1: [],

@@ -17,13 +17,12 @@
           message.autoDismissAfter !== undefined ? message.autoDismissAfter : 0
         "
         :icon="message.icon"
-        >
+      >
         <template v-slot:icon>
-            {{ message.iconContent }}
+          {{ message.iconContent }}
         </template>
         {{ message.message }}
-        </Alert
-      >
+      </Alert>
     </div>
   </div>
 </template>
@@ -42,7 +41,7 @@ export default {
         {
           type: "info",
           icon: true,
-          iconContent : "@",
+          iconContent: "@",
           message: "Default alert as Info",
           dismissable: true
         },
