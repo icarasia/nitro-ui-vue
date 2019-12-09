@@ -26,6 +26,7 @@
           :label="tab.label"
           :key="`ONE-${index}`"
           :hide-icon="true"
+          :use-html="true"
           >{{ tab.content }}</Tab
         >
 

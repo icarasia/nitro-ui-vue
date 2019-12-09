@@ -21,6 +21,10 @@ export default {
       type: String,
       required: false,
       default: ""
+    },
+    useHtml: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
