@@ -17,8 +17,15 @@
         :key="`tab-header${index}`"
         @click="activate(index)"
       >
-        <NitroIcon v-if="!tab.hideIcon" :name="tab.icon" size="m"></NitroIcon>
-        <span>{{ tab.label }}</span>
+        <NitroIcon
+          v-if="!tab.hideIcon"
+          :name="tab.icon"
+          size="m"
+        ></NitroIcon>
+        <template v-if="!tab.useHtml">
+          <span>{{ tab.label }}</span>
+        </template>
+        <div v-else v-html="tab.label"></div>
       </a>
 
       <div
