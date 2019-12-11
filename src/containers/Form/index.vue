@@ -84,11 +84,12 @@
     <div class="o-grid  u-margin-top-md">
       <div class="o-grid__item  u-width-1@mobile">
         <FormField
-          label="Default Checkbox"
+          label="Default Checkbox 1"
           message="Please select your options"
         >
           <n-checkbox-group v-model="check">
             <n-checkbox
+              :parent="$refs['ttt']"
               v-for="checkboxesitem in checkboxesitems"
               :key="checkboxesitem.id"
               :id="`check-${checkboxesitem.id}`"

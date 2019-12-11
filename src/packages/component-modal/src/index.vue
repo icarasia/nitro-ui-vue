@@ -1,7 +1,6 @@
 <template>
   <div
     class="c-modal"
-    id="example-modal-md"
     tabindex="-1"
     role="dialog"
     aria-hidden="true"
@@ -35,7 +34,7 @@
         </template>
       </div>
       <slot name="above-body"></slot>
-      <div class="c-dialog__body">
+      <div class="c-dialog__body" :class="bodyClasses">
         <slot></slot>
       </div>
       <div class="c-dialog__foot" :class="footerClasses" v-if="with_footer">
@@ -75,6 +74,10 @@ export default {
       default: true
     },
     headerClasses: {
+      type: String,
+      default: ""
+    },
+    bodyClasses: {
       type: String,
       default: ""
     },

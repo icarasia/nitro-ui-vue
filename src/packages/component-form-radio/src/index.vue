@@ -1,5 +1,5 @@
 <template>
-  <div class="c-check" v-if="!$parent.buttons && $parent.buttons !== undefined">
+  <div class="c-check" v-if="!buttons">
     <input
       type="radio"
       :name="name"
@@ -7,8 +7,8 @@
       :required="required"
       :disabled="disabled"
       :id="id"
-      @change="$parent.$emit('input', $event.target.value)"
-      :checked="$parent.checked === value"
+      @change="parent.$emit('input', $event.target.value)"
+      :checked="parent.checked === value"
     />
     <label :for="id">
       <slot />
@@ -18,21 +18,18 @@
     v-else
     :disabled="disabled"
     @click.native="
-      $parent.$parent.checked !== value
-        ? $parent.$parent.$emit('input', $event.target.value)
-        : ''
+      parent.checked !== value ? parent.$emit('input', $event.target.value) : ''
     "
     :id="id"
     :value="value"
-    :variant="$parent.$parent.checked !== value ? 'secondary' : 'primary'"
-    :outline="$parent.$parent.checked !== value"
+    :variant="parent.checked !== value ? 'secondary' : 'primary'"
+    :outline="parent.checked !== value"
   >
     <NitroIcon
       :name="icon"
       class="u-margin-right-xxs"
       size="20"
-      v-if="icon !== null && $parent.$parent.checked === value"
-    ></NitroIcon>
+      v-if="icon !== null && parent.checked === value"/>
     <slot
   /></niButton>
 </template>
@@ -65,10 +62,18 @@ export default {
       default: null
     }
   },
-  data() {
-    return {
-      name: this.$parent.name
-    };
+  computed: {
+    parent() {
+      if (!this.$parent.buttons && this.$parent.buttons !== undefined)
+        return this.$parent;
+      return this.$parent.$parent;
+    },
+    buttons() {
+      return this.parent.buttons !== undefined && this.parent.buttons;
+    },
+    name() {
+      return this.parent.name;
+    }
   },
   mounted() {}
 };

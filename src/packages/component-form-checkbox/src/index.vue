@@ -1,17 +1,14 @@
 <template>
-  <div
-    :class="classes"
-    v-if="!$parent.buttons && $parent.buttons !== undefined"
-  >
+  <div :class="classes" v-if="!buttons">
     <input
       :id="id"
-      v-if="Array.isArray($parent.checked)"
+      v-if="Array.isArray(parent.checked)"
       type="checkbox"
       :name="name"
       :value="value"
       :disabled="disabled"
-      :checked="$parent.checked.includes(value)"
-      @change="onChange($parent)"
+      :checked="parent.checked.includes(value)"
+      @change="onChange(parent)"
     />
     <input
       :id="id"
@@ -20,8 +17,8 @@
       :name="name"
       :value="value"
       :disabled="disabled"
-      :checked="$parent.checked"
-      @change="$parent.$emit('input', !$parent.checked)"
+      :checked="parent.checked"
+      @change="parent.$emit('input', !parent.checked)"
     />
     <label :for="id">
       <slot />
@@ -31,23 +28,22 @@
     v-else
     :disabled="disabled"
     @click.native="
-      Array.isArray($parent.$parent.checked)
-        ? onChange($parent.$parent)
-        : $emit('input', !$parent.$parent.checked)
+      Array.isArray(parent.checked)
+        ? onChange(parent)
+        : $emit('input', !parent.checked)
     "
     :value="value"
     :id="id"
     :variant="
-      (Array.isArray($parent.$parent.checked) &&
-        !$parent.$parent.checked.includes(value)) ||
-      (!Array.isArray($parent.$parent.checked) && !$parent.$parent.checked)
+      (Array.isArray(parent.checked) && !parent.checked.includes(value)) ||
+      (!Array.isArray(parent.checked) && !parent.checked)
         ? 'secondary'
         : 'primary'
     "
     :outline="
-      Array.isArray($parent.$parent.checked)
-        ? !$parent.$parent.checked.includes(value)
-        : !$parent.$parent.checked
+      Array.isArray(parent.checked)
+        ? !parent.checked.includes(value)
+        : !parent.checked
     "
   >
     <NitroIcon
@@ -56,12 +52,10 @@
       size="20"
       v-if="
         icon !== null &&
-          ((Array.isArray($parent.$parent.checked) &&
-            $parent.$parent.checked.includes(value)) ||
-            (!Array.isArray($parent.$parent.checked) &&
-              $parent.$parent.checked))
+          ((Array.isArray(parent.checked) && parent.checked.includes(value)) ||
+            (!Array.isArray(parent.checked) && parent.checked))
       "
-    ></NitroIcon>
+    />
     <slot />
   </niButton>
 </template>
@@ -102,11 +96,17 @@ export default {
   computed: {
     classes() {
       return [
-        this.$parent.switches ? `c-switch` : `c-check`,
-        this.$parent.switches && this.$parent.switchRight
-          ? `c-switch--right`
-          : ``
+        this.parent.switches ? `c-switch` : `c-check`,
+        this.parent.switches && this.parent.switchRight ? `c-switch--right` : ``
       ];
+    },
+    parent() {
+      if (!this.$parent.buttons && this.$parent.buttons !== undefined)
+        return this.$parent;
+      return this.$parent.$parent;
+    },
+    buttons() {
+      return this.parent.buttons !== undefined && this.parent.buttons;
     }
   },
   methods: {

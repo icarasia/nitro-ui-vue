@@ -38,7 +38,9 @@ export default {
         this.outline &&
         (this.variant === "primary" || this.variant === "secondary")
           ? `c-btn--${this.variant}-outline`
-          : `c-btn--${this.variant}`,
+          : this.variant
+          ? `c-btn--${this.variant}`
+          : "",
         this.size ? `c-btn--${this.size}` : "",
         { "is--loading": this.loading },
         { "is--disabled": this.disabled },

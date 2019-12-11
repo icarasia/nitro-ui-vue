@@ -1,6 +1,6 @@
 <template>
-  <div v-if="currentStep === step">
-    <slot></slot>
+  <div v-show="currentStep === step">
+    <slot />
   </div>
 </template>
 
@@ -23,5 +23,3 @@ export default {
   }
 };
 </script>
-
-<style scoped></style>

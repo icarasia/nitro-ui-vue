@@ -4,18 +4,24 @@
 
     <div class="o-container">
       <slot></slot>
-      <div :class="footerStyles">
+      <slot
+        name="footer"
+        :next="goNext"
+        :prev="goPrev"
+        v-if="$scopedSlots.footer"
+      ></slot>
+      <div :class="footerStyles" v-else>
         <Btn
           variant="secondary"
           class="u-padding-sides-md u-margin-left-none u-text-semibold u-border-0"
-          @click="$emit('checkStep', '-')"
-          v-if="showBackButton"
+          @click="goPrev"
+          v-if="showBackButton && stepper !== 1"
           >{{ backBtnText }}</Btn
         >
         <Btn
           variant="primary"
           class="u-float-right u-padding-sides-lg"
-          @click="$emit('checkStep', '+')"
+          @click="goNext"
           >{{ maxStep === stepper ? finishBtnText : nextBtnText }}</Btn
         >
       </div>
@@ -58,6 +64,11 @@ export default {
       type: String,
       required: false,
       default: ""
+    },
+    stepValidator: {
+      type: Function,
+      required: false,
+      default: null
     }
   },
   data() {
@@ -75,6 +86,20 @@ export default {
     this.$on("finishStep", () => {
       this.$emit("finish");
     });
+  },
+  methods: {
+    goNext() {
+      this.$emit("checkStep", "+");
+    },
+    goPrev() {
+      this.$emit("checkStep", "-");
+    }
+  },
+  watch: {
+    value(newVal, oldVal) {
+      if (newVal - oldVal === 1) this.$emit("checkStep", "+");
+      else this.$emit("checkStep", "-");
+    }
   }
 };
 </script>
