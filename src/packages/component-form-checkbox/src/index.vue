@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" v-if="!buttons">
+  <div :class="classes" v-if="!with_buttons">
     <input
       :id="id"
       v-if="Array.isArray(parent.checked)"
@@ -63,6 +63,7 @@
 <script>
 import "@nitro-ui/component-form";
 import niButton from "../../component-button/src/index";
+import { getComponent } from "../../../helpers/utils";
 
 export default {
   name: "niCheckbox",
@@ -101,12 +102,10 @@ export default {
       ];
     },
     parent() {
-      if (!this.$parent.buttons && this.$parent.buttons !== undefined)
-        return this.$parent;
-      return this.$parent.$parent;
+      return getComponent(this, "niCheckboxGroup");
     },
-    buttons() {
-      return this.parent.buttons !== undefined && this.parent.buttons;
+    with_buttons() {
+      return this.parent.buttons;
     }
   },
   methods: {

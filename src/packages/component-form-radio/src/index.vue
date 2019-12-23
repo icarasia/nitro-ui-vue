@@ -1,5 +1,5 @@
 <template>
-  <div class="c-check" v-if="!buttons">
+  <div class="c-check" v-if="!with_buttons">
     <input
       type="radio"
       :name="name"
@@ -37,6 +37,7 @@
 <script>
 import "@nitro-ui/component-form";
 import niButton from "../../component-button/src/index";
+import { getComponent } from "../../../helpers/utils";
 
 export default {
   name: "niRadio",
@@ -64,12 +65,10 @@ export default {
   },
   computed: {
     parent() {
-      if (!this.$parent.buttons && this.$parent.buttons !== undefined)
-        return this.$parent;
-      return this.$parent.$parent;
+      return getComponent(this, "niRadioGroup");
     },
-    buttons() {
-      return this.parent.buttons !== undefined && this.parent.buttons;
+    with_buttons() {
+      return this.parent.buttons;
     },
     name() {
       return this.parent.name;

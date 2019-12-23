@@ -142,7 +142,7 @@
               v-for="radioitem in radioitems"
               :key="radioitem.id"
               :value="radioitem.value"
-              :id="radioitem.id"
+              :id="`first-${radioitem.id}`"
               :disabled="radioitem.disabled"
             >
               {{ radioitem.label }}
