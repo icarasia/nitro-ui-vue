@@ -1,7 +1,6 @@
 <template>
   <div class="c-range">
     <input
-      v-model="range_value"
       class="c-range__input"
       type="range"
       :id="id"
@@ -10,8 +9,13 @@
       :required="required"
       :min="min"
       :max="max"
+      :value="value"
+      @focus="$emit('focus')"
+      @blur="$emit('blur')"
+      @input="$emit('input', $event.target.value)"
+      @click="$emit('click')"
       />
-    <div class="c-range__bar" :style="{width: `${range_value / max * 100}%`}"></div>
+    <div class="c-range__bar" :style="{width: `${value / max * 100}%`}"></div>
   </div>
 </template>
 
@@ -37,7 +41,8 @@ export default {
     max: {
       type: Number,
       default: 10
-    }
+    },
+    value: null
   },
   data() {
     return {

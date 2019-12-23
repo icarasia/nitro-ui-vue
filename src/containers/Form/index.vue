@@ -32,9 +32,9 @@
     <div class="u-margin-top-md  u-width-1/2  u-width-1@mobile">
       <h4>Range</h4>
       <FormField label="Price Range" message="Drag to increase range value">
-        <ni-form-range :max="100" />
+        <ni-form-range :max="10" v-model="range_value"/>
       </FormField>
-      {{ address }}
+      {{ range_value }}
     </div>
 
     <h4>Select</h4>
@@ -701,6 +701,7 @@ export default {
       floatlabelinputbtnresult3: null,
       floatlabelinputbtnresult4: null,
       searchInputResult: null,
+      range_value: 0,
       options: [
         { value: "01", label: "01" },
         { value: "02", label: "02" },
