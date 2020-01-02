@@ -13,7 +13,7 @@
       v-on-clickaway="clickOut"
       :class="size ? `c-dialog--${size}` : ''"
     >
-      <div class="c-dialog__head" :class="headerClasses">
+      <div class="c-dialog__head" :class="headerClasses" v-if="with_header">
         <slot name="header" :close="close" v-if="$scopedSlots.header"></slot>
         <template v-else>
           <h4 class="c-dialog__title">
@@ -62,6 +62,10 @@ export default {
       default: true
     },
     with_footer: {
+      type: Boolean,
+      default: true
+    },
+    with_header: {
       type: Boolean,
       default: true
     },

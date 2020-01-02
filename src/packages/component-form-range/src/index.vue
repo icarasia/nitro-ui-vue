@@ -9,18 +9,20 @@
       :required="required"
       :min="min"
       :max="max"
+      :step="step"
       :value="value"
       @focus="$emit('focus')"
       @blur="$emit('blur')"
       @input="$emit('input', $event.target.value)"
       @click="$emit('click')"
-      />
-    <div class="c-range__bar" :style="{width: `${value / max * 100}%`}"></div>
+    />
+    <div class="c-range__bar" :style="{ width: `${width}%` }"></div>
   </div>
 </template>
 
 <script>
 export default {
+  name: "niRange",
   props: {
     id: {
       type: String,
@@ -35,22 +37,25 @@ export default {
       default: false
     },
     min: {
-      type: Number,
+      type: [String, Number],
       default: 0
     },
     max: {
-      type: Number,
+      type: [String, Number],
       default: 10
+    },
+    step: {
+      type: [String, Number],
+      default: 1
     },
     value: null
   },
-  data() {
-    return {
-      range_value:  0,
-    };
+  computed: {
+    width() {
+      return ((this.value - this.min) / (this.max - this.min)) * 100;
+    }
   }
 };
-
 </script>
 <style>
 .c-range {
@@ -60,7 +65,7 @@ export default {
 }
 
 .c-range__bar {
-  background-color: #0774FE;
+  background-color: #0774fe;
   border-radius: 2px;
   height: 4px;
   left: 0;
@@ -71,7 +76,7 @@ export default {
 .c-range__input {
   -webkit-appearance: none;
   appearance: none;
-  background: #CFD6DF;
+  background: #cfd6df;
   border-radius: 2px;
   display: block;
   height: 4px;
@@ -86,7 +91,7 @@ export default {
 .c-range__input::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  background: #0774FE;
+  background: #0774fe;
   border-radius: 100%;
   cursor: pointer;
   height: 20px;
@@ -96,12 +101,18 @@ export default {
 }
 
 .c-range__input::-moz-range-thumb {
-  background: #0774FE;
+  background: #0774fe;
   border-radius: 100%;
   cursor: pointer;
   height: 20px;
   width: 20px;
   position: relative;
   z-index: 1;
+}
+.c-range__input::-moz-focus-outer {
+  border: 0;
+}
+.c-range__input:focus {
+  outline: none;
 }
 </style>

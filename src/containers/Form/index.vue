@@ -32,7 +32,7 @@
     <div class="u-margin-top-md  u-width-1/2  u-width-1@mobile">
       <h4>Range</h4>
       <FormField label="Price Range" message="Drag to increase range value">
-        <ni-form-range :max="10" v-model="range_value"/>
+        <ni-form-range :min="0" :max="100" :step="5" v-model="range_value" />
       </FormField>
       {{ range_value }}
     </div>

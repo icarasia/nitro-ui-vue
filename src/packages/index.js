@@ -23,6 +23,7 @@ export { default as niFormInput } from "./component-form-input";
 export { default as niFormInputFloatLabel } from "./component-form-input-floatlabel";
 export { default as niFormInputButton } from "./component-form-input-button";
 export { default as niRadio } from "./component-form-radio";
+export { default as niRange } from "./component-form-range";
 export { default as niRadioGroup } from "./component-form-radio-group";
 export { default as niFormSelect } from "./component-form-select";
 export { default as niFormSelectFloatLabel } from "./component-form-select-floatlabel";
