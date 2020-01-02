@@ -98,6 +98,13 @@ export default {
         {
           title: "First second",
           to: { name: "chips" }
+        },
+        {
+          title: "First third",
+          callback: "changeLanguage",
+          callbackParams: {
+            lang: "en"
+          }
         }
       ]
     };
