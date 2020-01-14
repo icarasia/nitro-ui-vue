@@ -1,4 +1,5 @@
 <template>
+  <section>
     <drawer
       :shown.sync="show"
       class="c-sidebar"
@@ -80,6 +81,7 @@
       ></list-floating>
     </div>
     <!-- Floating Menu End Here-->
+  </section>
 </template>
 
 <script>
