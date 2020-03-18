@@ -37,8 +37,9 @@ export default {
   },
   methods: {
     onClick() {
-      if (this.pageNumber && this.pageNumber !== "...")
+      if (this.pageNumber && this.pageNumber !== "...") {
         this.$emit("click", this.pageNumber);
+      }
       if (this.disabled) return;
       if (this.to) {
         this.routerPush();
