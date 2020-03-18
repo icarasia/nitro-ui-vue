@@ -125,8 +125,9 @@ export default {
         );
         //Show first page only if page count more than 1
         if (pageCount > 1) {
-          if (this.addEllipsis) {
+          if (this.addEllipsis && visiblePagesCount < pageCount) {
             pagintationTriggers.push(this.ellipis);
+            pagintationTriggers.push(pageCount);
           } else {
             pagintationTriggers.push(pageCount);
           }
@@ -141,8 +142,9 @@ export default {
           }
         );
 
-        if (this.addEllipsis) {
-          pagintationTriggers.reverse().unshift(this.ellipis);
+        if (this.addEllipsis && visiblePagesCount < pageCount) {
+          pagintationTriggers.reverse().unshift(1);
+          pagintationTriggers[1] = this.ellipis;
         } else {
           pagintationTriggers.reverse().unshift(1);
         }
@@ -156,15 +158,17 @@ export default {
         }
       );
 
-      if (this.addEllipsis) {
-        pagintationTriggers.unshift(this.ellipis);
+      if (this.addEllipsis && visiblePagesCount < pageCount) {
+        pagintationTriggers.unshift(1);
+        pagintationTriggers[1] = this.ellipis;
       } else {
         pagintationTriggers.unshift(1);
       }
 
-      if (this.addEllipsis)
-        pagintationTriggers[pagintationTriggers.length - 1] = this.ellipis;
-      else {
+      if (this.addEllipsis && visiblePagesCount < pageCount) {
+        pagintationTriggers[pagintationTriggers.length - 2] = this.ellipis;
+        pagintationTriggers[pagintationTriggers.length - 1] = pageCount;
+      } else {
         pagintationTriggers[pagintationTriggers.length - 1] = pageCount;
       }
 
