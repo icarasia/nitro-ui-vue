@@ -31,6 +31,21 @@
       <div class="u-margin-top-xl">
         Current Page : <b>{{ this.currentPage }}</b>
       </div>
+      <div class="u-margin-top-xl">
+        <div>With Ellipses ...</div>
+        <Pagination
+          :current-page="currentPage"
+          :page-count="pageCount"
+          :inline="true"
+          @nextPage="pageChangeHandle('next')"
+          @previousPage="pageChangeHandle('previous')"
+          @firstPage="pageChangeHandle('first')"
+          @lastPage="pageChangeHandle('last')"
+          @loadPage="pageChangeHandle"
+          :visiblePagesCount="9"
+          :addEllipsis="true"
+        />
+      </div>
     </div>
   </div>
 </template>

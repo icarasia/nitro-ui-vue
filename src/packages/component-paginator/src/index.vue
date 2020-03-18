@@ -18,11 +18,11 @@
     />
     <!--Pagination Button-->
     <Pagination-button
-      v-for="paginationTrigger in paginationTriggers"
+      v-for="(paginationTrigger, key) in paginationTriggers"
+      :key="key"
       :class="{
         'is--active': paginationTrigger === currentPage
       }"
-      :key="paginationTrigger"
       :pageNumber="paginationTrigger"
       :item="true"
       @click="onLoadPage"
@@ -53,6 +53,11 @@ import PaginationButton from "./PaginationButton";
 export default {
   name: "niPaginator",
   components: { PaginationButton },
+  data() {
+    return {
+      ellipis: "..."
+    };
+  },
   props: {
     inline: {
       type: Boolean,
@@ -120,7 +125,12 @@ export default {
         );
         //Show first page only if page count more than 1
         if (pageCount > 1) {
-          pagintationTriggers.push(pageCount);
+          if (this.addEllipsis && visiblePagesCount < pageCount) {
+            pagintationTriggers.push(this.ellipis);
+            pagintationTriggers.push(pageCount);
+          } else {
+            pagintationTriggers.push(pageCount);
+          }
         }
         return pagintationTriggers;
       }
@@ -132,8 +142,12 @@ export default {
           }
         );
 
-        pagintationTriggers.reverse().unshift(1);
-
+        if (this.addEllipsis && visiblePagesCount < pageCount) {
+          pagintationTriggers.reverse().unshift(1);
+          pagintationTriggers[1] = this.ellipis;
+        } else {
+          pagintationTriggers.reverse().unshift(1);
+        }
         return pagintationTriggers;
       }
 
@@ -143,8 +157,21 @@ export default {
           return pagintationTriggersArray[0] + index;
         }
       );
-      pagintationTriggers.unshift(1);
-      pagintationTriggers[pagintationTriggers.length - 1] = pageCount;
+
+      if (this.addEllipsis && visiblePagesCount < pageCount) {
+        pagintationTriggers.unshift(1);
+        pagintationTriggers[1] = this.ellipis;
+      } else {
+        pagintationTriggers.unshift(1);
+      }
+
+      if (this.addEllipsis && visiblePagesCount < pageCount) {
+        pagintationTriggers[pagintationTriggers.length - 2] = this.ellipis;
+        pagintationTriggers[pagintationTriggers.length - 1] = pageCount;
+      } else {
+        pagintationTriggers[pagintationTriggers.length - 1] = pageCount;
+      }
+
       return pagintationTriggers;
     }
   },
