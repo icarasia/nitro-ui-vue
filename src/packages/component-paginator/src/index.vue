@@ -18,11 +18,11 @@
     />
     <!--Pagination Button-->
     <Pagination-button
-      v-for="paginationTrigger in paginationTriggers"
+      v-for="(paginationTrigger, key) in paginationTriggers"
+      :key="key"
       :class="{
         'is--active': paginationTrigger === currentPage
       }"
-      :key="paginationTrigger"
       :pageNumber="paginationTrigger"
       :item="true"
       @click="onLoadPage"
