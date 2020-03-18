@@ -8,11 +8,18 @@
     </div>
     <div class="u-margin-top-md">
       <div style="text-align: center">
-        <button v-tooltip="'Up tooltip'">Up</button>
+        <niButton
+          v-tooltip="'Up tooltip'"
+          :variant="counter < 3 ? 'negative' : 'positive'"
+          >Up</niButton
+        >
       </div>
       <div style="text-align: center">
         <br />
-        <button v-tooltip="{ text: 'Down tooltip', position: 'bottom' }">
+        <button
+          v-tooltip="{ text: 'Down tooltip', position: 'bottom' }"
+          @click="counter++"
+        >
           Down
         </button>
       </div>
@@ -35,8 +42,17 @@
 </template>
 
 <script>
+import niButton from "../../packages/component-button/src";
 export default {
-  name: "TooltipPage"
+  name: "TooltipPage",
+  components: {
+    niButton
+  },
+  data() {
+    return {
+      counter: 0
+    };
+  }
 };
 </script>
 

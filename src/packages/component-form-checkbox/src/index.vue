@@ -20,7 +20,7 @@
       :checked="parent.checked"
       @change="parent.$emit('input', !parent.checked)"
     />
-    <label :for="id">
+    <label :for="id" @click.self="$emit('ni-checkbox-clicked')">
       <slot />
     </label>
   </div>

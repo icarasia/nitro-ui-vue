@@ -10,7 +10,7 @@
       @change="parent.$emit('input', $event.target.value)"
       :checked="parent.checked === value"
     />
-    <label :for="id">
+    <label :for="id" @click.self="$emit('ni-radio-clicked')">
       <slot />
     </label>
   </div>

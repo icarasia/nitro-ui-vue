@@ -63,7 +63,7 @@ export default {
       }
     },
     routerPush() {
-      this.$router.push(this.to);
+      this.$router.push(this.to).catch(() => {});
     }
   }
 };

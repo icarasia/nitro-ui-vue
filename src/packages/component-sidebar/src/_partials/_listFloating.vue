@@ -11,7 +11,11 @@
     @mouseleave="mouseleave()"
   >
     <a-link
-      :to="!menuItem.subItems || !menuItem.subItems.length ? menuItem.to : null"
+      :to="
+        !menuItem.subItems || !menuItem.subItems.length || menuItem.to
+          ? menuItem.to
+          : null
+      "
       class="no--underline"
     >
       <span
@@ -28,6 +32,7 @@
         class="o-list__item"
         v-for="(subItem, index) in menuItem.subItems"
         :key="index"
+        @click="listItemClicked(subItem)"
       >
         <a-link
           :to="subItem.to"
@@ -84,11 +89,26 @@ export default {
     mouseleave() {
       this.$emit("update:hovered", null);
       this.show = false;
+    },
+    itemClicked(item) {
+      if (item.callback) {
+        this.$parent.$emit(item.callback, item.callbackValue);
+      }
+    },
+    listItemClicked(item) {
+      if (item.subItems && item.subItems.length) {
+        this.$parent.isOpenedSidebar &&
+          (this.clickedId =
+            this.clickedId === this.itemId ? null : this.itemId);
+      } else {
+        this.$emit("itemClicked");
+      }
+      this.itemClicked(item);
     }
   },
   watch: {
-    itemId: function() {
-      this.$emit("update:hovered", null);
+    itemId: function(newVal) {
+      if (newVal === null) this.$emit("update:hovered", null);
     }
   }
 };

@@ -14,6 +14,7 @@
               toggleable
               style="display: inline-block"
               :items="items"
+              @changeLanguage="showMeMessage($event)"
             ></Dropdown>
           </nCol>
           <nCol>
@@ -91,16 +92,16 @@ export default {
         { title: "First", is_head: true, is_divider: false },
         { is_divider: true },
         {
-          title: "First first",
+          title: "External link (href)",
           href: "http://www.google.com",
           target: "_blank"
         },
         {
-          title: "First second",
+          title: "Internal link (to)",
           to: { name: "chips" }
         },
         {
-          title: "First third",
+          title: "Callback example with params",
           callback: "changeLanguage",
           callbackParams: {
             lang: "en"
@@ -108,6 +109,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    showMeMessage(params) {
+      alert(JSON.stringify(params));
+    }
   }
 };
 </script>

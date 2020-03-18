@@ -9,7 +9,7 @@
     :target="target"
     v-on="$listeners"
     :active-class="activeClass"
-    exact
+    :exact="exactRouteClass"
   >
     <template v-if="label">{{ label }}</template>
     <slot v-else></slot>
@@ -40,6 +40,10 @@ export default {
     activeClass: {
       type: String,
       default: ""
+    },
+    exactRouteClass: {
+      type: Boolean,
+      default: true
     }
   }
 };

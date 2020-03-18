@@ -3,18 +3,22 @@
     class="o-list__item"
     @mouseover="getPosition"
     @mouseleave="resetPosition"
-    @click="
-      $parent.$parent.isOpenedSidebar &&
-        (clickedId = clickedId === itemId ? null : itemId)
-    "
+    @click="listItemClicked(menuItem)"
   >
     <a-link
-      :to="!menuItem.subItems || !menuItem.subItems.length ? menuItem.to : null"
+      :to="
+        !menuItem.subItems ||
+        !menuItem.subItems.length ||
+        (alwaysShowSubmenu && menuItem.to)
+          ? menuItem.to
+          : null
+      "
       class="u-flex  u-flex--items-center  u-flex--justify-center item-list"
       :class="{ 'is--active': isActive }"
-      active-class="is--active"
+      :active-class="activateByClick ? 'is--active' : ''"
+      :exact-route-class="false"
     >
-      <div class="u-flex  u-flex--items-center" @click="itemClicked(menuItem)">
+      <div class="u-flex  u-flex--items-center">
         <NitroIcon :name="menuItem.icon" size="20" role="button"></NitroIcon>
         <span class="c-sidebar__label  u-margin-left-sm  u-hidden">{{
           menuItem.text
@@ -24,13 +28,15 @@
     <ul
       class="c-collapse  collapse  o-list"
       v-if="menuItem.subItems && menuItem.subItems.length"
-      :class="{ show: clickedId }"
+      :class="{
+        show: clickedId !== null || (alwaysShowSubmenu && !parentMinimized)
+      }"
     >
       <li
         class="o-list__item"
         v-for="(subItem, index) in menuItem.subItems"
         :key="index"
-        @click="itemClicked(subItem)"
+        @click="listItemClicked(subItem)"
       >
         <a-link
           :to="subItem.to"
@@ -47,6 +53,7 @@
 
 <script>
 import aLink from "../../../component-link/src";
+//        show: (clickedId !== null || alwaysShowSubmenu) && !parentMinimized
 
 export default {
   components: { aLink },
@@ -74,6 +81,21 @@ export default {
       type: Number,
       required: false,
       default: null
+    },
+    alwaysShowSubmenu: {
+      type: Boolean,
+      required: false,
+      default: true
+    },
+    parentMinimized: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    activateByClick: {
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   data() {
@@ -99,13 +121,26 @@ export default {
       if (item.callback) {
         this.$parent.$parent.$emit(item.callback, item.callbackValue);
       }
+    },
+    listItemClicked(item) {
+      if (item.subItems && item.subItems.length) {
+        this.$parent.$parent.isOpenedSidebar &&
+          (this.clickedId =
+            this.clickedId === this.itemId ? null : this.itemId);
+      }
+      // else {
+      //   this.$emit("itemClicked");
+      // }
+      this.$emit("itemClicked");
+      this.itemClicked(item);
     }
   },
   computed: {
     isActive: function() {
       return (
-        (this.hoveredId !== null && this.hoveredId === this.itemId) ||
-        (this.clickedId !== null && this.clickedId === this.itemId)
+        ((this.hoveredId !== null && this.hoveredId === this.itemId) ||
+          (this.clickedId !== null && this.clickedId === this.itemId)) &&
+        this.activateByClick
       );
     }
   }

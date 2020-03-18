@@ -1,10 +1,11 @@
 <template>
-  <section>
+  <section v-on-clickaway="resetFloatingMenu">
     <drawer
       :shown.sync="show"
       class="c-sidebar"
       position="left"
       content_classes="u-bg-haze-light  u-flex  u-flex--justify-between  u-flex--column  u-shadow-1dp"
+      :close-on-outside-click="autoHide"
     >
       <div class="c-sidebar__top-menu">
         <nLink
@@ -40,6 +41,10 @@
             v-bind:left.sync="left"
             v-bind:index.sync="itemID"
             :hovered-id="hoveredID"
+            @itemClicked="itemClicked"
+            :always-show-submenu="alwaysShowSubmenu"
+            :parent-minimized="!show"
+            :activate-by-click="activateByClick"
           ></list>
         </ul>
       </div>
@@ -99,9 +104,11 @@ import List from "./_partials/_list";
 import ListFloating from "./_partials/_listFloating";
 import nLink from "../../component-link/src/index";
 import UserProfile from "./_partials/UserProfile";
+import { mixin as clickaway } from "vue-clickaway";
 
 export default {
   name: "niSidebar",
+  mixins: [clickaway],
   components: { UserProfile, nLink, Drawer, List, ListFloating },
   props: {
     menuItems: {
@@ -124,6 +131,26 @@ export default {
       default: null
     },
     minimized: {
+      type: Boolean,
+      required: false,
+      default: true
+    },
+    autoHide: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    hideOnItemClicked: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    alwaysShowSubmenu: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    activateByClick: {
       type: Boolean,
       required: false,
       default: true
@@ -155,6 +182,14 @@ export default {
     toggleSidebar() {
       if (this.show) this.minimizeSidebar();
       else this.openSidebar();
+    },
+    itemClicked() {
+      if (this.hideOnItemClicked) {
+        this.minimizeSidebar();
+      }
+    },
+    resetFloatingMenu() {
+      this.itemID = null;
     }
   },
   mounted() {
@@ -171,7 +206,7 @@ export default {
   },
   watch: {
     show: function(newVal) {
-      if (!newVal) this.$emit("sidebarClosed");
+      if (!newVal) this.minimizeSidebar(); //this.$emit("sidebarClosed");
     }
   }
 };
