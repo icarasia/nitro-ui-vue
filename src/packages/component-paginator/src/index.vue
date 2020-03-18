@@ -53,6 +53,11 @@ import PaginationButton from "./PaginationButton";
 export default {
   name: "niPaginator",
   components: { PaginationButton },
+  data() {
+    return {
+      ellipis: "..."
+    };
+  },
   props: {
     inline: {
       type: Boolean,
@@ -120,7 +125,11 @@ export default {
         );
         //Show first page only if page count more than 1
         if (pageCount > 1) {
-          pagintationTriggers.push(pageCount);
+          if (this.addEllipsis) {
+            pagintationTriggers.push(this.ellipis);
+          } else {
+            pagintationTriggers.push(pageCount);
+          }
         }
         return pagintationTriggers;
       }
@@ -132,8 +141,11 @@ export default {
           }
         );
 
-        pagintationTriggers.reverse().unshift(1);
-
+        if (this.addEllipsis) {
+          pagintationTriggers.reverse().unshift(this.ellipis);
+        } else {
+          pagintationTriggers.reverse().unshift(1);
+        }
         return pagintationTriggers;
       }
 
@@ -143,8 +155,19 @@ export default {
           return pagintationTriggersArray[0] + index;
         }
       );
-      pagintationTriggers.unshift(1);
-      pagintationTriggers[pagintationTriggers.length - 1] = pageCount;
+
+      if (this.addEllipsis) {
+        pagintationTriggers.unshift(this.ellipis);
+      } else {
+        pagintationTriggers.unshift(1);
+      }
+
+      if (this.addEllipsis)
+        pagintationTriggers[pagintationTriggers.length - 1] = this.ellipis;
+      else {
+        pagintationTriggers[pagintationTriggers.length - 1] = pageCount;
+      }
+
       return pagintationTriggers;
     }
   },

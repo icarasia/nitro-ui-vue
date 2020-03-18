@@ -33,11 +33,12 @@ export default {
     anchor: Boolean,
     disabled: Boolean,
     variant: String,
-    pageNumber: Number
+    pageNumber: [String, Number]
   },
   methods: {
     onClick() {
-      this.$emit("click", this.pageNumber);
+      if (this.pageNumber && this.pageNumber !== "...")
+        this.$emit("click", this.pageNumber);
       if (this.disabled) return;
       if (this.to) {
         this.routerPush();
