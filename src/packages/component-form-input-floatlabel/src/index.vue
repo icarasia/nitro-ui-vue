@@ -74,7 +74,8 @@ export default {
     classes() {
       return [
         { "c-field--error": this.invalid },
-        { "is--active": this.hasFocus || this.hasContent }
+        { "is--active": this.hasFocus || this.hasContent },
+        { "is--focus": this.hasFocus || this.hasContent }
       ];
     },
     fieldIsEmpty() {
@@ -110,7 +111,7 @@ export default {
   },
   watch: {
     value(newVal) {
-      this.hasContent = newVal.length > 0 || newVal !== null;
+      this.hasContent = newVal !== null && newVal !== "";
     }
   }
 };

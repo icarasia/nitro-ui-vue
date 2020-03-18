@@ -71,6 +71,7 @@ export default {
       default: ""
     },
     hint: String,
+    placeholder: Boolean,
     emptyPlaceholder: Boolean,
     fieldClasses: String,
     options: {
@@ -88,7 +89,7 @@ export default {
       type: String,
       default: "label"
     },
-    value: String,
+    value: [String, Number],
     disabled: Boolean
   },
   computed: {
@@ -142,8 +143,9 @@ export default {
   watch: {
     value(newVal) {
       this.selected = newVal;
-      this.hasContent = newVal.length > 0 || newVal !== null;
+      this.hasContent = newVal !== null;
     }
   }
 };
 </script>
+s

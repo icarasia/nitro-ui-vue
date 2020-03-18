@@ -8,7 +8,7 @@
       <h3 class="c-card__title" v-if="hasSpecialTitleSlot">
         <slot name="special_title"></slot>
       </h3>
-      <div><slot></slot></div>
+      <slot></slot>
     </div>
     <ul class="c-card__menu" v-else-if="menu">
       <template v-for="(item, index) in items">

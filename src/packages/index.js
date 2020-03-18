@@ -9,11 +9,13 @@ export { default as niCheckbox } from "./component-form-checkbox";
 export { default as niCheckboxGroup } from "./component-form-checkbox-group";
 export { default as niCol } from "./component-col";
 export { default as niContainer } from "./component-container";
+export { default as niCollapse } from "./component-collapse";
 export { default as niDrawer } from "./component-drawer";
 export {
   DropdownComponent as niDropdown,
   DropdownItemComponent as niDropdownItem
 } from "./component-dropdown";
+export { default as niEmbed } from "./object-embed";
 export { default as niFormField } from "./component-form-field";
 export { default as niFormFieldFloatLabel } from "./component-form-field-floatlabel";
 export { default as niFormFile } from "./component-form-fileupload";
@@ -21,6 +23,7 @@ export { default as niFormInput } from "./component-form-input";
 export { default as niFormInputFloatLabel } from "./component-form-input-floatlabel";
 export { default as niFormInputButton } from "./component-form-input-button";
 export { default as niRadio } from "./component-form-radio";
+export { default as niRange } from "./component-form-range";
 export { default as niRadioGroup } from "./component-form-radio-group";
 export { default as niFormSelect } from "./component-form-select";
 export { default as niFormSelectFloatLabel } from "./component-form-select-floatlabel";

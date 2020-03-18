@@ -9,7 +9,7 @@
       <span>{{ label }}</span>
       <span v-if="hint" class="c-field__hint  u-text-7">{{ hint }}</span>
     </label>
-    <div class="u-flex u-flex--justify-between">
+    <div v-if="message || info" class="u-flex u-flex--justify-between">
       <div class="c-field__message">
         <template v-if="message">{{ message }}</template>
         <template v-else-if="$slots.message"
@@ -48,7 +48,8 @@ export default {
     classes() {
       return [
         { "c-field--error": this.invalid },
-        { "is--active": this.hasFocus || this.hasContent }
+        { "is--active": this.hasFocus || this.hasContent },
+        { "is--focus": this.hasFocus }
       ];
     },
     fieldIsEmpty() {
@@ -102,3 +103,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.is--focus .c-input-btn {
+  border-color: #0774fe;
+}
+</style>

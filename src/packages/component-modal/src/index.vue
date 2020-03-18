@@ -1,7 +1,6 @@
 <template>
   <div
     class="c-modal"
-    id="example-modal-md"
     tabindex="-1"
     role="dialog"
     aria-hidden="true"
@@ -14,7 +13,7 @@
       v-on-clickaway="clickOut"
       :class="size ? `c-dialog--${size}` : ''"
     >
-      <div class="c-dialog__head" :class="headerClasses">
+      <div class="c-dialog__head" :class="headerClasses" v-if="with_header">
         <slot name="header" :close="close" v-if="$scopedSlots.header"></slot>
         <template v-else>
           <h4 class="c-dialog__title">
@@ -35,7 +34,7 @@
         </template>
       </div>
       <slot name="above-body"></slot>
-      <div class="c-dialog__body">
+      <div class="c-dialog__body" :class="bodyClasses">
         <slot></slot>
       </div>
       <div class="c-dialog__foot" :class="footerClasses" v-if="with_footer">
@@ -66,6 +65,10 @@ export default {
       type: Boolean,
       default: true
     },
+    with_header: {
+      type: Boolean,
+      default: true
+    },
     size: {
       type: String,
       default: null
@@ -75,6 +78,10 @@ export default {
       default: true
     },
     headerClasses: {
+      type: String,
+      default: ""
+    },
+    bodyClasses: {
       type: String,
       default: ""
     },

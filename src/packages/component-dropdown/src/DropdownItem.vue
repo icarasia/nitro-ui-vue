@@ -18,6 +18,7 @@
     :href="item.href"
     :to="item.to"
     :class="item.icon ? `u-flex  u-flex--item-center` : ``"
+    @click="itemClicked(item)"
   >
     <template v-if="item.icon">
       <NitroIcon :name="item.icon" size="20"></NitroIcon>
@@ -32,6 +33,7 @@
 <script>
 import "@nitro-ui/component-dropdown";
 import ALink from "../../component-link/src/index";
+import { getComponent } from "../../../helpers/utils";
 
 export default {
   name: "niDropdownItem",
@@ -39,6 +41,18 @@ export default {
   props: {
     index: {},
     item: {}
+  },
+  computed: {
+    parent() {
+      return getComponent(this, "niDropdown");
+    }
+  },
+  methods: {
+    itemClicked(item) {
+      if (item.callback) {
+        this.parent.$emit(item.callback, item.callbackParams);
+      }
+    }
   }
 };
 </script>

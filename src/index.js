@@ -1,5 +1,6 @@
 import * as niComponents from "./packages";
 import niTooltip from "./packages/directive-tooltip/src";
+import niToastr from "./packages/component-toast";
 import "@nitro-ui/bundle-utilities";
 import "@nitro-ui/component-carousel";
 import "@nitro-ui/component-tooltip";
@@ -15,6 +16,8 @@ const install = Vue => {
     Vue.use(niComponent);
   });
   Vue.directive("ni-tooltip", niTooltip);
+
+  Vue.use(niToastr);
 };
 
 if (typeof window !== "undefined" && window.Vue) {
@@ -40,6 +43,7 @@ export {
   DropdownComponent as niDropdown,
   DropdownItemComponent as niDropdownItem
 } from "./packages/component-dropdown";
+export { default as niEmbed } from "./packages/object-embed";
 export { default as niFormField } from "./packages/component-form-field";
 export { default as niFormFieldFloatLabel } from "./packages/component-form-field-floatlabel";
 export { default as niFormFile } from "./packages/component-form-fileupload";
@@ -47,6 +51,7 @@ export { default as niFormInput } from "./packages/component-form-input";
 export { default as niFormInputFloatLabel } from "./packages/component-form-input-floatlabel";
 export { default as niFormInputButton } from "./packages/component-form-input-button";
 export { default as niRadio } from "./packages/component-form-radio";
+export { default as niRange } from "./packages/component-form-range";
 export { default as niRadioGroup } from "./packages/component-form-radio-group";
 export { default as niFormSelect } from "./packages/component-form-select";
 export { default as niFormSelectFloatLabel } from "./packages/component-form-select-floatlabel";

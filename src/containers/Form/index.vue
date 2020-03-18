@@ -4,6 +4,7 @@
     <div class="text-muted">
       Some awesome description about Form.
     </div>
+
     <div class="u-margin-top-md  u-width-1/2  u-width-1@mobile">
       <h4>Text input</h4>
       <FormField
@@ -26,6 +27,14 @@
         </div>
       </FormField>
       {{ address }}
+    </div>
+
+    <div class="u-margin-top-md  u-width-1/2  u-width-1@mobile">
+      <h4>Range</h4>
+      <FormField label="Price Range" message="Drag to increase range value">
+        <ni-form-range :min="0" :max="100" :step="5" v-model="range_value" />
+      </FormField>
+      {{ range_value }}
     </div>
 
     <h4>Select</h4>
@@ -84,11 +93,12 @@
     <div class="o-grid  u-margin-top-md">
       <div class="o-grid__item  u-width-1@mobile">
         <FormField
-          label="Default Checkbox"
+          label="Default Checkbox 1"
           message="Please select your options"
         >
           <n-checkbox-group v-model="check">
             <n-checkbox
+              :parent="$refs['ttt']"
               v-for="checkboxesitem in checkboxesitems"
               :key="checkboxesitem.id"
               :id="`check-${checkboxesitem.id}`"
@@ -141,7 +151,7 @@
               v-for="radioitem in radioitems"
               :key="radioitem.id"
               :value="radioitem.value"
-              :id="radioitem.id"
+              :id="`first-${radioitem.id}`"
               :disabled="radioitem.disabled"
             >
               {{ radioitem.label }}
@@ -414,7 +424,7 @@
       <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
         <FormFieldFloat
           label="label"
-          message="Select your option11"
+          message="Select your option"
           :class="'u-margin-bottom-xxs'"
         >
           <nSelect
@@ -480,6 +490,7 @@
         <FormFieldFloat
           label="Label"
           message="Message here"
+          info="Info here"
           :class="'u-margin-bottom-xxs'"
         >
           <nInputBtn v-model="floatlabelinputbtnresult1">
@@ -530,12 +541,12 @@
           hint="Hint here"
           info="Info here"
           :class="'u-margin-bottom-xxs'"
-          placeholder="Your first name"
-          v-model="floatlabelinputbtnresult1"
+          emptyPlaceholder
+          v-model="floatlabelinputbtnresult4"
         >
         </NiTextareaFloatLabel>
         <div class="u-margin-bottom-lg">
-          {{ floatlabelinputbtnresult1 }}
+          {{ floatlabelinputbtnresult4 }}
         </div>
       </div>
 
@@ -546,7 +557,7 @@
           hint="Hint here"
           info="Info here"
           :class="'u-margin-bottom-xxs'"
-          placeholder="Your first name"
+          emptyPlaceholder
           v-model="floatlabelinputbtnresult2"
         >
         </NiInputFloatLabel>
@@ -576,24 +587,23 @@
           {{ floatlabelselectresult }}
         </div>
       </div>
-      <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
-        <NiInputFloatLabel
+      <!-- <div class="o-grid__item  u-width-1/3  u-width-1@mobile">
+        <FormFieldFloat
           label="Label"
           message="Message here"
           info="Info here"
           :class="'u-margin-bottom-xxs'"
-          placeholder="Your first name"
-          v-model="floatlabelinputbtnresult2"
-          input-button
         >
-          <nButton variant="primary" v-tooltip="'test'">
-            <NitroIcon name="action/add" size="20"></NitroIcon>
-          </nButton>
-        </NiInputFloatLabel>
+          <nInputBtn v-model="floatlabelinputbtnresult4">
+            <nButton variant="primary" v-tooltip="'test'">
+              <NitroIcon name="action/add" size="20"></NitroIcon>
+            </nButton>
+          </nInputBtn>
+        </FormFieldFloat>
         <div class="u-margin-bottom-lg">
-          {{ floatlabelinputbtnresult2 }}
+          {{ floatlabelinputbtnresult4 }}
         </div>
-      </div>
+      </div> -->
     </div>
     <h4 class="u-margin-top-xl">Search Input</h4>
     <div class="u-margin-bottom-xl  u-width-1/2  u-width-1@mobile">
@@ -635,6 +645,7 @@ import nButton from "../../packages/component-button/src/index";
 import NiTextareaFloatLabel from "../../packages/component-form-textarea-floatlabel/src/index";
 import NiInputFloatLabel from "../../packages/component-form-input-floatlabel/src/index";
 import NiSelectFloatLabel from "../../packages/component-form-select-floatlabel/src/index";
+import NiFormRange from "../../packages/component-form-range/src/index";
 
 export default {
   name: "FormPage",
@@ -653,7 +664,8 @@ export default {
     FormFieldFloat,
     NiTextareaFloatLabel,
     NiInputFloatLabel,
-    NiSelectFloatLabel
+    NiSelectFloatLabel,
+    NiFormRange
   },
   props: {
     picked: String
@@ -668,7 +680,7 @@ export default {
       check: [],
       check1: [],
       check2: [],
-      radio1: null,
+      radio1: "jack",
       radio2: null,
       radio3: null,
       switch1: [],
@@ -688,7 +700,9 @@ export default {
       floatlabelinputbtnresult1: null,
       floatlabelinputbtnresult2: null,
       floatlabelinputbtnresult3: null,
+      floatlabelinputbtnresult4: null,
       searchInputResult: null,
+      range_value: 0,
       options: [
         { value: "01", label: "01" },
         { value: "02", label: "02" },

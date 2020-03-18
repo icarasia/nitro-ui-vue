@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Toolbar>
+    <Toolbar @sidebarOpened="$refs.sidebar.toggleSidebar()">
       <template slot="left_side">
         <a href="#" class="u-margin-right-auto@mobile">
           <img
@@ -130,6 +130,10 @@
       :user-info="userInfo"
       minimized
       @logout="logout()"
+      ref="sidebar"
+      :auto-hide="true"
+      :hide-on-item-clicked="true"
+      always-show-submenu
     >
       <template v-slot:footer>
         <img
@@ -167,6 +171,13 @@ export default {
         {
           title: "First second",
           to: { name: "chips" }
+        },
+        {
+          title: "First third",
+          callback: "changeLanguage",
+          callbackParams: {
+            lang: "en"
+          }
         }
       ],
       items2: [
@@ -190,9 +201,12 @@ export default {
         {
           text: "Moderation",
           icon: "dealerships/moderation",
-          to: null,
+          to: "/aasdkjlsadksad",
           subItems: [
-            { text: "Pre Moderation", to: "/" },
+            {
+              text: "Pre Moderation test callback",
+              callback: "logout"
+            },
             { text: "Post Moderation", to: "/" },
             { text: "Pre Video Moderation", to: "/" },
             { text: "Vehicle Approval", to: "/" }
@@ -319,7 +333,7 @@ export default {
   },
   methods: {
     logout() {
-      // console.log("123");
+      console.log("123");
     }
   },
   mounted() {
@@ -327,8 +341,8 @@ export default {
       // console.log("123");
     });
 
-    this.$on("changeLanguage", function(language) {
-      // console.log(language);
+    this.$on("changeLanguage", function() {
+      console.log("test");
     });
   }
 };
