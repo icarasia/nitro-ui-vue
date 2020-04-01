@@ -4,7 +4,7 @@
     <Pagination-button
       :first="true"
       :useButton="true"
-      btnLabel="First"
+      :btnLabel="firstLabel ? firstLabel : 'First'"
       :disabled="isFirstButtonDisabled"
       @click.native="firstPage"
     />
@@ -12,7 +12,7 @@
     <Pagination-button
       :prev="true"
       :useButton="true"
-      btnLabel="Prev"
+      :btnLabel="prevLabel ? prevLabel : 'Prev'"
       :disabled="isPreviousButtonDisabled"
       @click.native="previousPage"
     />
@@ -31,7 +31,7 @@
     <Pagination-button
       :next="true"
       :useButton="true"
-      btnLabel="Next"
+      :btnLabel="nextLabel ? nextLabel : 'Next'"
       :disabled="isNextButtonDisabled"
       @click.native="nextPage"
     />
@@ -39,7 +39,7 @@
     <Pagination-button
       :last="true"
       :useButton="true"
-      btnLabel="Last"
+      :btnLabel="lastLabel ? lastLabel : 'Last'"
       :disabled="isLastButtonDisabled"
       @click.native="lastPage"
     />
@@ -81,6 +81,22 @@ export default {
     addEllipsisAfter: {
       type: Boolean,
       default: false
+    },
+    firstLabel: {
+      type: String,
+      default: null
+    },
+    prevLabel: {
+      type: String,
+      default: null
+    },
+    nextLabel: {
+      type: String,
+      default: null
+    },
+    lastLabel: {
+      type: String,
+      default: null
     }
   },
   computed: {

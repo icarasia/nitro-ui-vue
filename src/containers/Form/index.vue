@@ -7,12 +7,7 @@
 
     <div class="u-margin-top-md  u-width-1/2  u-width-1@mobile">
       <h4>Text input</h4>
-      <FormField
-        label="First Name"
-        invalid
-        message="Help message"
-        info="Optional"
-      >
+      <FormField invalid message="Help message" info="Optional">
         <nInput placeholder="Your first name" v-model="first_name" />
       </FormField>
       {{ first_name }}

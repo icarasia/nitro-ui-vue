@@ -31,6 +31,40 @@
       <div class="u-margin-top-xl">
         Current Page : <b>{{ this.currentPage }}</b>
       </div>
+      <div class="u-margin-top-xl">
+        <div>With Ellipses ...</div>
+        <Pagination
+          :current-page="currentPage"
+          :page-count="pageCount"
+          :inline="true"
+          @nextPage="pageChangeHandle('next')"
+          @previousPage="pageChangeHandle('previous')"
+          @firstPage="pageChangeHandle('first')"
+          @lastPage="pageChangeHandle('last')"
+          @loadPage="pageChangeHandle"
+          :visiblePagesCount="7"
+          :addEllipsis="true"
+        />
+      </div>
+      <div class="u-margin-top-xl">
+        <div>With Foreign labels</div>
+        <Pagination
+          :current-page="currentPage"
+          :page-count="pageCount"
+          :inline="true"
+          @nextPage="pageChangeHandle('next')"
+          @previousPage="pageChangeHandle('previous')"
+          @firstPage="pageChangeHandle('first')"
+          @lastPage="pageChangeHandle('last')"
+          @loadPage="pageChangeHandle"
+          :visiblePagesCount="7"
+          :addEllipsis="true"
+          :firstLabel="'Pertama'"
+          :prevLabel="'Sebelumnya'"
+          :nextLabel="'Selanjutnya'"
+          :lastLabel="'Terakhir'"
+        />
+      </div>
     </div>
   </div>
 </template>
