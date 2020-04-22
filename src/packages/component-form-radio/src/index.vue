@@ -18,7 +18,9 @@
     v-else
     :disabled="disabled"
     @click.native="
-      parent.checked !== value ? parent.$emit('input', $event.target.value) : ''
+      parent.checked !== value
+        ? parent.$emit('input', $event.target.value)
+        : parent.$emit('input', null)
     "
     :id="id"
     :value="value"

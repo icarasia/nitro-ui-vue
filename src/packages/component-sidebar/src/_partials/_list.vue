@@ -138,9 +138,10 @@ export default {
   computed: {
     isActive: function() {
       return (
-        ((this.hoveredId !== null && this.hoveredId === this.itemId) ||
-          (this.clickedId !== null && this.clickedId === this.itemId)) &&
-        this.activateByClick
+        (this.hoveredId !== null && this.hoveredId === this.itemId) ||
+        (this.clickedId !== null &&
+          this.clickedId === this.itemId &&
+          this.activateByClick)
       );
     }
   }

@@ -5,6 +5,7 @@
       :class="
         hint ? 'u-flex  u-flex--items-center  u-flex--justify-between' : ''
       "
+      v-if="label"
     >
       <span>{{ label }}</span>
       <span v-if="hint" class="c-field__hint  u-text-7">{{ hint }}</span>

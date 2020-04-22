@@ -1,6 +1,6 @@
 <template>
   <div class="c-field" :class="{ 'c-field--error': invalid }">
-    <label :class="labelClass">{{ label }}</label>
+    <label :class="labelClass"  v-if="label">{{ label }}</label>
     <slot></slot>
     <div class="u-flex u-flex--justify-between">
       <div class="c-field__message">
