@@ -1,6 +1,6 @@
 <template>
   <input
-    @type="type"
+    :type="type"
     class="c-input"
     :placeholder="placeholder"
     :value="value"

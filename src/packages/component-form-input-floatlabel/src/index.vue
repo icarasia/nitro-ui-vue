@@ -3,7 +3,7 @@
     <with-root :showIf="inputButton" :class="{ 'is--disabled': disabled }">
       <div class="c-input-btn" :class="classes">
         <input
-          @type="type"
+          :type="type"
           class="c-input"
           :value="value"
           @focus="focus"
