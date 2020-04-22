@@ -1,6 +1,6 @@
 <template>
   <input
-    type="text"
+    @type="type"
     class="c-input"
     :placeholder="placeholder"
     :value="value"
@@ -21,7 +21,11 @@ export default {
     placeholder: String,
     defaultValue: String,
     value: null,
-    disabled: Boolean
+    disabled: Boolean,
+    type: {
+      type: String,
+      default: "text"
+    }
   }
 };
 </script>
