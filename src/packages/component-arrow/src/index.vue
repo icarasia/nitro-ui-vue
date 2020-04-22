@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import "@nitro-ui/component-arrow";
+import "@nitro-ui/component-arrow/dist/css/arrow.min.css";
 
 export default {
   name: "niArrow",
