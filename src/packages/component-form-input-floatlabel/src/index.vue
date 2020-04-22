@@ -3,7 +3,7 @@
     <with-root :showIf="inputButton" :class="{ 'is--disabled': disabled }">
       <div class="c-input-btn" :class="classes">
         <input
-          type="text"
+          @type="type"
           class="c-input"
           :value="value"
           @focus="focus"
@@ -68,6 +68,10 @@ export default {
     inputButton: {
       type: Boolean,
       default: false
+    },
+    type: {
+      type: String,
+      default: "text"
     }
   },
   computed: {
