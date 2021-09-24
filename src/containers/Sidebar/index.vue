@@ -332,18 +332,12 @@ export default {
     };
   },
   methods: {
-    logout() {
-      console.log("123");
-    }
+    logout() {}
   },
   mounted() {
-    this.$on("logout", function() {
-      // console.log("123");
-    });
+    this.$on("logout", function() {});
 
-    this.$on("changeLanguage", function() {
-      console.log("test");
-    });
+    this.$on("changeLanguage", function() {});
   }
 };
 </script>

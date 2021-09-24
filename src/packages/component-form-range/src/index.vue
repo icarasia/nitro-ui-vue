@@ -5,7 +5,6 @@
       type="range"
       :id="id"
       :disabled="disabled"
-      :name="name"
       :required="required"
       :min="min"
       :max="max"

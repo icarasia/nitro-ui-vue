@@ -7,7 +7,7 @@
       :required="required"
       :disabled="disabled"
       :id="id"
-      @change="parent.$emit('input', $event.target.value)"
+      @change="parent.$emit('input', $event.currentTarget.value)"
       :checked="parent.checked === value"
     />
     <label :for="id" @click.self="$emit('ni-radio-clicked')">
@@ -19,8 +19,10 @@
     :disabled="disabled"
     @click.native="
       parent.checked !== value
-        ? parent.$emit('input', $event.target.value)
-        : parent.$emit('input', null)
+        ? parent.$emit('input', $event.currentTarget.value)
+        : resetable
+        ? parent.$emit('input', null)
+        : ''
     "
     :id="id"
     :value="value"
@@ -57,6 +59,10 @@ export default {
       default: false
     },
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    resetable: {
       type: Boolean,
       default: false
     },

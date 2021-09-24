@@ -3,7 +3,7 @@
     :is="anchor ? 'a' : 'button'"
     class="c-btn"
     :class="classes"
-    @click="onClick()"
+    @click="onClick($event)"
   >
     <slot></slot>
   </component>
@@ -32,7 +32,15 @@ export default {
     anchor: Boolean,
     target: Boolean
   },
+  data() {
+    return {
+      internal_disabled: false
+    };
+  },
   computed: {
+    is_disabled() {
+      return this.disabled || this.internal_disabled;
+    },
     classes() {
       return [
         this.outline &&
@@ -43,7 +51,7 @@ export default {
           : "",
         this.size ? `c-btn--${this.size}` : "",
         { "is--loading": this.loading },
-        { "is--disabled": this.disabled },
+        { "is--disabled": this.is_disabled },
         { "c-btn--full": this.full },
         { "c-btn--pill": this.pill }
       ];
@@ -52,7 +60,7 @@ export default {
   methods: {
     onClick(event) {
       this.$emit("click", event);
-      if (this.disabled) return;
+      if (this.is_disabled) return;
       if (this.to) {
         this.routerPush();
       }
@@ -63,7 +71,10 @@ export default {
       }
     },
     routerPush() {
-      this.$router.push(this.to).catch(() => {});
+      this.internal_disabled = true;
+      this.$router.push(this.to).catch(() => {
+        this.internal_disabled = false;
+      });
     }
   }
 };

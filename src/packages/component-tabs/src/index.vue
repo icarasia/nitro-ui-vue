@@ -55,6 +55,10 @@ export default {
     variant: {
       type: String,
       default: "primary"
+    },
+    keepAlive: {
+      type: Boolean,
+      default: false
     }
   },
   watch: {

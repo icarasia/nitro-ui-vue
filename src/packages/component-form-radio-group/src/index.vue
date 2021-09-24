@@ -24,6 +24,7 @@
           :id="item.id"
           :icon="item.icon"
           :disabled="item.disabled"
+          :resetable="resetable"
         >
           {{ item.label }}
         </nRadio>
@@ -57,6 +58,10 @@ export default {
     buttons: {
       type: Boolean,
       default: false
+    },
+    resetable: {
+      type: Boolean,
+      default: true
     },
     full: {
       type: Boolean,

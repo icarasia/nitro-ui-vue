@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div id="notificationsArea">
     <div
       class="c-toast-stage"
+      :id="`${position}NotificationsArea`"
       v-for="position in positions"
       v-bind:key="position"
       :data-position="position"
