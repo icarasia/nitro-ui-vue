@@ -18,8 +18,21 @@
       :active-class="activateByClick ? 'is--active' : ''"
       :exact-route-class="false"
     >
-      <div class="u-flex  u-flex--items-center">
-        <NitroIcon :name="menuItem.icon" size="20" role="button"></NitroIcon>
+      <div
+        class="u-flex  u-flex--items-center"
+        :class="{
+          'u-flex--column u-text-center': !(
+            alwaysShowSubmenu && !parentMinimized
+          )
+        }"
+      >
+        <NitroIcon :name="menuItem.icon" size="28" role="button"></NitroIcon>
+        <div
+          v-if="!(alwaysShowSubmenu && !parentMinimized)"
+          class="u-text-7 u-margin-top-xxs"
+        >
+          {{ menuItem.text }}
+        </div>
         <span class="c-sidebar__label  u-margin-left-sm  u-hidden">{{
           menuItem.text
         }}</span>

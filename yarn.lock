@@ -1227,10 +1227,10 @@
     "@nitro-ui/core" "^1.0.7"
     "@nitro-ui/svg-icons" "^1.0.0-alpha.0"
 
-"@nitro-ui/module-dashboard-sidebar@^1.0.0-alpha.23", "@nitro-ui/module-dashboard-sidebar@^1.0.22":
-  version "1.0.22"
-  resolved "https://registry.yarnpkg.com/@nitro-ui/module-dashboard-sidebar/-/module-dashboard-sidebar-1.0.22.tgz#10c7756f99fff55049516e68b47d6c97f8934678"
-  integrity sha512-jhmPamkO6MsTad6CQQROO+U5GryMVFzd9EoU0o058oorrtfVPCXzgmYz9PCjzU9zl8OyJ7uvSfGf6JWYWIn0Og==
+"@nitro-ui/module-dashboard-sidebar@^1.0.22", "@nitro-ui/module-dashboard-sidebar@^1.0.23":
+  version "1.0.23"
+  resolved "https://registry.yarnpkg.com/@nitro-ui/module-dashboard-sidebar/-/module-dashboard-sidebar-1.0.23.tgz#2797daf563086944bffb784904a40eef8253e827"
+  integrity sha512-WwK0qxH1O/ElFrWEuxmlLi4YvhDaogA5Qc4KSVc78Q//IScANFvh8thdX8guVMbYn8b4sQnBG3lpZekbiKFI1w==
   dependencies:
     "@nitro-ui/component-avatar" "^1.0.11"
     "@nitro-ui/component-collapse" "^1.0.15"

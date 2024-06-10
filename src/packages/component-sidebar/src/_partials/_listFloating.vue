@@ -10,24 +10,7 @@
     @mouseover="mouseover(index)"
     @mouseleave="mouseleave()"
   >
-    <a-link
-      :to="
-        !menuItem.subItems || !menuItem.subItems.length || menuItem.to
-          ? menuItem.to
-          : null
-      "
-      class="no--underline"
-    >
-      <span
-        class="c-sidebar__label  u-color-white  u-padding-ends-sm  u-padding-sides-lg  u-hidden"
-      >
-        <span class="u-margin-left-sm">{{ menuItem.text }}</span>
-      </span>
-    </a-link>
-    <ul
-      class="o-list  u-padding-top-sm  u-padding-bottom-xxs"
-      v-if="menuItem.subItems && menuItem.subItems.length"
-    >
+    <ul class="o-list" v-if="menuItem.subItems && menuItem.subItems.length">
       <li
         class="o-list__item"
         v-for="(subItem, index) in menuItem.subItems"
@@ -36,9 +19,9 @@
       >
         <a-link
           :to="subItem.to"
-          class="u-color-white  u-opacity-4  u-relative  u-block  u-padding-ends-xxs  u-padding-sides-lg"
+          class="u-color-base  u-relative  u-block  u-padding-md"
         >
-          <span class="u-margin-left-sm">{{ subItem.text }}</span>
+          <span>{{ subItem.text }}</span>
         </a-link>
       </li>
     </ul>
