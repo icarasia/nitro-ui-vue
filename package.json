@@ -57,7 +57,7 @@
         "@nitro-ui/component-table": "^1.0.0-alpha.3",
         "@nitro-ui/component-toast": "^1.0.5",
         "@nitro-ui/component-tooltip": "^1.0.0-alpha.1",
-        "@nitro-ui/module-dashboard-sidebar": "^1.0.0-alpha.23",
+        "@nitro-ui/module-dashboard-sidebar": "^1.0.23",
         "@nitro-ui/module-dashboard-toolbar": "^1.0.0-alpha.15",
         "@nitro-ui/object-container": "^1.0.0-alpha.5",
         "@nitro-ui/object-embed": "^1.0.0-alpha.3",
