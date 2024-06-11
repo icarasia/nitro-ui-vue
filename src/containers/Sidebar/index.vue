@@ -192,7 +192,7 @@ export default {
         role: "moderator"
       },
       menuItems: [
-        { text: "Dashboard", icon: "dealerships/home", to: "/" },
+        { text: "Dashboard", icon: "dealerships/home", to: "#" },
         {
           text: "Listing",
           icon: "dealerships/listing",
@@ -215,7 +215,7 @@ export default {
         {
           text: "Bulk Upload",
           icon: "dealerships/bulk-upload",
-          to: null,
+          to: "#",
           subItems: [
             { text: "Pre Moderation", to: "/" },
             { text: "Post Moderation", to: "/" },
@@ -224,9 +224,10 @@ export default {
           ]
         },
         {
-          text: "Bulk Removal",
-          icon: "dealerships/bulk-removal",
-          to: null,
+          text: "Carsome",
+          imgSrc: "/images/logos/default/logo-carsome.svg",
+          href: "http://www.carlist.my",
+          hrefTarget: "_blank",
           subItems: [
             { text: "Pre Moderation", to: "/" },
             { text: "Post Moderation", to: "/" },
@@ -237,7 +238,7 @@ export default {
         {
           text: "User Management",
           icon: "dealerships/user-management",
-          to: null,
+          to: "#",
           subItems: [
             { text: "Pre Moderation", to: "/" },
             { text: "Post Moderation", to: "/" },
@@ -253,31 +254,31 @@ export default {
           subItems: [
             {
               text: "English",
-              to: null,
+              to: "#",
               callback: "changeLanguage",
               callbackValue: "en"
             },
             {
               text: "ภาษาไทย",
-              to: null,
+              to: "#",
               callback: "changeLanguage",
               callbackValue: "th"
             },
             {
               text: "中文",
-              to: null,
+              to: "#",
               callback: "changeLanguage",
               callbackValue: "th"
             },
             {
               text: "Bahasa Indonesia",
-              to: null,
+              to: "#",
               callbackValue: "id",
               callback: "changeLanguage"
             },
             {
               text: "Bahasa Malaysia",
-              to: null,
+              to: "#",
               callbackValue: "my",
               callback: "changeLanguage"
             }
@@ -292,25 +293,25 @@ export default {
             {
               text:
                 '<img src="/images/logos/default/logo_dealership_default.svg" class="u-flex" height="18"/>',
-              to: null,
+              to: "#",
               useHtml: true
             },
             {
               text:
                 '<img src="/images/logos/default/logo_bid_default.svg" class="u-flex" height="18"/>',
-              to: null,
+              to: "#",
               useHtml: true
             },
             {
               text:
                 '<img src="/images/logos/default/logo_leads_default.svg" class="u-flex" height="18"/>',
-              to: null,
+              to: "#",
               useHtml: true
             },
             {
               text:
                 '<img src="/images/logos/default/logo_data_default.svg" class="u-flex" height="18"/>',
-              to: null,
+              to: "#",
               useHtml: true
             }
           ]
@@ -324,7 +325,7 @@ export default {
         {
           text: "Log out",
           icon: "icarsuite/off",
-          to: null,
+          to: "#",
           bottom: true,
           callback: "logout"
         }
