@@ -5,7 +5,8 @@
     @mouseleave="resetPosition"
     @click="listItemClicked(menuItem)"
   >
-    <a-link
+    <router-link
+      v-if="menuItem.to || menuItem.to === null"
       :to="
         !menuItem.subItems ||
         !menuItem.subItems.length ||
@@ -14,9 +15,50 @@
           : null
       "
       class="u-flex  u-flex--items-center  u-flex--justify-center item-list"
-      :class="{ 'is--active': isActive }"
+      :class="{
+        'is--active': this.$router.history.current.name.fullPath == menuItem.to
+      }"
       :active-class="activateByClick ? 'is--active' : ''"
       :exact-route-class="false"
+    >
+      {{ this.$router.history.current.name.fullPath }}
+      <div
+        class="u-flex  u-flex--items-center"
+        :class="{
+          'u-flex--column u-text-center': !(
+            alwaysShowSubmenu && !parentMinimized
+          )
+        }"
+      >
+        <NitroIcon
+          v-if="menuItem.icon"
+          :name="menuItem.icon"
+          size="28"
+          role="button"
+        ></NitroIcon>
+        <img
+          v-if="menuItem.imgSrc"
+          :src="menuItem.imgSrc"
+          width="28"
+          height="28"
+          class="u-relative u-block"
+        />
+        <div
+          v-if="!(alwaysShowSubmenu && !parentMinimized)"
+          class="u-text-7 u-margin-top-xxs"
+        >
+          {{ menuItem.text }}
+        </div>
+        <span class="c-sidebar__label  u-margin-left-sm  u-hidden">{{
+          menuItem.text
+        }}</span>
+      </div>
+    </router-link>
+    <a-link
+      v-if="menuItem.href"
+      :href="menuItem.href"
+      :target="menuItem.hrefTarget"
+      class="u-flex  u-flex--items-center  u-flex--justify-center item-list"
     >
       <div
         class="u-flex  u-flex--items-center"
@@ -26,7 +68,18 @@
           )
         }"
       >
-        <NitroIcon :name="menuItem.icon" size="28" role="button"></NitroIcon>
+        <NitroIcon
+          v-if="menuItem.icon"
+          :name="menuItem.icon"
+          size="28"
+          role="button"
+        ></NitroIcon>
+        <img
+          v-if="menuItem.imgSrc"
+          :src="menuItem.imgSrc"
+          width="28"
+          height="28"
+        />
         <div
           v-if="!(alwaysShowSubmenu && !parentMinimized)"
           class="u-text-7 u-margin-top-xxs"
@@ -160,3 +213,9 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+.icon-svg--28 {
+  width: 28px;
+  height: 28px;
+}
+</style>
