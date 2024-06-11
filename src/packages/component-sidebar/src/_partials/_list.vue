@@ -15,13 +15,10 @@
           : null
       "
       class="u-flex  u-flex--items-center  u-flex--justify-center item-list"
-      :class="{
-        'is--active': this.$router.history.current.name.fullPath == menuItem.to
-      }"
+      :class="{ 'is--active': menuItem.isActive }"
       :active-class="activateByClick ? 'is--active' : ''"
       :exact-route-class="false"
     >
-      {{ this.$router.history.current.name.fullPath }}
       <div
         class="u-flex  u-flex--items-center"
         :class="{
@@ -200,22 +197,27 @@ export default {
       this.$emit("itemClicked");
       this.itemClicked(item);
     }
-  },
-  computed: {
-    isActive: function() {
-      return (
-        (this.hoveredId !== null && this.hoveredId === this.itemId) ||
-        (this.clickedId !== null &&
-          this.clickedId === this.itemId &&
-          this.activateByClick)
-      );
-    }
   }
+  // computed: {
+  //   isActive: function() {
+  //     return (
+  //       (this.hoveredId !== null && this.hoveredId === this.itemId) ||
+  //       (this.clickedId !== null &&
+  //         this.clickedId === this.itemId &&
+  //         this.activateByClick)
+  //     );
+  //   }
+  // }
 };
 </script>
 <style lang="scss">
 .icon-svg--28 {
-  width: 28px;
-  height: 28px;
+  width: 28px !important;
+  height: 28px !important;
+}
+
+.router-link-exact-active {
+  background-color: #E2F0FF !important;
+  color: #0162DD !important;
 }
 </style>
