@@ -196,18 +196,24 @@ export default {
         {
           text: "Listing",
           icon: "dealerships/listing",
-          to: "/sidebar"
+          to: "/sidebar",
+          isActive: this.$router.history.current.fullPath == "/asas"
         },
         {
           text: "Moderation",
           icon: "dealerships/moderation",
-          to: "/aasdkjlsadksad",
+          to: "/",
+          isActive: this.$router.history.current.fullPath == "/",
           subItems: [
             {
               text: "Pre Moderation test callback",
               callback: "logout"
             },
-            { text: "Post Moderation", to: "/" },
+            {
+              text: "Post Moderation",
+              to: "/sidebar",
+              isActive: this.$router.history.current.fullPath == "/sidebar"
+            },
             { text: "Pre Video Moderation", to: "/" },
             { text: "Vehicle Approval", to: "/" }
           ]
