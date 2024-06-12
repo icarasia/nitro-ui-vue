@@ -98,9 +98,12 @@ export default {
 };
 </script>
 
-<style scoped>
-.c-sidebar__floating-menu.show {
-  visibility: visible;
+<style scoped lang="scss">
+.c-sidebar__floating-menu {
+  min-width: 200px;
+  &.show {
+    visibility: visible;
+  }
 }
 </style>
 
