@@ -196,13 +196,13 @@ export default {
         {
           text: "Listing",
           icon: "dealerships/listing",
-          to: "/sidebar",
+          to: "#",
           isActive: this.$router.history.current.fullPath == "/asas"
         },
         {
           text: "Moderation",
           icon: "dealerships/moderation",
-          to: "/",
+          to: "/sidebar",
           isActive: this.$router.history.current.fullPath == "/",
           subItems: [
             {
@@ -255,7 +255,7 @@ export default {
         {
           text: "Language",
           icon: "icarsuite/language",
-          to: "/",
+          to: "#",
           bottom: true,
           subItems: [
             {
@@ -293,7 +293,7 @@ export default {
         {
           text: "Switch to...",
           icon: "icarsuite/apps-2",
-          to: "/",
+          to: "#",
           bottom: true,
           subItems: [
             {
@@ -325,7 +325,7 @@ export default {
         {
           text: "Settings",
           icon: "action/settings",
-          to: "/",
+          to: "#",
           bottom: true
         },
         {
