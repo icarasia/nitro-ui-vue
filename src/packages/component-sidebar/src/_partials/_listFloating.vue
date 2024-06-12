@@ -20,6 +20,7 @@
         <a-link
           :to="subItem.to"
           class="u-color-base  u-relative  u-block  u-padding-md"
+          :class="{ 'is--active': subItem.isActive }"
         >
           <span>{{ subItem.text }}</span>
         </a-link>
