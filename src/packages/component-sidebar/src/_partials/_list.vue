@@ -105,7 +105,7 @@
           :to="subItem.to"
           :label="!subItem.useHtml ? subItem.text : ''"
           class="u-opacity-4  u-relative  u-transition-default"
-          :class="{ [linkClass]: linkClass }"
+          :class="{ [linkClass]: linkClass, 'is--active': subItem.isActive }"
         >
           <span v-if="subItem.useHtml" v-html="subItem.text"></span>
         </a-link>
@@ -216,8 +216,9 @@ export default {
   height: 28px !important;
 }
 
-.router-link-exact-active {
-  background-color: #E2F0FF !important;
-  color: #0162DD !important;
+.c-sidebar.show .router-link-exact-active,
+.c-sidebar__floating-menu .router-link-exact-active {
+  background-color: #e2f0ff;
+  color: #0162dd;
 }
 </style>
