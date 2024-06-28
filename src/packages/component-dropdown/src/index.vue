@@ -2,12 +2,13 @@
   <div
     class="c-dropdown"
     :class="classes"
-    @click="isOpen = !isOpen"
+    @click="closeOnClickAnywhere && (isOpen = !isOpen)"
     v-on-clickaway="close"
   >
     <a
       :class="`c-dropdown__control ${titleClasses}`"
       :data-toggle="toggleable ? 'dropdown' : ''"
+      @click="!closeOnClickAnywhere && (isOpen = !isOpen)"
     >
       <slot name="title" v-if="$slots.title"></slot>
       <template v-else>
@@ -57,6 +58,14 @@ export default {
       type: Boolean,
       default: false
     },
+    closeOnClickOutside: {
+      type: Boolean,
+      default: true
+    },
+    closeOnClickAnywhere: {
+      type: Boolean,
+      default: true
+    },
     items: {
       type: Array,
       default: () => {
@@ -88,7 +97,7 @@ export default {
   },
   methods: {
     close: function() {
-      this.isOpen = false;
+      if (this.closeOnClickOutside) this.isOpen = false;
     }
   }
 };
