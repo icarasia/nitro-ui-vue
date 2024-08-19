@@ -13,7 +13,7 @@
       <div class="c-toast__title">
         {{ data.title }}
       </div>
-      {{ data.msg }}
+      <div v-html="data.msg"></div>
     </div>
     <a class="c-toast__close">
       <NitroIcon name="action/close" size="16"></NitroIcon>
